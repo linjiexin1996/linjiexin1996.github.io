@@ -80,25 +80,30 @@
   <entry>
     <title>Hexo + Next + GitHub Pages 集成第三方服务</title>
     <url>/2020/05/28/blog-services/</url>
-    <content><![CDATA[<h2 id="统计与分析"><a href="#统计与分析" class="headerlink" title="统计与分析"></a>统计与分析</h2><h3 id="不蒜子"><a href="#不蒜子" class="headerlink" title="不蒜子"></a>不蒜子</h3><p>打开主题配置文件<code>next/_config.yml</code>，通过将<code>busuanzicount.enable</code>的值设置为<code>true</code>启用不蒜子计数，将<code>busuanzi_count.post_views</code>设置为<code>false</code>关闭文章计数（将会使用LeanCloud）。</p>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>文中第三方服务集成时的Hexo和Next版本说明如下：</p>
+<p>框架：Hexo<br>版本：4.2.0<br>GitHub：<a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">https://github.com/hexojs/hexo</a></p>
+<p>主题：Next<br>版本：8.0.0-rc.2<br>GitHub：<a href="https://github.com/next-theme/hexo-theme-next" target="_blank" rel="noopener">https://github.com/next-theme/hexo-theme-next</a></p>
+<p>整个过程中若有更新主题版本，文中也会说明更新的版本号，并体现在目录中“主题更新”。</p>
+<h2 id="统计与分析"><a href="#统计与分析" class="headerlink" title="统计与分析"></a>统计与分析</h2><h3 id="不蒜子"><a href="#不蒜子" class="headerlink" title="不蒜子"></a>不蒜子</h3><p>打开主题配置文件<code>next/_config.yml</code>，通过将<code>busuanzicount.enable</code>的值设置为<code>true</code>启用不蒜子计数，将<code>busuanzi_count.post_views</code>设置为<code>false</code>关闭文章计数（将会使用LeanCloud）。</p>
 <figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors_icon:</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">total_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br><span class="line">  <span class="attr">post_views:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">post_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br></pre></td></tr></table></figure>
 
 <p>根据上面的配置，网站底部将会显示站点UV和PV，文章中将会显示页面PV。</p>
 <img src="/2020/05/28/blog-services/busuanzi-total.jpg" class="" title="站点UV和PV">
 <!-- <img src="/2020/05/28/blog-services/busuanzi-post.jpg" class="" title="文章PV"> -->
 
-<h3 id="LeanCloud"><a href="#LeanCloud" class="headerlink" title="LeanCloud"></a>LeanCloud</h3><h3 id="注册LeanCloud账号"><a href="#注册LeanCloud账号" class="headerlink" title="注册LeanCloud账号"></a>注册LeanCloud账号</h3><p>注册<a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">Lean Cloud</a>账号：</p>
+<h3 id="LeanCloud"><a href="#LeanCloud" class="headerlink" title="LeanCloud"></a>LeanCloud</h3><h4 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h4><p>注册<a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">Lean Cloud</a>账号：</p>
 <img src="/2020/05/28/blog-services/lean-cloud-signup.jpg" class="" title="注册LeanCloud账号">
 
 <h4 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h4><p>登录后进入<a href="https://leancloud.cn/dashboard/applist.html#/apps" target="_blank" rel="noopener">控制台</a>：</p>
 <img src="/2020/05/28/blog-services/lean-cloud-applist.jpg" class="" title="控制台">
 
-<p>注意，目前华东节点和华北节点创建应用需要先在账号设置完成实名认证，并且官方表明“<a href="https://leancloudblog.com/domain-incident/" target="_blank" rel="noopener">在国内市场将只服务于可验证的商业客户</a>”；美国节点暂无上述要求，并且账号系统与华东节点和华北节点是独立的，如需使用请前往 LeanCloud 国际版官网 leancloud.app 注册登录。</p>
-<p>创建应用：</p>
+<!-- 注意，目前华东节点和华北节点创建应用需要先在账号设置完成实名认证，并且官方表明“[在国内市场将只服务于可验证的商业客户](https://leancloudblog.com/domain-incident/)”；美国节点暂无上述要求，并且账号系统与华东节点和华北节点是独立的，如需使用请前往 LeanCloud 国际版官网 [leancloud.app](https://leancloud.app/) 注册登录。 -->
+
+<p>创建应用（需要先<strong>实名认证</strong>和<strong>验证手机号码</strong>）：</p>
 <img src="/2020/05/28/blog-services/lean-cloud-create-app.jpg" class="" title="创建应用">
 <img src="/2020/05/28/blog-services/lean-cloud-blog.jpg" class="" title="博客应用">
 
-<h3 id="创建Counter类"><a href="#创建Counter类" class="headerlink" title="创建Counter类"></a>创建Counter类</h3><p>点击<code>存储</code>：</p>
+<h4 id="创建Counter类"><a href="#创建Counter类" class="headerlink" title="创建Counter类"></a>创建Counter类</h4><p>点击<code>存储</code>：</p>
 <img src="/2020/05/28/blog-services/lean-cloud-storage-mark.jpg" class="" title="点击“存储”">
 
 <p>点击<code>创建Class</code>：</p>
@@ -107,7 +112,7 @@
 <p>创建Class，输入名称“Counter”，点击<code>添加</code>：</p>
 <img src="/2020/05/28/blog-services/lean-cloud-create-class.jpg" class="" title="创建Class">
 
-<h3 id="开启插件"><a href="#开启插件" class="headerlink" title="开启插件"></a>开启插件</h3><p>编辑<code>主题配置文件</code>，并在<code>leancloud_visitors</code>部分下填充选项。</p>
+<h4 id="开启插件"><a href="#开启插件" class="headerlink" title="开启插件"></a>开启插件</h4><p>编辑<code>主题配置文件</code>，并在<code>leancloud_visitors</code>部分下填充选项。</p>
 <figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># Show number of visitors to each article.</span><br><span class="line"># You can visit https:&#x2F;&#x2F;leancloud.cn get AppID and AppKey.</span><br><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: #&lt;app_id&gt;</span><br><span class="line">  app_key: #&lt;app_key&gt;</span><br><span class="line">  # Required for apps from CN region</span><br><span class="line">  server_url: # &lt;your server url&gt;</span><br><span class="line">  # Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-leancloud-counter-security</span><br><span class="line">  # If you don&#39;t care about security in lc counter and just want to use it directly</span><br><span class="line">  # (without hexo-leancloud-counter-security plugin), set the &#96;security&#96; to &#96;false&#96;.</span><br><span class="line">  security: true</span><br></pre></td></tr></table></figure>
 
 <p><code>app_id</code>、<code>app_key</code>和<code>server_url</code>位于<code>设置→应用Keys</code>：</p>
@@ -120,7 +125,7 @@
 <img src="/2020/05/28/blog-services/lean-cloud-security-bug.jpg" class="" title="博客应用Keys">
 
 <p>这是LeanCloud统计插件的安全漏洞，最简单的解决办法的将配置项<code>security</code>设置为<code>false</code>，但这样不安全，下面将介绍如何修复这个漏洞。</p>
-<h3 id="修复-LeanCloud-统计插件安全漏洞"><a href="#修复-LeanCloud-统计插件安全漏洞" class="headerlink" title="修复 LeanCloud 统计插件安全漏洞"></a>修复 LeanCloud 统计插件安全漏洞</h3><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-leancloud-counter-security</code>:</p>
+<h4 id="修复安全漏洞"><a href="#修复安全漏洞" class="headerlink" title="修复安全漏洞"></a>修复安全漏洞</h4><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-leancloud-counter-security</code>:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-leancloud-counter-security</span><br></pre></td></tr></table></figure>
 
 <p>打开站点配置文件，新增以下配置，<code>app_id</code>、<code>app_key</code>、<code>server_url</code>和上一步一致，<code>username</code>和<code>password</code>替换为你自己的用户名和密码（不必与 LeanCloud 的账号相同），此用户名和密码将在 Hexo 部署时使用。</p>
@@ -148,7 +153,7 @@
 <p>查看线上环境效果：</p>
 <img src="/2020/05/28/blog-services/lean-cloud-counter-effect.jpg" class="" title="LeanCloud计数">
 
-<h2 id="主题更新"><a href="#主题更新" class="headerlink" title="主题更新"></a>主题更新</h2><p>2020年6月2日博主更新了Next主题至最新版本<code>NexT 8.0.0-rc.3 Released</code>，后面的配置均基于该版本。</p>
+<h2 id="主题更新"><a href="#主题更新" class="headerlink" title="主题更新"></a>主题更新</h2><p>2020年6月2日博主更新了站点的Next主题至最新版本<a href="https://theme-next.js.org/next-8-0-0-rc-3-released/" target="_blank" rel="noopener">NexT 8.0.0-rc.3 Released</a>，后面的配置均基于该版本。</p>
 <h2 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h2><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-generator-searchdb</code>:</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
 
