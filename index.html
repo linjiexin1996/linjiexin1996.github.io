@@ -218,7 +218,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-02 10:44:12" itemprop="dateModified" datetime="2020-06-02T10:44:12+08:00">2020-06-02</time>
+                <time title="修改时间：2020-06-02 11:29:15" itemprop="dateModified" datetime="2020-06-02T11:29:15+08:00">2020-06-02</time>
               </span>
 
           
@@ -249,21 +249,24 @@
 <h3 id="LeanCloud"><a href="#LeanCloud" class="headerlink" title="LeanCloud"></a>LeanCloud</h3><h3 id="注册LeanCloud并创建应用"><a href="#注册LeanCloud并创建应用" class="headerlink" title="注册LeanCloud并创建应用"></a>注册LeanCloud并创建应用</h3><p>注册<a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">Lean Cloud</a>账号：</p>
 <img src="/2020/05/28/blog-services/busuanzi-total.jpg" class="" title="站点UV和PV">
 
-<p>到控制台<a href="https://leancloud.cn/dashboard/applist.html#/apps" target="_blank" rel="noopener">创建应用</a></p>
+<p>登录后进入控制台<a href="https://leancloud.cn/dashboard/applist.html#/apps" target="_blank" rel="noopener">创建应用</a></p>
 <img src="/2020/05/28/blog-services/busuanzi-total.jpg" class="" title="站点UV和PV">
 
 <h3 id="创建Counter类"><a href="#创建Counter类" class="headerlink" title="创建Counter类"></a>创建Counter类</h3><p>点击<code>存储</code></p>
 <img src="/2020/05/28/blog-services/busuanzi-total.jpg" class="" title="站点UV和PV">
 
 <p>点击<code>创建Class</code></p>
-<h3 id="启用插件"><a href="#启用插件" class="headerlink" title="启用插件"></a>启用插件</h3><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-leancloud-counter-security</code>:</p>
+<h3 id="启用插件"><a href="#启用插件" class="headerlink" title="启用插件"></a>启用插件</h3><p>编辑<code>主题配置文件</code>，并在<code>leancloud_visitors</code>部分下填充选项。</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># Show number of visitors to each article.</span><br><span class="line"># You can visit https:&#x2F;&#x2F;leancloud.cn get AppID and AppKey.</span><br><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: #&lt;app_id&gt;</span><br><span class="line">  app_key: #&lt;app_key&gt;</span><br><span class="line">  # Required for apps from CN region</span><br><span class="line">  server_url: # &lt;your server url&gt;</span><br><span class="line">  # Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-leancloud-counter-security</span><br><span class="line">  # If you don&#39;t care about security in lc counter and just want to use it directly</span><br><span class="line">  # (without hexo-leancloud-counter-security plugin), set the &#96;security&#96; to &#96;false&#96;.</span><br><span class="line">  security: true</span><br></pre></td></tr></table></figure>
+
+<h3 id="修复-LeanCloud-统计插件安全漏洞"><a href="#修复-LeanCloud-统计插件安全漏洞" class="headerlink" title="修复 LeanCloud 统计插件安全漏洞"></a>修复 LeanCloud 统计插件安全漏洞</h3><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-leancloud-counter-security</code>:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-leancloud-counter-security</span><br></pre></td></tr></table></figure>
 
-<p>编辑<code>站点配置文件</code>并添加以下内容：</p>
-<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">leancloud_counter_security:</span><br><span class="line">  enable_sync: true</span><br><span class="line">  app_id: &lt;your app id&gt;</span><br><span class="line">  app_key: &lt;your app key&gt;</span><br><span class="line">  username: &lt;your username&gt; # Will be asked while deploying if is left blank</span><br><span class="line">  password: &lt;your password&gt; # Recommmended to be left blank. Will be asked while deploying if is left blank</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">leancloud_counter_security:</span><br><span class="line">  enable_sync: true</span><br><span class="line">  app_id: &lt;your app id&gt;</span><br><span class="line">  app_key: &lt;your app key&gt;</span><br><span class="line">  server_url: &lt;your server url&gt; # Required for apps from CN region, e.g. https:&#x2F;&#x2F;leancloud.cn</span><br><span class="line">  username: &lt;your username&gt; # Will be asked while deploying if is left blank</span><br><span class="line">  password: &lt;your password&gt; # Recommmended to be left blank. Will be asked while deploying if is left blank</span><br></pre></td></tr></table></figure>
 
-<p>编辑<code>主题配置文件</code>，并在<code>leancloud_visitors</code>部分下填充选项。</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"># Show number of visitors to each article.</span><br><span class="line"># You can visit https:&#x2F;&#x2F;leancloud.cn get AppID and AppKey.</span><br><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: #&lt;app_id&gt;</span><br><span class="line">  app_key: #&lt;app_key&gt;</span><br><span class="line">  # Required for apps from CN region</span><br><span class="line">  server_url: # &lt;your server url&gt;</span><br><span class="line">  # Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-leancloud-counter-security</span><br><span class="line">  # If you don&#39;t care about security in lc counter and just want to use it directly</span><br><span class="line">  # (without hexo-leancloud-counter-security plugin), set the &#96;security&#96; to &#96;false&#96;.</span><br><span class="line">  security: true</span><br></pre></td></tr></table></figure>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://github.com/theme-next/hexo-leancloud-counter-security" target="_blank" rel="noopener">hexo-leancloud-counter-security</a></li>
+</ul>
 
       
     </div>
