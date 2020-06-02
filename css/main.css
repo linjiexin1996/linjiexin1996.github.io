@@ -616,53 +616,53 @@ pre code {
   grid-gap: 1.5rem 1.5rem;
   grid-template-columns: 1fr 1fr;
   padding: 1.5rem;
-  user-select: none;
 }
 @media (max-width: 767px) {
   .post-body .link-grid {
     grid-template-columns: 1fr;
   }
 }
-.post-body .link-grid div {
+.post-body .link-grid .link-grid-container {
   border: solid #ddd;
   box-shadow: 1rem 1rem 0.5rem #808080;
   height: 5rem;
-  transition: background 0.3s;
   padding: 0.5rem;
   position: relative;
+  transition: background 0.3s;
 }
-.post-body .link-grid div:hover {
+.post-body .link-grid .link-grid-container:hover {
   animation: shake 0.5s;
   background: rgba(230,244,250,0.5);
 }
-.post-body .link-grid div:active {
+.post-body .link-grid .link-grid-container:active {
   box-shadow: 0.5rem 0.5rem 0.25rem #808080;
   transform: translate(0.2rem, 0.2rem);
 }
-.post-body .link-grid div img {
+.post-body .link-grid .link-grid-container .link-grid-image {
+  background-clip: content-box;
+  background-origin: content-box;
+  background-size: cover;
   border: 1px solid #ddd;
   border-radius: 50%;
   box-sizing: border-box;
   height: 5rem;
-  left: 0.5rem;
   padding: 3px;
   position: absolute;
-  top: 0.5rem;
   width: 5rem;
 }
-.post-body .link-grid div p {
+.post-body .link-grid .link-grid-container p {
   margin: 0 1rem 0 6rem;
 }
-.post-body .link-grid div p:first-of-type {
+.post-body .link-grid .link-grid-container p:first-of-type {
   font-size: 1.2em;
 }
-.post-body .link-grid div p:last-of-type {
+.post-body .link-grid .link-grid-container p:last-of-type {
   font-size: 0.8em;
   line-height: 1.3rem;
   opacity: 0.7;
 }
-.post-body .link-grid div a {
-  border: none;
+.post-body .link-grid .link-grid-container a {
+  border: 0;
   height: 100%;
   left: 0;
   position: absolute;
@@ -1324,6 +1324,9 @@ pre code {
   z-index: 1000;
 }
 @media (max-width: 991px) {
+  .github-corner {
+    display: none;
+  }
   .github-corner svg {
     color: #222;
     fill: #fff;
@@ -1450,7 +1453,7 @@ pre code {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #57ffde;
+  background: #dbffff;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2539,6 +2542,106 @@ ul.breadcrumb li + li:last-child {
 .tag-cloud-10 {
   border-bottom-color: #111;
   color: #111;
+}
+.search-pop-overlay {
+  background: rgba(0,0,0,0);
+  height: 100%;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: visibility 0s linear 0.2s, background 0.2s;
+  visibility: hidden;
+  width: 100%;
+  z-index: 1400;
+}
+.search-pop-overlay.search-active {
+  background: rgba(0,0,0,0.3);
+  transition: background 0.2s;
+  visibility: visible;
+}
+.search-popup {
+  background: var(--card-bg-color);
+  border-radius: 5px;
+  height: 80%;
+  left: calc(50% - 350px);
+  position: fixed;
+  top: 10%;
+  transform: scale(0);
+  transition: transform 0.2s;
+  width: 700px;
+  z-index: 1500;
+}
+.search-active .search-popup {
+  transform: scale(1);
+}
+@media (max-width: 767px) {
+  .search-popup {
+    border-radius: 0;
+    height: 100%;
+    left: 0;
+    margin: 0;
+    top: 0;
+    width: 100%;
+  }
+}
+.search-popup .search-icon,
+.search-popup .popup-btn-close {
+  color: #999;
+  font-size: 18px;
+  padding: 0 10px;
+}
+.search-popup .popup-btn-close {
+  cursor: pointer;
+}
+.search-popup .popup-btn-close:hover .fa {
+  color: #222;
+}
+.search-popup .search-header {
+  background: #eee;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  display: flex;
+  padding: 5px;
+}
+.search-popup input.search-input {
+  background: transparent;
+  border: 0;
+  outline: 0;
+  width: 100%;
+}
+.search-popup input.search-input::-webkit-search-cancel-button {
+  display: none;
+}
+.search-popup .search-input-container {
+  flex-grow: 1;
+  padding: 2px;
+}
+.search-popup ul.search-result-list {
+  margin: 0 5px;
+  padding: 0;
+  width: 100%;
+}
+.search-popup p.search-result {
+  border-bottom: 1px dashed #ccc;
+  padding: 5px 0;
+}
+.search-popup a.search-result-title {
+  font-weight: bold;
+}
+.search-popup .search-keyword {
+  border-bottom: 1px dashed #ff2a2a;
+  color: #ff2a2a;
+  font-weight: bold;
+}
+.search-popup #search-result {
+  display: flex;
+  height: calc(100% - 55px);
+  overflow: auto;
+  padding: 5px 25px;
+}
+.search-popup #no-result {
+  color: #ccc;
+  margin: auto;
 }
 .header {
   margin: 0 auto;

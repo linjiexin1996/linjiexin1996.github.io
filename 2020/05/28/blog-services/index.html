@@ -17,15 +17,15 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.linjiexin.com","root":"/","scheme":"Pisces","version":"8.0.0-rc.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
+    var CONFIG = {"hostname":"blog.linjiexin.com","root":"/","scheme":"Pisces","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="统计与分析不蒜子打开主题配置文件next&#x2F;_config.yml，通过将busuanzicount.enable的值设置为true启用不蒜子计数。 next&#x2F;_config.yml12345678busuanzi_count:  enable: true  total_visitors: true  total_visitors_icon: fa fa-user  total_views: tru">
+  <meta name="description" content="统计与分析不蒜子打开主题配置文件next&#x2F;_config.yml，通过将busuanzicount.enable的值设置为true启用不蒜子计数，将busuanzi_count.post_views设置为false关闭文章计数（将会使用LeanCloud）。 next&#x2F;_config.yml12345678busuanzi_count:  enable: true  total_visitors:">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo + Next + GitHub Pages 集成第三方服务">
 <meta property="og:url" content="https://blog.linjiexin.com/2020/05/28/blog-services/index.html">
 <meta property="og:site_name" content="林洁鑫的博客">
-<meta property="og:description" content="统计与分析不蒜子打开主题配置文件next&#x2F;_config.yml，通过将busuanzicount.enable的值设置为true启用不蒜子计数。 next&#x2F;_config.yml12345678busuanzi_count:  enable: true  total_visitors: true  total_visitors_icon: fa fa-user  total_views: tru">
+<meta property="og:description" content="统计与分析不蒜子打开主题配置文件next&#x2F;_config.yml，通过将busuanzicount.enable的值设置为true启用不蒜子计数，将busuanzi_count.post_views设置为false关闭文章计数（将会使用LeanCloud）。 next&#x2F;_config.yml12345678busuanzi_count:  enable: true  total_visitors:">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.linjiexin.com/2020/05/28/blog-services/busuanzi-total.jpg">
 <meta property="og:image" content="https://blog.linjiexin.com/2020/05/28/blog-services/busuanzi-post.jpg">
@@ -43,7 +43,7 @@
 <meta property="og:image" content="https://blog.linjiexin.com/2020/05/28/blog-services/lean-cloud-counter-class.jpg">
 <meta property="og:image" content="https://blog.linjiexin.com/2020/05/28/blog-services/lean-cloud-counter-effect.jpg">
 <meta property="article:published_time" content="2020-05-28T13:16:37.000Z">
-<meta property="article:modified_time" content="2020-06-02T09:32:06.838Z">
+<meta property="article:modified_time" content="2020-06-02T10:48:50.450Z">
 <meta property="article:author" content="林洁鑫">
 <meta property="article:tag" content="林洁鑫">
 <meta property="article:tag" content="前端">
@@ -127,6 +127,7 @@
 
   <div class="site-nav-right">
     <div class="toggle popup-trigger">
+        <i class="fa fa-search fa-fw fa-lg"></i>
     </div>
   </div>
 </div>
@@ -160,26 +161,38 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">3</span></a>
 
   </li>
-        <li class="menu-item menu-item-schedule">
-
-    <a href="/schedule/" rel="section"><i class="fa fa-calendar fa-fw"></i>日程表</a>
-
-  </li>
-        <li class="menu-item menu-item-sitemap">
-
-    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>站点地图</a>
-
-  </li>
-        <li class="menu-item menu-item-commonweal">
-
-    <a href="/404/" rel="section"><i class="fa fa-heartbeat fa-fw"></i>公益 404</a>
-
-  </li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
   </ul>
 </nav>
 
 
 
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off"
+           placeholder="搜索..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div id="search-result">
+  <div id="no-result">
+    <i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
 
 </div>
     </header>
@@ -236,7 +249,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-02 17:32:06" itemprop="dateModified" datetime="2020-06-02T17:32:06+08:00">2020-06-02</time>
+                <time title="修改时间：2020-06-02 18:48:50" itemprop="dateModified" datetime="2020-06-02T18:48:50+08:00">2020-06-02</time>
               </span>
 
           
@@ -257,12 +270,12 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h2 id="统计与分析"><a href="#统计与分析" class="headerlink" title="统计与分析"></a>统计与分析</h2><h3 id="不蒜子"><a href="#不蒜子" class="headerlink" title="不蒜子"></a>不蒜子</h3><p>打开主题配置文件<code>next/_config.yml</code>，通过将<code>busuanzicount.enable</code>的值设置为<code>true</code>启用不蒜子计数。</p>
-<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors_icon:</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">total_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br><span class="line">  <span class="attr">post_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br></pre></td></tr></table></figure>
+        <h2 id="统计与分析"><a href="#统计与分析" class="headerlink" title="统计与分析"></a>统计与分析</h2><h3 id="不蒜子"><a href="#不蒜子" class="headerlink" title="不蒜子"></a>不蒜子</h3><p>打开主题配置文件<code>next/_config.yml</code>，通过将<code>busuanzicount.enable</code>的值设置为<code>true</code>启用不蒜子计数，将<code>busuanzi_count.post_views</code>设置为<code>false</code>关闭文章计数（将会使用LeanCloud）。</p>
+<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors_icon:</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">total_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br><span class="line">  <span class="attr">post_views:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">post_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br></pre></td></tr></table></figure>
 
 <p>根据上面的配置，网站底部将会显示站点UV和PV，文章中将会显示页面PV。</p>
 <img src="/2020/05/28/blog-services/busuanzi-total.jpg" class="" title="站点UV和PV">
-<img src="/2020/05/28/blog-services/busuanzi-post.jpg" class="" title="文章PV">
+<!-- <img src="/2020/05/28/blog-services/busuanzi-post.jpg" class="" title="文章PV"> -->
 
 <h3 id="LeanCloud"><a href="#LeanCloud" class="headerlink" title="LeanCloud"></a>LeanCloud</h3><h3 id="注册LeanCloud账号"><a href="#注册LeanCloud账号" class="headerlink" title="注册LeanCloud账号"></a>注册LeanCloud账号</h3><p>注册<a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">Lean Cloud</a>账号：</p>
 <img src="/2020/05/28/blog-services/lean-cloud-signup.jpg" class="" title="注册LeanCloud账号">
@@ -324,6 +337,16 @@
 
 <p>查看线上环境效果：</p>
 <img src="/2020/05/28/blog-services/lean-cloud-counter-effect.jpg" class="" title="LeanCloud计数">
+
+<h2 id="主题更新"><a href="#主题更新" class="headerlink" title="主题更新"></a>主题更新</h2><p>2020年6月2日博主更新了Next主题至最新版本<code>NexT 8.0.0-rc.3 Released</code>，后面的配置均基于该版本。</p>
+<h2 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h2><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-generator-searchdb</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>站点配置文件</code>，添加以下内容：</p>
+<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># Local Search</span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>主题配置文件</code>，启用本地搜索：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"># Local search</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # If auto, trigger search by changing input.</span><br><span class="line">  # If manual, trigger search by pressing enter key or search button.</span><br><span class="line">  trigger: auto</span><br><span class="line">  # Show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  # Unescape html strings to the readable one.</span><br><span class="line">  unescape: false</span><br><span class="line">  # Preload the search data when the page loads.</span><br><span class="line">  preload: false</span><br></pre></td></tr></table></figure>
 
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
 <li><a href="https://theme-next.js.org/docs/third-party-services/statistics-and-analytics.html" target="_blank" rel="noopener">Statistics and Analytics | NexT</a></li>
@@ -424,7 +447,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#统计与分析"><span class="nav-number">1.</span> <span class="nav-text">统计与分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不蒜子"><span class="nav-number">1.1.</span> <span class="nav-text">不蒜子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LeanCloud"><span class="nav-number">1.2.</span> <span class="nav-text">LeanCloud</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册LeanCloud账号"><span class="nav-number">1.3.</span> <span class="nav-text">注册LeanCloud账号</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建应用"><span class="nav-number">1.3.1.</span> <span class="nav-text">创建应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Counter类"><span class="nav-number">1.4.</span> <span class="nav-text">创建Counter类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启插件"><span class="nav-number">1.5.</span> <span class="nav-text">开启插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修复-LeanCloud-统计插件安全漏洞"><span class="nav-number">1.6.</span> <span class="nav-text">修复 LeanCloud 统计插件安全漏洞</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">2.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#统计与分析"><span class="nav-number">1.</span> <span class="nav-text">统计与分析</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#不蒜子"><span class="nav-number">1.1.</span> <span class="nav-text">不蒜子</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#LeanCloud"><span class="nav-number">1.2.</span> <span class="nav-text">LeanCloud</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注册LeanCloud账号"><span class="nav-number">1.3.</span> <span class="nav-text">注册LeanCloud账号</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建应用"><span class="nav-number">1.3.1.</span> <span class="nav-text">创建应用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建Counter类"><span class="nav-number">1.4.</span> <span class="nav-text">创建Counter类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开启插件"><span class="nav-number">1.5.</span> <span class="nav-text">开启插件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修复-LeanCloud-统计插件安全漏洞"><span class="nav-number">1.6.</span> <span class="nav-text">修复 LeanCloud 统计插件安全漏洞</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#主题更新"><span class="nav-number">2.</span> <span class="nav-text">主题更新</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#本地搜索"><span class="nav-number">3.</span> <span class="nav-text">本地搜索</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">4.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -481,6 +504,26 @@
   </div>
 
         
+<div class="busuanzi-count">
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
 
 
 
@@ -600,6 +643,10 @@
   
 
 
+
+
+  
+<script src="/js/local-search.js"></script>
 
 
 
