@@ -1,6 +1,7 @@
 [
-{"title":"Hexo + Next + GitHub Pages 搭建个人博客","url":"/2020/05/25/blog-init/"},
-{"title":"Hexo + Next + GitHub Pages 配置Next主题","url":"/2020/05/28/blog-config/"},
-{"title":"Hexo + Next + GitHub Pages 集成第三方服务","url":"/2020/05/28/blog-services/"},
-{"title":"使用百度翻译API","url":"/2020/06/03/baidu-translate-api/"},
+{"title":"使用百度通用翻译API","url":"/post/baidu-translate-api/"},
+{"title":"Hexo + Next + Pages 个人博客 - Next主题配置","url":"/post/blog-config/"},
+{"title":"Hexo + Next + Pages 个人博客 - 雏形初现","url":"/post/blog-init/"},
+{"title":"Hexo + Next + Pages 个人博客 - SEO优化","url":"/post/blog-seo/"},
+{"title":"Hexo + Next + Pages 个人博客 - 第三方服务集成","url":"/post/blog-services/"},
 ]
