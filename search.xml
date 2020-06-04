@@ -1,10 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo + Next + GitHub Pages 配置Next主题</title>
-    <url>/2020/05/28/blog-config/</url>
+    <title>Hexo + Next + Pages 个人博客 - SEO优化</title>
+    <url>/post/blog-seo/</url>
+    <content><![CDATA[<h2 id="优化目录结构"><a href="#优化目录结构" class="headerlink" title="优化目录结构"></a>优化目录结构</h2><blockquote>
+<p>网站目录层级不超过三层是对搜索引擎友好的。</p>
+</blockquote>
+<p>Hexo默认的文章目录结构是<code>site/year/month/day/title/</code>，层级过多，这个可在<code>站点配置文件</code>里修改，下面是我的配置：</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://blog.linjiexin.com</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:dir/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line">  <span class="attr">dir:</span> <span class="string">post</span></span><br></pre></td></tr></table></figure>
+
+<p>以自定义目录名（默认post）+文章标题的形式作为文章的永久链接。目录名可在文章页通过设置<code>dir</code>实现自定义，比如：</p>
+<figure class="highlight yaml"><figcaption><span>life.md</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">生活日志</span></span><br><span class="line"><span class="attr">dir:</span> <span class="string">life</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<div class="note warning"><p>注意事项：<br>这一步最好是在网站初建时（没有太多文章）时设置，因为修改文章地址会导致一些问题：</p>
+<ul>
+<li>影响到一些第三方服务。比如，如果你已经使用了LeanCloud进行阅读次数统计，这将会造成文章阅读数值清零重计，因为文章的URL改变了，被认为是一篇新文章。</li>
+<li>已被收录的文章，在还没被搜索引擎重新收录之前，别人通过搜索打开后是404页面。</li>
+</ul>
+</div>
+
+<h2 id="持续更新中…"><a href="#持续更新中…" class="headerlink" title="持续更新中…"></a>持续更新中…</h2>]]></content>
+      <categories>
+        <category>个人博客建站之路</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo + Next + Pages 个人博客 - 第三方服务集成</title>
+    <url>/post/blog-services/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>文中第三方服务集成时的Hexo和Next版本说明如下：</p>
+<p>框架：Hexo<br>版本：4.2.0<br>GitHub：<a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">https://github.com/hexojs/hexo</a></p>
+<p>主题：Next<br>版本：8.0.0-rc.2<br>GitHub：<a href="https://github.com/next-theme/hexo-theme-next" target="_blank" rel="noopener">https://github.com/next-theme/hexo-theme-next</a></p>
+<p>整个过程中若有更新主题版本，文中也会说明更新的版本号，并体现在目录中“主题更新”。</p>
+<a id="more"></a>
+
+<h2 id="统计与分析"><a href="#统计与分析" class="headerlink" title="统计与分析"></a>统计与分析</h2><h3 id="不蒜子"><a href="#不蒜子" class="headerlink" title="不蒜子"></a>不蒜子</h3><p>打开主题配置文件<code>next/_config.yml</code>，通过将<code>busuanzicount.enable</code>的值设置为<code>true</code>启用不蒜子计数，将<code>busuanzi_count.post_views</code>设置为<code>false</code>关闭文章计数（将会使用LeanCloud）。</p>
+<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors_icon:</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">total_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br><span class="line">  <span class="attr">post_views:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">post_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br></pre></td></tr></table></figure>
+
+<p>根据上面的配置，网站底部将会显示站点UV和PV，文章中将会显示页面PV。</p>
+<img src="/post/blog-services/busuanzi-total.jpg" class="" title="站点UV和PV">
+<!-- <img src="/post/blog-services/busuanzi-post.jpg" class="" title="文章PV"> -->
+
+<h3 id="LeanCloud"><a href="#LeanCloud" class="headerlink" title="LeanCloud"></a>LeanCloud</h3><h4 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h4><p>注册<a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">Lean Cloud</a>账号：</p>
+<img src="/post/blog-services/lean-cloud-signup.jpg" class="" title="注册LeanCloud账号">
+
+<h4 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h4><p>登录后进入<a href="https://leancloud.cn/dashboard/applist.html#/apps" target="_blank" rel="noopener">控制台</a>：</p>
+<img src="/post/blog-services/lean-cloud-applist.jpg" class="" title="控制台">
+
+<!-- 注意，目前华东节点和华北节点创建应用需要先在账号设置完成实名认证，并且官方表明“[在国内市场将只服务于可验证的商业客户](https://leancloudblog.com/domain-incident/)”；美国节点暂无上述要求，并且账号系统与华东节点和华北节点是独立的，如需使用请前往 LeanCloud 国际版官网 [leancloud.app](https://leancloud.app/) 注册登录。 -->
+
+<p>创建应用（需要先<strong>实名认证</strong>和<strong>验证手机号码</strong>）：</p>
+<img src="/post/blog-services/lean-cloud-create-app.jpg" class="" title="创建应用">
+<img src="/post/blog-services/lean-cloud-blog.jpg" class="" title="博客应用">
+
+<h4 id="创建Counter类"><a href="#创建Counter类" class="headerlink" title="创建Counter类"></a>创建Counter类</h4><p>点击<code>存储</code>：</p>
+<img src="/post/blog-services/lean-cloud-storage-mark.jpg" class="" title="点击“存储”">
+
+<p>点击<code>创建Class</code>：</p>
+<img src="/post/blog-services/lean-cloud-class-mark.jpg" class="" title="点击“创建Class”">
+
+<p>创建Class，输入名称“Counter”，点击<code>添加</code>：</p>
+<img src="/post/blog-services/lean-cloud-create-class.jpg" class="" title="创建Class">
+
+<h4 id="开启插件"><a href="#开启插件" class="headerlink" title="开启插件"></a>开启插件</h4><p>编辑<code>主题配置文件</code>，并在<code>leancloud_visitors</code>部分下填充选项。</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># Show number of visitors to each article.</span><br><span class="line"># You can visit https:&#x2F;&#x2F;leancloud.cn get AppID and AppKey.</span><br><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: #&lt;app_id&gt;</span><br><span class="line">  app_key: #&lt;app_key&gt;</span><br><span class="line">  # Required for apps from CN region</span><br><span class="line">  server_url: # &lt;your server url&gt;</span><br><span class="line">  # Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-leancloud-counter-security</span><br><span class="line">  # If you don&#39;t care about security in lc counter and just want to use it directly</span><br><span class="line">  # (without hexo-leancloud-counter-security plugin), set the &#96;security&#96; to &#96;false&#96;.</span><br><span class="line">  security: true</span><br></pre></td></tr></table></figure>
+
+<p><code>app_id</code>、<code>app_key</code>和<code>server_url</code>位于<code>设置→应用Keys</code>：</p>
+<img src="/post/blog-services/lean-cloud-blog-keys.jpg" class="" title="博客应用Keys">
+
+<p>配置<code>Web安全域名</code>，这里填写自己博客的域名，注意协议、域名和端口号需严格一致：</p>
+<img src="/post/blog-services/lean-cloud-web-security-domain.jpg" class="" title="配置Web安全域名">
+
+<p>到这里还没结束，此时如果部署并在线上看效果，会看到如下报错：</p>
+<img src="/post/blog-services/lean-cloud-security-bug.jpg" class="" title="博客应用Keys">
+
+<p>这是LeanCloud统计插件的安全漏洞，最简单的解决办法的将配置项<code>security</code>设置为<code>false</code>，但这样不安全，下面将介绍如何修复这个漏洞。</p>
+<h4 id="修复安全漏洞"><a href="#修复安全漏洞" class="headerlink" title="修复安全漏洞"></a>修复安全漏洞</h4><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-leancloud-counter-security</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-leancloud-counter-security</span><br></pre></td></tr></table></figure>
+
+<p>打开站点配置文件，新增以下配置，<code>app_id</code>、<code>app_key</code>、<code>server_url</code>和上一步一致，<code>username</code>和<code>password</code>替换为你自己的用户名和密码（不必与 LeanCloud 的账号相同），此用户名和密码将在 Hexo 部署时使用。</p>
+<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">leancloud_counter_security:</span><br><span class="line">  enable_sync: true</span><br><span class="line">  app_id: &lt;your app id&gt;</span><br><span class="line">  app_key: &lt;your app key&gt;</span><br><span class="line">  server_url: &lt;your server url&gt; # Required for apps from CN region, e.g. https:&#x2F;&#x2F;leancloud.cn</span><br><span class="line">  username: &lt;your username&gt; # Will be asked while deploying if is left blank</span><br><span class="line">  password: &lt;your password&gt; # Recommmended to be left blank. Will be asked while deploying if is left blank</span><br></pre></td></tr></table></figure>
+
+<p>通过运行以下命令添加应用用户，<username>和<password>与上面配置保持一致：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo lc-counter register &lt;username&gt; &lt;password&gt;</span><br></pre></td></tr></table></figure>
+
+<p>添加成功后，可以在<code>存储→用户</code>里查看：</p>
+<img src="/post/blog-services/lean-cloud-register-user.jpg" class="" title="添加用户">
+
+<p>当然，也可以在这个页面上来<code>添加用户</code>。</p>
+<p>在站点配置文件的<code>deploy</code>下添加以下项：</p>
+<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  # other deployer</span><br><span class="line">  - type: leancloud_counter_security_sync</span><br></pre></td></tr></table></figure>
+
+<p>添加后我的<code>deploy</code>完整配置为（注意格式）：</p>
+<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  - type: git</span><br><span class="line">    repo: https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;linjiexin1996.github.io</span><br><span class="line">  - type: leancloud_counter_security_sync</span><br></pre></td></tr></table></figure>
+
+<p>运行<code>hexo clean &amp;&amp; hexo deploy</code>部署，站点<code>source</code>目录下自动生成了一个文件<code>leancloud.memo</code>，记录着已经在使用LeanCloud统计的文章：</p>
+<figure class="highlight plain"><figcaption><span>blog/source/leancloud.memo</span></figcaption><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">&#123;&quot;title&quot;:&quot;Hexo + Next + GitHub Pages 搭建个人博客&quot;,&quot;url&quot;:&quot;&#x2F;2020&#x2F;05&#x2F;25&#x2F;blog-init&#x2F;&quot;&#125;,</span><br><span class="line">&#123;&quot;title&quot;:&quot;Hexo + Next + GitHub Pages 配置Next主题&quot;,&quot;url&quot;:&quot;&#x2F;2020&#x2F;05&#x2F;28&#x2F;blog-config&#x2F;&quot;&#125;,</span><br><span class="line">&#123;&quot;title&quot;:&quot;Hexo + Next + GitHub Pages 集成第三方服务&quot;,&quot;url&quot;:&quot;&#x2F;2020&#x2F;05&#x2F;28&#x2F;blog-services&#x2F;&quot;&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>查看<code>Counter Class</code>，图中的<code>time</code>字段就是文章的阅读次数：</p>
+<img src="/post/blog-services/lean-cloud-counter-class.jpg" class="" title="CounterClass">
+
+<p>查看线上环境效果：</p>
+<img src="/post/blog-services/lean-cloud-counter-effect.jpg" class="" title="LeanCloud计数">
+
+<h2 id="主题更新"><a href="#主题更新" class="headerlink" title="主题更新"></a>主题更新</h2><p>2020年6月2日博主更新了站点的Next主题至最新版本<a href="https://theme-next.js.org/next-8-0-0-rc-3-released/" target="_blank" rel="noopener">NexT 8.0.0-rc.3 Released</a>，后面的配置均基于该版本。</p>
+<h2 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h2><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-generator-searchdb</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>站点配置文件</code>，添加以下内容：</p>
+<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># Local Search</span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>主题配置文件</code>，启用本地搜索：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # If auto, trigger search by changing input.</span><br><span class="line">  # If manual, trigger search by pressing enter key or search button.</span><br><span class="line">  trigger: auto</span><br><span class="line">  # Show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  # Unescape html strings to the readable one.</span><br><span class="line">  unescape: false</span><br><span class="line">  # Preload the search data when the page loads.</span><br><span class="line">  preload: false</span><br></pre></td></tr></table></figure>
+
+<p>启用成功后，侧边栏菜单会多出一项“搜索”，点击显示搜索弹窗：</p>
+<img src="/post/blog-services/local-search.jpg" class="" title="本地搜索">
+
+
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><a href="https://theme-next.js.org/docs/third-party-services/statistics-and-analytics.html" target="_blank" rel="noopener">Statistics and Analytics | NexT</a></li>
+<li><a href="https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/LEANCLOUD-COUNTER-SECURITY.md" target="_blank" rel="noopener">修复 LeanCloud 统计插件安全漏洞</a></li>
+<li><a href="https://leaferx.online/2018/02/11/lc-security/" target="_blank" rel="noopener">Leancloud访客统计插件重大安全漏洞修复指南</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>个人博客建站之路</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo + Next + Pages 个人博客 - Next主题配置</title>
+    <url>/post/blog-config/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>记录一下我的博客的Next主题配置。</p>
 <p>还没有博客的可以参考我前面写的一篇文章<a href="../../../../2020/05/25/blog-init/index.html">Hexo + Next + GitHub Pages 搭建个人博客</a>。</p>
+<a id="more"></a>
+
 <p>框架：Hexo<br>版本：4.2.0<br>GitHub：<a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">https://github.com/hexojs/hexo</a></p>
 <p>主题：Next<br>版本：8.0.0-rc.2<br>GitHub：<a href="https://github.com/next-theme/hexo-theme-next" target="_blank" rel="noopener">https://github.com/next-theme/hexo-theme-next</a></p>
 <h2 id="菜单项"><a href="#菜单项" class="headerlink" title="菜单项"></a>菜单项</h2><p>打开主题配置文件<code>next/_config.yml</code>，找到<code>menu</code>，按需取消注释，开启菜单项：</p>
@@ -32,12 +161,12 @@
 <p>设置<code>badges</code>为<code>true</code>，菜单项<code>标签</code>、<code>分类</code>、<code>归档</code>将在右侧显示对应的数量。</p>
 <figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">menu_settings:</span><br><span class="line">  badges: true</span><br></pre></td></tr></table></figure>
 
-<img src="/2020/05/28/blog-config/configuring-menu-items.jpg" class="" title="配置菜单项">
+<img src="/post/blog-config/configuring-menu-items.jpg" class="" title="配置菜单项">
 
 <h2 id="网站图标"><a href="#网站图标" class="headerlink" title="网站图标"></a>网站图标</h2><p>找个或自己做个图标，可以到<a href="https://www.iconfont.cn/" target="_blank" rel="noopener">Iconfont</a>找，然后到<a href="https://realfavicongenerator.net/" target="_blank" rel="noopener">Favicon Generator</a>生成适配多浏览器多平台的自定义图标压缩包。</p>
-<img src="/2020/05/28/blog-config/iconfont-star.jpg" class="" title="iconfont星星">
+<img src="/post/blog-config/iconfont-star.jpg" class="" title="iconfont星星">
 
-<img src="/2020/05/28/blog-config/configuring-favicon.jpg" class="" title="配置图标">
+<img src="/post/blog-config/configuring-favicon.jpg" class="" title="配置图标">
 
 <p>下载解压后将图标文件夹放在<code>next/source/images</code>目录下，然后打开主题配置文件<code>next/_config.yml</code>，配置如下：</p>
 <figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  small: &#x2F;images&#x2F;favicon&#x2F;favicon-16x16.png</span><br><span class="line">  medium: &#x2F;images&#x2F;favicon&#x2F;favicon-32x32.png</span><br><span class="line">  apple_touch_icon: &#x2F;images&#x2F;favicon&#x2F;apple-touch-icon.png</span><br></pre></td></tr></table></figure>
@@ -46,7 +175,7 @@
 <figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">avatar:</span><br><span class="line">  url: &#x2F;images&#x2F;avatar.jpg</span><br><span class="line">  rounded: true</span><br><span class="line">  rotated: true</span><br></pre></td></tr></table></figure>
 
 <p><code>rounded</code>是将头像显示成圆形，<code>rotated</code>是在光标悬停在头像上时旋转头像。</p>
-<img src="/2020/05/28/blog-config/configuring-avatar.jpg" class="" title="配置侧边栏头像">
+<img src="/post/blog-config/configuring-avatar.jpg" class="" title="配置侧边栏头像">
 
 <h2 id="控制台提醒"><a href="#控制台提醒" class="headerlink" title="控制台提醒"></a>控制台提醒</h2><figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">reminder: true</span><br></pre></td></tr></table></figure>
 
@@ -61,13 +190,13 @@
 <figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: true</span><br><span class="line">  post: true</span><br><span class="line">  language:</span><br></pre></td></tr></table></figure>
 
 <p>截图如下：</p>
-<img src="/2020/05/28/blog-config/creative-commons-post.jpg" class="" title="显示”知识共享“">
-<img src="/2020/05/28/blog-config/creative-commons-sidebar.jpg" class="" title="显示”知识共享“">
+<img src="/post/blog-config/creative-commons-post.jpg" class="" title="显示”知识共享“">
+<img src="/post/blog-config/creative-commons-sidebar.jpg" class="" title="显示”知识共享“">
 
 <h2 id="移动设备适应"><a href="#移动设备适应" class="headerlink" title="移动设备适应"></a>移动设备适应</h2><figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">mobile_layout_economy: true</span><br></pre></td></tr></table></figure>
 
 <p>在宽度较小的设备上减少边距。</p>
-<h2 id="代码块样式"><a href="#代码块样式" class="headerlink" title="代码块样式"></a>代码块样式</h2><p>Next使用<a href="">highlight.js</a>支持代码高亮。默认样式为白色，有90多种样式可供选择。</p>
+<h2 id="代码块样式"><a href="#代码块样式" class="headerlink" title="代码块样式"></a>代码块样式</h2><p>Next使用<a href="https://highlightjs.org/" target="_blank" rel="noopener">highlight.js</a>支持代码高亮。默认样式为白色，有90多种样式可供选择。</p>
 <p>更改<code>theme</code>的值以选择想要的高亮样式，例如：</p>
 <figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">codeblock:</span><br><span class="line">  theme:</span><br><span class="line">    light: tomorrow</span><br><span class="line">    dark: tomorrow-night</span><br></pre></td></tr></table></figure>
 
@@ -83,122 +212,62 @@
 <h2 id="GitHub-Banner"><a href="#GitHub-Banner" class="headerlink" title="GitHub Banner"></a>GitHub Banner</h2><p>在右上角显示Github Banner，点击跳转个人GitHub页面，这里可以设置为博客的公开仓库地址。</p>
 <figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">github_banner:</span><br><span class="line">  enable: true</span><br><span class="line">  permalink: https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;linjiexin1996.github.io</span><br><span class="line">  title: Follow me on GitHub</span><br></pre></td></tr></table></figure>
 
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><p>-<a href="https://theme-next.js.org/docs/getting-started/" target="_blank" rel="noopener">Getting Started | NexT</a><br>-<a href="https://theme-next.js.org/docs/theme-settings/custom-pages.html" target="_blank" rel="noopener">Custom Pages | NexT</a></p>
-]]></content>
-      <categories>
-        <category>Blog</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo + Next + GitHub Pages 集成第三方服务</title>
-    <url>/2020/05/28/blog-services/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>文中第三方服务集成时的Hexo和Next版本说明如下：</p>
-<p>框架：Hexo<br>版本：4.2.0<br>GitHub：<a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">https://github.com/hexojs/hexo</a></p>
-<p>主题：Next<br>版本：8.0.0-rc.2<br>GitHub：<a href="https://github.com/next-theme/hexo-theme-next" target="_blank" rel="noopener">https://github.com/next-theme/hexo-theme-next</a></p>
-<p>整个过程中若有更新主题版本，文中也会说明更新的版本号，并体现在目录中“主题更新”。</p>
-<h2 id="统计与分析"><a href="#统计与分析" class="headerlink" title="统计与分析"></a>统计与分析</h2><h3 id="不蒜子"><a href="#不蒜子" class="headerlink" title="不蒜子"></a>不蒜子</h3><p>打开主题配置文件<code>next/_config.yml</code>，通过将<code>busuanzicount.enable</code>的值设置为<code>true</code>启用不蒜子计数，将<code>busuanzi_count.post_views</code>设置为<code>false</code>关闭文章计数（将会使用LeanCloud）。</p>
-<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors_icon:</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">total_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br><span class="line">  <span class="attr">post_views:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">post_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br></pre></td></tr></table></figure>
+<h2 id="网站页脚"><a href="#网站页脚" class="headerlink" title="网站页脚"></a>网站页脚</h2><h3 id="指定网站开始时间"><a href="#指定网站开始时间" class="headerlink" title="指定网站开始时间"></a>指定网站开始时间</h3><p>默认情况下，NexT在页脚中显示当前年份，如<code>© 2020</code>。</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">footer:</span><br><span class="line">  since: 2020</span><br></pre></td></tr></table></figure>
 
-<p>根据上面的配置，网站底部将会显示站点UV和PV，文章中将会显示页面PV。</p>
-<img src="/2020/05/28/blog-services/busuanzi-total.jpg" class="" title="站点UV和PV">
-<!-- <img src="/2020/05/28/blog-services/busuanzi-post.jpg" class="" title="文章PV"> -->
+<h3 id="开启页脚图标动画"><a href="#开启页脚图标动画" class="headerlink" title="开启页脚图标动画"></a>开启页脚图标动画</h3><figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">footer:</span><br><span class="line">  icon:</span><br><span class="line">    animated: true</span><br></pre></td></tr></table></figure>
 
-<h3 id="LeanCloud"><a href="#LeanCloud" class="headerlink" title="LeanCloud"></a>LeanCloud</h3><h4 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h4><p>注册<a href="https://leancloud.cn/dashboard/login.html#/signup" target="_blank" rel="noopener">Lean Cloud</a>账号：</p>
-<img src="/2020/05/28/blog-services/lean-cloud-signup.jpg" class="" title="注册LeanCloud账号">
+<h3 id="隐藏Hexo和Next信息"><a href="#隐藏Hexo和Next信息" class="headerlink" title="隐藏Hexo和Next信息"></a>隐藏Hexo和Next信息</h3><p>默认情况下，NexT显示Hexo和主题方案信息，例如<code>由 Hexo &amp; NexT.Pisces 强力驱动</code>。</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">footer:</span><br><span class="line">  powered: false</span><br></pre></td></tr></table></figure>
 
-<h4 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h4><p>登录后进入<a href="https://leancloud.cn/dashboard/applist.html#/apps" target="_blank" rel="noopener">控制台</a>：</p>
-<img src="/2020/05/28/blog-services/lean-cloud-applist.jpg" class="" title="控制台">
+<h2 id="侧边栏"><a href="#侧边栏" class="headerlink" title="侧边栏"></a>侧边栏</h2><h3 id="回到顶部"><a href="#回到顶部" class="headerlink" title="回到顶部"></a>回到顶部</h3><p>将<code>back2top.sidebar</code>设置为<code>true</code>后，原本在网站右下角的回到顶部按钮转移到的侧边栏底部，开启<code>back2top.scrollpercent</code>后将会在按钮旁显示当前滚动条距离顶部百分比。</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: true</span><br><span class="line">  sidebar: true</span><br><span class="line">  scrollpercent: true</span><br></pre></td></tr></table></figure>
 
-<!-- 注意，目前华东节点和华北节点创建应用需要先在账号设置完成实名认证，并且官方表明“[在国内市场将只服务于可验证的商业客户](https://leancloudblog.com/domain-incident/)”；美国节点暂无上述要求，并且账号系统与华东节点和华北节点是独立的，如需使用请前往 LeanCloud 国际版官网 [leancloud.app](https://leancloud.app/) 注册登录。 -->
+<h3 id="社交链接"><a href="#社交链接" class="headerlink" title="社交链接"></a>社交链接</h3><p>添加<code>GitHub</code>和<code>E-Mail</code>链接：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">social:</span><br><span class="line">  GitHub: https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996 || fab fa-github</span><br><span class="line">  E-Mail: mailto:798832135@qq.com || fa fa-envelope</span><br></pre></td></tr></table></figure>
 
-<p>创建应用（需要先<strong>实名认证</strong>和<strong>验证手机号码</strong>）：</p>
-<img src="/2020/05/28/blog-services/lean-cloud-create-app.jpg" class="" title="创建应用">
-<img src="/2020/05/28/blog-services/lean-cloud-blog.jpg" class="" title="博客应用">
+<p>只显示图标：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">social_icons:</span><br><span class="line">  icons_only: true</span><br></pre></td></tr></table></figure>
 
-<h4 id="创建Counter类"><a href="#创建Counter类" class="headerlink" title="创建Counter类"></a>创建Counter类</h4><p>点击<code>存储</code>：</p>
-<img src="/2020/05/28/blog-services/lean-cloud-storage-mark.jpg" class="" title="点击“存储”">
+<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><h3 id="字数统计"><a href="#字数统计" class="headerlink" title="字数统计"></a>字数统计</h3><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-word-counter</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-word-counter</span><br></pre></td></tr></table></figure>
 
-<p>点击<code>创建Class</code>：</p>
-<img src="/2020/05/28/blog-services/lean-cloud-class-mark.jpg" class="" title="点击“创建Class”">
+<p>通过在<code>站点配置文件</code>增加以下内容来激活插件：</p>
+<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  total_symbols: false</span><br><span class="line">  total_time: false</span><br><span class="line">  awl: 4</span><br><span class="line">  wpm: 275</span><br></pre></td></tr></table></figure>
 
-<p>创建Class，输入名称“Counter”，点击<code>添加</code>：</p>
-<img src="/2020/05/28/blog-services/lean-cloud-create-class.jpg" class="" title="创建Class">
+<h3 id="标签图标"><a href="#标签图标" class="headerlink" title="标签图标"></a>标签图标</h3><p>默认情况下，帖子底部的标签左侧有一个符号＃，这里将其替换替换为图标：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">tag_icon: true</span><br></pre></td></tr></table></figure>
 
-<h4 id="开启插件"><a href="#开启插件" class="headerlink" title="开启插件"></a>开启插件</h4><p>编辑<code>主题配置文件</code>，并在<code>leancloud_visitors</code>部分下填充选项。</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># Show number of visitors to each article.</span><br><span class="line"># You can visit https:&#x2F;&#x2F;leancloud.cn get AppID and AppKey.</span><br><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: #&lt;app_id&gt;</span><br><span class="line">  app_key: #&lt;app_key&gt;</span><br><span class="line">  # Required for apps from CN region</span><br><span class="line">  server_url: # &lt;your server url&gt;</span><br><span class="line">  # Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-leancloud-counter-security</span><br><span class="line">  # If you don&#39;t care about security in lc counter and just want to use it directly</span><br><span class="line">  # (without hexo-leancloud-counter-security plugin), set the &#96;security&#96; to &#96;false&#96;.</span><br><span class="line">  security: true</span><br></pre></td></tr></table></figure>
+<h3 id="赞赏"><a href="#赞赏" class="headerlink" title="赞赏"></a>赞赏</h3><p>将支付宝和微信收款码图片放置于主题的<code>source/images</code>目录下，然后修改配置：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">reward_settings:</span><br><span class="line">  enable: true</span><br><span class="line">  animation: false</span><br><span class="line">  comment: 请站长吃颗糖 🍬</span><br><span class="line"></span><br><span class="line">reward:</span><br><span class="line">  wechatpay: &#x2F;images&#x2F;wechatpay.jpg</span><br><span class="line">  alipay: &#x2F;images&#x2F;alipay.jpg</span><br></pre></td></tr></table></figure>
 
-<p><code>app_id</code>、<code>app_key</code>和<code>server_url</code>位于<code>设置→应用Keys</code>：</p>
-<img src="/2020/05/28/blog-services/lean-cloud-blog-keys.jpg" class="" title="博客应用Keys">
+<h2 id="自定义404页面"><a href="#自定义404页面" class="headerlink" title="自定义404页面"></a>自定义404页面</h2><p>在站点的<code>source</code>目录下创建<code>404</code>目录，并在<code>404</code>目录下创建<code>index.md</code>文件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd source</span><br><span class="line">mkdir 404</span><br><span class="line">touch 404&#x2F;index.md</span><br></pre></td></tr></table></figure>
 
-<p>配置<code>Web安全域名</code>，这里填写自己博客的域名，注意协议、域名和端口号需严格一致：</p>
-<img src="/2020/05/28/blog-services/lean-cloud-web-security-domain.jpg" class="" title="配置Web安全域名">
+<p>编辑<code>404/index.md</code>文件，启用<code>公益404</code>（腾讯提供的服务）：</p>
+<figure class="highlight plain"><figcaption><span>blog/source/404/index.md</span></figcaption><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 404</span><br><span class="line">date: 1970-01-01 00:00:00</span><br><span class="line">---</span><br><span class="line">&lt;script src&#x3D;&quot;&#x2F;&#x2F;qzonestyle.gtimg.cn&#x2F;qzone&#x2F;hybrid&#x2F;app&#x2F;404&#x2F;search_children.js&quot;</span><br><span class="line">        charset&#x3D;&quot;utf-8&quot; homePageUrl&#x3D;&quot;&#x2F;&quot; homePageName&#x3D;&quot;Back to home&quot;&gt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
 
-<p>到这里还没结束，此时如果部署并在线上看效果，会看到如下报错：</p>
-<img src="/2020/05/28/blog-services/lean-cloud-security-bug.jpg" class="" title="博客应用Keys">
-
-<p>这是LeanCloud统计插件的安全漏洞，最简单的解决办法的将配置项<code>security</code>设置为<code>false</code>，但这样不安全，下面将介绍如何修复这个漏洞。</p>
-<h4 id="修复安全漏洞"><a href="#修复安全漏洞" class="headerlink" title="修复安全漏洞"></a>修复安全漏洞</h4><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-leancloud-counter-security</code>:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-leancloud-counter-security</span><br></pre></td></tr></table></figure>
-
-<p>打开站点配置文件，新增以下配置，<code>app_id</code>、<code>app_key</code>、<code>server_url</code>和上一步一致，<code>username</code>和<code>password</code>替换为你自己的用户名和密码（不必与 LeanCloud 的账号相同），此用户名和密码将在 Hexo 部署时使用。</p>
-<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">leancloud_counter_security:</span><br><span class="line">  enable_sync: true</span><br><span class="line">  app_id: &lt;your app id&gt;</span><br><span class="line">  app_key: &lt;your app key&gt;</span><br><span class="line">  server_url: &lt;your server url&gt; # Required for apps from CN region, e.g. https:&#x2F;&#x2F;leancloud.cn</span><br><span class="line">  username: &lt;your username&gt; # Will be asked while deploying if is left blank</span><br><span class="line">  password: &lt;your password&gt; # Recommmended to be left blank. Will be asked while deploying if is left blank</span><br></pre></td></tr></table></figure>
-
-<p>通过运行以下命令添加应用用户，<username>和<password>与上面配置保持一致：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo lc-counter register &lt;username&gt; &lt;password&gt;</span><br></pre></td></tr></table></figure>
-
-<p>添加成功后，可以在<code>存储→用户</code>里查看：</p>
-<img src="/2020/05/28/blog-services/lean-cloud-register-user.jpg" class="" title="添加用户">
-
-<p>当然，也可以在这个页面上来<code>添加用户</code>。</p>
-<p>在站点配置文件的<code>deploy</code>下添加以下项：</p>
-<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  # other deployer</span><br><span class="line">  - type: leancloud_counter_security_sync</span><br></pre></td></tr></table></figure>
-
-<p>添加后我的<code>deploy</code>完整配置为（注意格式）：</p>
-<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  - type: git</span><br><span class="line">    repo: https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;linjiexin1996.github.io</span><br><span class="line">  - type: leancloud_counter_security_sync</span><br></pre></td></tr></table></figure>
-
-<p>运行<code>hexo clean &amp;&amp; hexo deploy</code>部署，站点<code>source</code>目录下自动生成了一个文件<code>leancloud.memo</code>，记录着已经在使用LeanCloud统计的文章：</p>
-<figure class="highlight plain"><figcaption><span>blog/source/leancloud.memo</span></figcaption><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">&#123;&quot;title&quot;:&quot;Hexo + Next + GitHub Pages 搭建个人博客&quot;,&quot;url&quot;:&quot;&#x2F;2020&#x2F;05&#x2F;25&#x2F;blog-init&#x2F;&quot;&#125;,</span><br><span class="line">&#123;&quot;title&quot;:&quot;Hexo + Next + GitHub Pages 配置Next主题&quot;,&quot;url&quot;:&quot;&#x2F;2020&#x2F;05&#x2F;28&#x2F;blog-config&#x2F;&quot;&#125;,</span><br><span class="line">&#123;&quot;title&quot;:&quot;Hexo + Next + GitHub Pages 集成第三方服务&quot;,&quot;url&quot;:&quot;&#x2F;2020&#x2F;05&#x2F;28&#x2F;blog-services&#x2F;&quot;&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p>查看<code>Counter Class</code>，图中的<code>time</code>字段就是文章的阅读次数：</p>
-<img src="/2020/05/28/blog-services/lean-cloud-counter-class.jpg" class="" title="CounterClass">
-
-<p>查看线上环境效果：</p>
-<img src="/2020/05/28/blog-services/lean-cloud-counter-effect.jpg" class="" title="LeanCloud计数">
-
-<h2 id="主题更新"><a href="#主题更新" class="headerlink" title="主题更新"></a>主题更新</h2><p>2020年6月2日博主更新了站点的Next主题至最新版本<a href="https://theme-next.js.org/next-8-0-0-rc-3-released/" target="_blank" rel="noopener">NexT 8.0.0-rc.3 Released</a>，后面的配置均基于该版本。</p>
-<h2 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h2><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-generator-searchdb</code>:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
-
-<p>编辑<code>站点配置文件</code>，添加以下内容：</p>
-<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># Local Search</span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
-
-<p>编辑<code>主题配置文件</code>，启用本地搜索：</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # If auto, trigger search by changing input.</span><br><span class="line">  # If manual, trigger search by pressing enter key or search button.</span><br><span class="line">  trigger: auto</span><br><span class="line">  # Show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  # Unescape html strings to the readable one.</span><br><span class="line">  unescape: false</span><br><span class="line">  # Preload the search data when the page loads.</span><br><span class="line">  preload: false</span><br></pre></td></tr></table></figure>
-
-<p>启用成功后，侧边栏菜单会多出一项“搜索”，点击显示搜索弹窗：</p>
-<img src="/2020/05/28/blog-services/local-search.jpg" class="" title="本地搜索">
-
-
-
+<p>你也可以向其中添加任何内容。</p>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><a href="https://theme-next.js.org/docs/third-party-services/statistics-and-analytics.html" target="_blank" rel="noopener">Statistics and Analytics | NexT</a></li>
-<li><a href="https://github.com/theme-next/hexo-theme-next/blob/master/docs/zh-CN/LEANCLOUD-COUNTER-SECURITY.md" target="_blank" rel="noopener">修复 LeanCloud 统计插件安全漏洞</a></li>
-<li><a href="https://leaferx.online/2018/02/11/lc-security/" target="_blank" rel="noopener">Leancloud访客统计插件重大安全漏洞修复指南</a></li>
+<li><a href="https://theme-next.js.org/docs/getting-started/" target="_blank" rel="noopener">Getting Started | NexT</a></li>
+<li><a href="https://theme-next.js.org/docs/theme-settings/" target="_blank" rel="noopener">Theme Settings</a></li>
 </ul>
 ]]></content>
       <categories>
-        <category>Blog</category>
+        <category>个人博客建站之路</category>
       </categories>
   </entry>
   <entry>
-    <title>Hexo + Next + GitHub Pages 搭建个人博客</title>
-    <url>/2020/05/25/blog-init/</url>
+    <title>Hexo + Next + Pages 个人博客 - 雏形初现</title>
+    <url>/post/blog-init/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>记录一下自己使用Hexo + Next + GitHub Pages 搭建个人博客的过程。</p>
 <p>框架：Hexo<br>版本：4.2.0<br>GitHub：<a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">https://github.com/hexojs/hexo</a></p>
 <p>主题：Next<br>版本：8.0.0-rc.2<br>GitHub：<a href="https://github.com/next-theme/hexo-theme-next" target="_blank" rel="noopener">https://github.com/next-theme/hexo-theme-next</a></p>
+<a id="more"></a>
+
 <h2 id="搭建GitHub-Pages"><a href="#搭建GitHub-Pages" class="headerlink" title="搭建GitHub Pages"></a>搭建GitHub Pages</h2><h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>转到<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>并<a href="https://github.com/new" target="_blank" rel="noopener">创建一个仓库</a>，命名为<em>username</em>.github.io，其中<em>username</em>是您在GitHub上的用户名（或组织名称）。</p>
 <p>如果仓库的第一部分与您的用户名不完全匹配，则它将无法正常工作，因此请确保正确无误。</p>
-<img src="/2020/05/25/blog-init/create-pages-repository.png" class="" title="创建GitHubPages仓库">
+<img src="/post/blog-init/create-pages-repository.png" class="" title="创建GitHubPages仓库">
 
 <h3 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;username&#x2F;username.github.io</span><br></pre></td></tr></table></figure>
 
@@ -207,10 +276,10 @@
 <h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add --all</span><br><span class="line">git commit -m &quot;Initial commit&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 
 <h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p>启动浏览器并转到<strong>https://<em>username</em>.github.io.</strong></p>
-<img src="/2020/05/25/blog-init/pages-init.png" class="" title="GitHubPages初始化">
+<img src="/post/blog-init/pages-init.png" class="" title="GitHubPages初始化">
 
 <h2 id="Hexo建站"><a href="#Hexo建站" class="headerlink" title="Hexo建站"></a>Hexo建站</h2><h3 id="创建仓库-1"><a href="#创建仓库-1" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>创建一个私有仓库，用于存放<code>博客源代码</code>。上一步创建的<em>username</em>.github.io仓库是用于存放<code>博客生成代码</code>。</p>
-<img src="/2020/05/25/blog-init/create-hexo-repository.png" class="" title="创建Hexo仓库">
+<img src="/post/blog-init/create-hexo-repository.png" class="" title="创建Hexo仓库">
 
 <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>安装Hexo之前需先安装：</p>
 <ul>
@@ -224,7 +293,7 @@
 
 <h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 <p>默认情况下，访问网址为：<code>http://localhost:4000/</code>。</p>
-<img src="/2020/05/25/blog-init/hexo-init-localhost.png" class="" title="hexo初始化">
+<img src="/post/blog-init/hexo-init-localhost.png" class="" title="hexo初始化">
 
 <h3 id="提交代码-1"><a href="#提交代码-1" class="headerlink" title="提交代码"></a>提交代码</h3><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;blog.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;hexo init&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 
@@ -240,7 +309,7 @@
 <li><p>运行 <code>hexo clean &amp;&amp; hexo deploy</code></p>
 </li>
 <li><p>查看 <em>username</em>.github.io 上的网页是否部署成功</p>
-<img src="/2020/05/25/blog-init/hexo-init-pages.png" class="" title="hexo初始化">
+<img src="/post/blog-init/hexo-init-pages.png" class="" title="hexo初始化">
 
 </li>
 </ol>
@@ -248,23 +317,23 @@
 
 <h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><h3 id="添加域名解析记录"><a href="#添加域名解析记录" class="headerlink" title="添加域名解析记录"></a>添加域名解析记录</h3><p>我的域名是在阿里云买的，所以这一步到<a href="https://homenew.console.aliyun.com/" target="_blank" rel="noopener">阿里云控制台</a>的<a href="https://dns.console.aliyun.com/" target="_blank" rel="noopener">云解析DNS
 </a>添加域名解析记录。</p>
-<img src="/2020/05/25/blog-init/add-domain.jpg" class="" title="添加域名">
-<img src="/2020/05/25/blog-init/add-record.jpg" class="" title="添加记录">
-<img src="/2020/05/25/blog-init/dns-setting.jpg" class="" title="DNS设置">
+<img src="/post/blog-init/add-domain.jpg" class="" title="添加域名">
+<img src="/post/blog-init/add-record.jpg" class="" title="添加记录">
+<img src="/post/blog-init/dns-setting.jpg" class="" title="DNS设置">
 
 <h3 id="设置自定义域名"><a href="#设置自定义域名" class="headerlink" title="设置自定义域名"></a>设置自定义域名</h3><p>转到<em>username</em>.github.io仓库，点击“Settings”，找到“GitHub Pages”，输入自己的域名。</p>
-<img src="/2020/05/25/blog-init/custom-domain-input.png" class="" title="输入自定义域名">
+<img src="/post/blog-init/custom-domain-input.png" class="" title="输入自定义域名">
 
 <p>点击“Save”，页面自动刷新，再看下“GitHub Pages”。</p>
-<img src="/2020/05/25/blog-init/custom-domain-http1.png" class="" title="自定义域名HTTP生效">
-<img src="/2020/05/25/blog-init/custom-domain-http2.png" class="" title="自定义域名HTTP生效">
+<img src="/post/blog-init/custom-domain-http1.png" class="" title="自定义域名HTTP生效">
+<img src="/post/blog-init/custom-domain-http2.png" class="" title="自定义域名HTTP生效">
 
 <p>由于TLS证书未生效，所以此时还是http协议<code>http://blog.linjiexin.com/</code>，地址栏显示“不安全”，等证书生效后，再看将会是https协议<code>https://blog.linjiexin.com/</code>：</p>
-<img src="/2020/05/25/blog-init/custom-domain-https1.png" class="" title="自定义域名HTTPS生效">
-<img src="/2020/05/25/blog-init/custom-domain-https2.png" class="" title="自定义域名HTTPS生效">
-<img src="/2020/05/25/blog-init/custom-domain-https3.png" class="" title="自定义域名HTTPS生效">
-<img src="/2020/05/25/blog-init/custom-domain-https4.png" class="" title="自定义域名HTTPS生效">
-<img src="/2020/05/25/blog-init/custom-domain-https5.png" class="" title="自定义域名HTTPS生效">
+<img src="/post/blog-init/custom-domain-https1.png" class="" title="自定义域名HTTPS生效">
+<img src="/post/blog-init/custom-domain-https2.png" class="" title="自定义域名HTTPS生效">
+<img src="/post/blog-init/custom-domain-https3.png" class="" title="自定义域名HTTPS生效">
+<img src="/post/blog-init/custom-domain-https4.png" class="" title="自定义域名HTTPS生效">
+<img src="/post/blog-init/custom-domain-https5.png" class="" title="自定义域名HTTPS生效">
 
 <h3 id="添加CNAME"><a href="#添加CNAME" class="headerlink" title="添加CNAME"></a>添加CNAME</h3><p>域名绑定成功后，仓库根目录会多出一个<code>CNAME</code>文件，内容为绑定的域名：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">blog.linjiexin.com</span><br></pre></td></tr></table></figure>
@@ -297,14 +366,14 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: My New Post</span><br><span class="line">date: 2020-05-16 13:14:08</span><br><span class="line">tags:</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">加点内容</span><br></pre></td></tr></table></figure>
 
 <p>在本地服务器（<code>http://localhost:4000/</code>）上查看。</p>
-<img src="/2020/05/25/blog-init/post-demo1.png" class="" title="MyNewPost">
+<img src="/post/blog-init/post-demo1.png" class="" title="MyNewPost">
 
 <h3 id="引用资源"><a href="#引用资源" class="headerlink" title="引用资源"></a>引用资源</h3><p>正确的引用图片方式是使用下列的标签插件而不是 markdown：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;% asset_img example.jpg This is an example image %&#125;</span><br></pre></td></tr></table></figure>
 
 <p>通过这种方式，图片将会同时出现在文章和主页以及归档页中。</p>
 <p>如果通过使用相对路径的常规 markdown 语法<code>![](/example.jpg)</code>，它将<em>不会</em>出现在首页上。（但是它会在文章中按你期待的方式工作）</p>
-<img src="/2020/05/25/blog-init/post-demo2.png" class="" title="MyNewPost">
+<img src="/post/blog-init/post-demo2.png" class="" title="MyNewPost">
 
 <h3 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h3><p>生成静态文件：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
@@ -329,10 +398,10 @@
 </ol>
 <p>在浏览器中打开<code>http://localhost:4000</code>，查看效果。</p>
 <p>这是默认的NexT方案– Muse。</p>
-<img src="/2020/05/25/blog-init/next-init.png" class="" title="初始化next主题">
+<img src="/post/blog-init/next-init.png" class="" title="初始化next主题">
 
 <h3 id="提交代码-5"><a href="#提交代码-5" class="headerlink" title="提交代码"></a>提交代码</h3><p>因为前面是直接把Next主题仓库克隆到站点目录，有什么改动是无法推送到作者 Git 仓库的，所以这里将<a href="https://github.com/next-theme/hexo-theme-next" target="_blank" rel="noopener">Next主题仓库</a>Fork到自己仓库：</p>
-<img src="/2020/05/25/blog-init/next-fork1.png" class="" title="forknext主题">
+<img src="/post/blog-init/next-fork1.png" class="" title="forknext主题">
 
 <p>得到自己账号下同名仓库的URL，添加子模块：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git submodule add https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;hexo-theme-next.git themes&#x2F;next</span><br></pre></td></tr></table></figure>
@@ -344,10 +413,10 @@
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;config: 使用Next主题&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 
 <p>在自己的博客源代码仓库上可以看到<code>themes/next</code>目录是显示成这样的：</p>
-<img src="/2020/05/25/blog-init/next-fork2.png" class="" title="forknext主题">
+<img src="/post/blog-init/next-fork2.png" class="" title="forknext主题">
 
 <p>点击跳转到Fork的仓库。</p>
-<img src="/2020/05/25/blog-init/next-fork3.png" class="" title="forknext主题">
+<img src="/post/blog-init/next-fork3.png" class="" title="forknext主题">
 
 <h3 id="选择方案"><a href="#选择方案" class="headerlink" title="选择方案"></a>选择方案</h3><p>先修改主题仓库远程地址为自己的，后面才能正常提交代码：</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd themes&#x2F;next</span><br><span class="line">git remote set-url origin https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;hexo-theme-next.git</span><br><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
@@ -371,36 +440,38 @@
 </ul>
 ]]></content>
       <categories>
-        <category>Blog</category>
+        <category>个人博客建站之路</category>
       </categories>
   </entry>
   <entry>
-    <title>使用百度翻译API</title>
-    <url>/2020/06/03/baidu-translate-api/</url>
+    <title>使用百度通用翻译API</title>
+    <url>/post/baidu-translate-api/</url>
     <content><![CDATA[<h2 id="注册百度账号"><a href="#注册百度账号" class="headerlink" title="注册百度账号"></a>注册百度账号</h2><p><a href="https://passport.baidu.com/v2/?reg" target="_blank" rel="noopener">注册百度账号</a>：</p>
-<img src="/2020/06/03/baidu-translate-api/baidu-register.jpg" class="" title="注册百度账号">
+<a id="more"></a>
+
+<img src="/post/baidu-translate-api/baidu-register.jpg" class="" title="注册百度账号">
 
 <h2 id="登录百度翻译开放平台"><a href="#登录百度翻译开放平台" class="headerlink" title="登录百度翻译开放平台"></a>登录百度翻译开放平台</h2><p>登录<a href="https://fanyi-api.baidu.com/" target="_blank" rel="noopener">百度翻译开放平台</a>：</p>
-<img src="/2020/06/03/baidu-translate-api/fanyi-api.baidu.com.jpg" class="" title="百度翻译开放平台">
+<img src="/post/baidu-translate-api/fanyi-api.baidu.com.jpg" class="" title="百度翻译开放平台">
 
 <h2 id="注册成为开发者，获得APPID"><a href="#注册成为开发者，获得APPID" class="headerlink" title="注册成为开发者，获得APPID"></a>注册成为开发者，获得APPID</h2><p>选择“个人开发者”，按需填写个人基本信息，然后点击“下一步”：</p>
-<img src="/2020/06/03/baidu-translate-api/api-apply1.jpg" class="" title="注册成为开发者">
+<img src="/post/baidu-translate-api/api-apply1.jpg" class="" title="注册成为开发者">
 
 <p>这里由于我仅需标准版，所以跳过了后面的开发者认证。</p>
 <p>注册成功后，<code>APPID</code>和<code>密钥</code>可到“管理控制台”查看：</p>
-<img src="/2020/06/03/baidu-translate-api/developer-info.jpg" class="" title="开发者信息">
+<img src="/post/baidu-translate-api/developer-info.jpg" class="" title="开发者信息">
 
 <h2 id="开通通用翻译API服务"><a href="#开通通用翻译API服务" class="headerlink" title="开通通用翻译API服务"></a>开通通用翻译API服务</h2><p>打开<a href="https://fanyi-api.baidu.com/product/11" target="_blank" rel="noopener">产品服务 - 通用翻译</a>：</p>
-<img src="/2020/06/03/baidu-translate-api/common-translate-product.png" class="" title="通用翻译API">
+<img src="/post/baidu-translate-api/common-translate-product.png" class="" title="通用翻译API">
 
 <p>点击<a href="https://api.fanyi.baidu.com/api/trans/product/apiaccess?form=1" target="_blank" rel="noopener">立即使用</a>：</p>
-<img src="/2020/06/03/baidu-translate-api/api-access1.png" class="" title="开通通用翻译API">
+<img src="/post/baidu-translate-api/api-access1.png" class="" title="开通通用翻译API">
 
 <p>点击<code>开通标准版</code>：</p>
-<img src="/2020/06/03/baidu-translate-api/api-access2.png" class="" title="开通标准版">
+<img src="/post/baidu-translate-api/api-access2.png" class="" title="开通标准版">
 
 <p>点击<code>我已了解，确认开通</code>：</p>
-<img src="/2020/06/03/baidu-translate-api/api-access-success.png" class="" title="已成功开通【通用翻译API】">
+<img src="/post/baidu-translate-api/api-access-success.png" class="" title="已成功开通【通用翻译API】">
 
 <h2 id="参考文档和Demo编写代码"><a href="#参考文档和Demo编写代码" class="headerlink" title="参考文档和Demo编写代码"></a>参考文档和Demo编写代码</h2><h3 id="接入方式"><a href="#接入方式" class="headerlink" title="接入方式"></a>接入方式</h3><p>通用翻译API通过HTTP接口对外提供多语种互译服务。您只需要通过调用通用翻译API，传入待翻译的内容，并指定要翻译的源语言（支持源语言语种自动检测）和目标语言种类，就可以得到相应的翻译结果。</p>
 <p>通用翻译API HTTP地址：<br><a href="http://api.fanyi.baidu.com/api/trans/vip/translate" target="_blank" rel="noopener">http://api.fanyi.baidu.com/api/trans/vip/translate</a></p>
@@ -521,20 +592,20 @@
 <p>打开<code>index.html</code>，将<code>appid</code>和<code>key</code>变量值修改为自己账号的<code>APPID</code>和<code>密钥</code>，然后打开浏览器控制台查看结果：</p>
 <figure class="highlight javascript"><figcaption><span>index.html</span></figcaption><table><tr><td class="code"><pre><span class="line">&lt;!doctype html&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">"utf-8"</span>/&gt;</span><br><span class="line">&lt;<span class="regexp">/head&gt;</span></span><br><span class="line"><span class="regexp">&lt;body&gt;</span></span><br><span class="line"><span class="regexp">&lt;div&gt;可打开浏览器控制台查看结果&lt;/</span>div&gt;</span><br><span class="line">&lt;script src=<span class="string">"http://apps.bdimg.com/libs/jquery/1.9.1/jquery.min.js"</span>&gt;&lt;<span class="regexp">/script&gt;</span></span><br><span class="line"><span class="regexp">&lt;script src="./m</span>d5.js<span class="string">"&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;script type="</span>text/javascript<span class="string">"&gt;</span></span><br><span class="line"><span class="string">var appid = '你的APPID';</span></span><br><span class="line"><span class="string">var key = '你的密钥';</span></span><br><span class="line"><span class="string">var salt = (new Date).getTime();</span></span><br><span class="line"><span class="string">var query = 'apple';</span></span><br><span class="line"><span class="string">// 多个query可以用\n连接  如 query='apple\norange\nbanana\npear'</span></span><br><span class="line"><span class="string">var from = 'en';</span></span><br><span class="line"><span class="string">var to = 'zh';</span></span><br><span class="line"><span class="string">var str1 = appid + query + salt +key;</span></span><br><span class="line"><span class="string">var sign = MD5(str1);</span></span><br><span class="line"><span class="string">$.ajax(&#123;</span></span><br><span class="line"><span class="string">    url: 'http://api.fanyi.baidu.com/api/trans/vip/translate',</span></span><br><span class="line"><span class="string">    type: 'get',</span></span><br><span class="line"><span class="string">    dataType: 'jsonp',</span></span><br><span class="line"><span class="string">    data: &#123;</span></span><br><span class="line"><span class="string">        q: query,</span></span><br><span class="line"><span class="string">        appid: appid,</span></span><br><span class="line"><span class="string">        salt: salt,</span></span><br><span class="line"><span class="string">        from: from,</span></span><br><span class="line"><span class="string">        to: to,</span></span><br><span class="line"><span class="string">        sign: sign</span></span><br><span class="line"><span class="string">    &#125;,</span></span><br><span class="line"><span class="string">    success: function (data) &#123;</span></span><br><span class="line"><span class="string">        console.log(data);</span></span><br><span class="line"><span class="string">    &#125; </span></span><br><span class="line"><span class="string">&#125;);</span></span><br><span class="line"><span class="string">&lt;/script&gt;</span></span><br><span class="line"><span class="string">&lt;/body&gt;</span></span><br></pre></td></tr></table></figure>
 
-<img src="/2020/06/03/baidu-translate-api/translate-apple.jpg" class="" title="翻译“苹果”">
+<img src="/post/baidu-translate-api/translate-apple.jpg" class="" title="翻译“苹果”">
 
 <h3 id="翻译多段文本"><a href="#翻译多段文本" class="headerlink" title="翻译多段文本"></a>翻译多段文本</h3><p>多个query可以用<code>\n</code>连接，这里将<code>query</code>改为Demo中的<code>&#39;apple\norange\nbanana\npear&#39;</code>：</p>
 <figure class="highlight javascript"><figcaption><span>index.html</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> query = <span class="string">'apple\norange\nbanana\npear'</span>;</span><br></pre></td></tr></table></figure>
 
-<img src="/2020/06/03/baidu-translate-api/translate-multi-line.jpg" class="" title="翻译多段文本">
+<img src="/post/baidu-translate-api/translate-multi-line.jpg" class="" title="翻译多段文本">
 
 <p>这样就可以做到在一次请求中翻译多个单词或者多段文本，但实际场景中多段文本不会自动用<code>\n</code>连接，而是这样的格式：</p>
-<img src="/2020/06/03/baidu-translate-api/multi-line-text-variable.jpg" class="" title="多行文本变量">
+<img src="/post/baidu-translate-api/multi-line-text-variable.jpg" class="" title="多行文本变量">
 
 <p>将<code>multiLineText</code>变量赋值给<code>q</code>并进行翻译：</p>
 <figure class="highlight javascript"><figcaption><span>index.html</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> multiLineText = <span class="string">`</span></span><br><span class="line"><span class="string">    apple</span></span><br><span class="line"><span class="string">    orange</span></span><br><span class="line"><span class="string">    banana</span></span><br><span class="line"><span class="string">    pear</span></span><br><span class="line"><span class="string">`</span>;</span><br><span class="line"><span class="keyword">var</span> query = multiLineText;</span><br></pre></td></tr></table></figure>
 
-<img src="/2020/06/03/baidu-translate-api/translate-multi-line.jpg" class="" title="翻译多段文本">
+<img src="/post/baidu-translate-api/translate-multi-line.jpg" class="" title="翻译多段文本">
 
 <p>这里依然翻译成功是因为jQuery对参数做了URL encode。</p>
 <p>注意：如果是自己封装JSONP，在生成签名拼接 appid+q+salt+密钥 字符串时，q不需要做URL encode，在生成签名之后，发送HTTP请求之前才需要对要发送的待翻译文本字段q做URL encode，否则会签名错误（Invalid Sign）。</p>
@@ -544,26 +615,26 @@
 
 <figure class="highlight javascript"><figcaption><span>index.html</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> query = <span class="string">'apple orange banana pear'</span>;</span><br></pre></td></tr></table></figure>
 
-<img src="/2020/06/03/baidu-translate-api/translate-no-line-break.jpg" class="" title="翻译多个单词（无换行）"> -->
+<img src="/post/baidu-translate-api/translate-no-line-break.jpg" class="" title="翻译多个单词（无换行）"> -->
 
 <!-- Demo是英语转中文，这里我们反过来， -->
 
 <h3 id="翻译带Emoji的文本"><a href="#翻译带Emoji的文本" class="headerlink" title="翻译带Emoji的文本"></a>翻译带Emoji的文本</h3><p>实际应用中可能出现文本带Emoji表情的情况，此时如果不作任何处理，会出现签名错误的情况：</p>
 <figure class="highlight javascript"><figcaption><span>index.html</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> query = <span class="string">'🍎apple'</span>;</span><br></pre></td></tr></table></figure>
 
-<img src="/2020/06/03/baidu-translate-api/54001-invalid-sign.jpg" class="" title="签名错误">
+<img src="/post/baidu-translate-api/54001-invalid-sign.jpg" class="" title="签名错误">
 
 <p>这时可以将所有Emoji过滤掉，只翻译纯文本：</p>
 <figure class="highlight javascript"><figcaption><span>index.html</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="keyword">var</span> emojiRegex = <span class="regexp">/\uD83C\uDFF4\uDB40\uDC67\uDB40\uDC62(?:\uDB40\uDC77\uDB40\uDC6C\uDB40\uDC73|\uDB40\uDC73\uDB40\uDC63\uDB40\uDC74|\uDB40\uDC65\uDB40\uDC6E\uDB40\uDC67)\uDB40\uDC7F|\uD83D\uDC69\u200D\uD83D\uDC69\u200D(?:\uD83D\uDC66\u200D\uD83D\uDC66|\uD83D\uDC67\u200D(?:\uD83D[\uDC66\uDC67]))|\uD83D\uDC68(?:\uD83C\uDFFF\u200D(?:\uD83E\uDD1D\u200D\uD83D\uDC68(?:\uD83C[\uDFFB-\uDFFE])|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFE\u200D(?:\uD83E\uDD1D\u200D\uD83D\uDC68(?:\uD83C[\uDFFB-\uDFFD\uDFFF])|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFD\u200D(?:\uD83E\uDD1D\u200D\uD83D\uDC68(?:\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF])|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFC\u200D(?:\uD83E\uDD1D\u200D\uD83D\uDC68(?:\uD83C[\uDFFB\uDFFD-\uDFFF])|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFB\u200D(?:\uD83E\uDD1D\u200D\uD83D\uDC68(?:\uD83C[\uDFFC-\uDFFF])|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\u200D(?:\u2764\uFE0F\u200D(?:\uD83D\uDC8B\u200D)?\uD83D\uDC68|(?:\uD83D[\uDC68\uDC69])\u200D(?:\uD83D\uDC66\u200D\uD83D\uDC66|\uD83D\uDC67\u200D(?:\uD83D[\uDC66\uDC67]))|\uD83D\uDC66\u200D\uD83D\uDC66|\uD83D\uDC67\u200D(?:\uD83D[\uDC66\uDC67])|(?:\uD83D[\uDC68\uDC69])\u200D(?:\uD83D[\uDC66\uDC67])|[\u2695\u2696\u2708]\uFE0F|\uD83D[\uDC66\uDC67]|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|(?:\uD83C\uDFFF\u200D[\u2695\u2696\u2708]|\uD83C\uDFFE\u200D[\u2695\u2696\u2708]|\uD83C\uDFFD\u200D[\u2695\u2696\u2708]|\uD83C\uDFFC\u200D[\u2695\u2696\u2708]|\uD83C\uDFFB\u200D[\u2695\u2696\u2708])\uFE0F|\uD83C[\uDFFB-\uDFFF])|\uD83E\uDDD1(?:(?:\uD83C[\uDFFB-\uDFFF])\u200D(?:\uD83E\uDD1D\u200D\uD83E\uDDD1(?:\uD83C[\uDFFB-\uDFFF])|\uD83C[\uDF3E\uDF73\uDF7C\uDF84\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\u200D(?:\uD83E\uDD1D\u200D\uD83E\uDDD1|\uD83C[\uDF3E\uDF73\uDF7C\uDF84\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD]))|\uD83D\uDC69(?:\u200D(?:\u2764\uFE0F\u200D(?:\uD83D\uDC8B\u200D(?:\uD83D[\uDC68\uDC69])|\uD83D[\uDC68\uDC69])|\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFF\u200D(?:\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFE\u200D(?:\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFD\u200D(?:\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFC\u200D(?:\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD])|\uD83C\uDFFB\u200D(?:\uD83C[\uDF3E\uDF73\uDF7C\uDF93\uDFA4\uDFA8\uDFEB\uDFED]|\uD83D[\uDCBB\uDCBC\uDD27\uDD2C\uDE80\uDE92]|\uD83E[\uDDAF-\uDDB3\uDDBC\uDDBD]))|\uD83D\uDC69\uD83C\uDFFF\u200D\uD83E\uDD1D\u200D(?:\uD83D[\uDC68\uDC69])(?:\uD83C[\uDFFB-\uDFFE])|\uD83D\uDC69\uD83C\uDFFE\u200D\uD83E\uDD1D\u200D(?:\uD83D[\uDC68\uDC69])(?:\uD83C[\uDFFB-\uDFFD\uDFFF])|\uD83D\uDC69\uD83C\uDFFD\u200D\uD83E\uDD1D\u200D(?:\uD83D[\uDC68\uDC69])(?:\uD83C[\uDFFB\uDFFC\uDFFE\uDFFF])|\uD83D\uDC69\uD83C\uDFFC\u200D\uD83E\uDD1D\u200D(?:\uD83D[\uDC68\uDC69])(?:\uD83C[\uDFFB\uDFFD-\uDFFF])|\uD83D\uDC69\uD83C\uDFFB\u200D\uD83E\uDD1D\u200D(?:\uD83D[\uDC68\uDC69])(?:\uD83C[\uDFFC-\uDFFF])|\uD83D\uDC69\u200D\uD83D\uDC66\u200D\uD83D\uDC66|\uD83D\uDC69\u200D\uD83D\uDC69\u200D(?:\uD83D[\uDC66\uDC67])|(?:\uD83D\uDC41\uFE0F\u200D\uD83D\uDDE8|\uD83D\uDC69(?:\uD83C\uDFFF\u200D[\u2695\u2696\u2708]|\uD83C\uDFFE\u200D[\u2695\u2696\u2708]|\uD83C\uDFFD\u200D[\u2695\u2696\u2708]|\uD83C\uDFFC\u200D[\u2695\u2696\u2708]|\uD83C\uDFFB\u200D[\u2695\u2696\u2708]|\u200D[\u2695\u2696\u2708])|\uD83C\uDFF3\uFE0F\u200D\u26A7|\uD83E\uDDD1(?:(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2695\u2696\u2708]|\u200D[\u2695\u2696\u2708])|\uD83D\uDC3B\u200D\u2744|(?:\uD83C[\uDFC3\uDFC4\uDFCA]|\uD83D[\uDC6E\uDC70\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6]|\uD83E[\uDD26\uDD35\uDD37-\uDD39\uDD3D\uDD3E\uDDB8\uDDB9\uDDCD-\uDDCF\uDDD6-\uDDDD])(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2640\u2642]|(?:\u26F9|\uD83C[\uDFCB\uDFCC]|\uD83D\uDD75)(?:\uFE0F\u200D[\u2640\u2642]|(?:\uD83C[\uDFFB-\uDFFF])\u200D[\u2640\u2642])|\uD83C\uDFF4\u200D\u2620|(?:\uD83C[\uDFC3\uDFC4\uDFCA]|\uD83D[\uDC6E-\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6]|\uD83E[\uDD26\uDD35\uDD37-\uDD39\uDD3C-\uDD3E\uDDB8\uDDB9\uDDCD-\uDDCF\uDDD6-\uDDDF])\u200D[\u2640\u2642])\uFE0F|\uD83D\uDC69\u200D\uD83D\uDC67\u200D(?:\uD83D[\uDC66\uDC67])|\uD83C\uDFF3\uFE0F\u200D\uD83C\uDF08|\uD83D\uDC69\u200D\uD83D\uDC67|\uD83D\uDC69\u200D\uD83D\uDC66|\uD83D\uDC15\u200D\uD83E\uDDBA|\uD83C\uDDFD\uD83C\uDDF0|\uD83C\uDDF6\uD83C\uDDE6|\uD83C\uDDF4\uD83C\uDDF2|\uD83D\uDC08\u200D\u2B1B|\uD83E\uDDD1(?:\uD83C[\uDFFB-\uDFFF])|\uD83D\uDC69(?:\uD83C[\uDFFB-\uDFFF])|\uD83C\uDDFF(?:\uD83C[\uDDE6\uDDF2\uDDFC])|\uD83C\uDDFE(?:\uD83C[\uDDEA\uDDF9])|\uD83C\uDDFC(?:\uD83C[\uDDEB\uDDF8])|\uD83C\uDDFB(?:\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDEE\uDDF3\uDDFA])|\uD83C\uDDFA(?:\uD83C[\uDDE6\uDDEC\uDDF2\uDDF3\uDDF8\uDDFE\uDDFF])|\uD83C\uDDF9(?:\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDED\uDDEF-\uDDF4\uDDF7\uDDF9\uDDFB\uDDFC\uDDFF])|\uD83C\uDDF8(?:\uD83C[\uDDE6-\uDDEA\uDDEC-\uDDF4\uDDF7-\uDDF9\uDDFB\uDDFD-\uDDFF])|\uD83C\uDDF7(?:\uD83C[\uDDEA\uDDF4\uDDF8\uDDFA\uDDFC])|\uD83C\uDDF5(?:\uD83C[\uDDE6\uDDEA-\uDDED\uDDF0-\uDDF3\uDDF7-\uDDF9\uDDFC\uDDFE])|\uD83C\uDDF3(?:\uD83C[\uDDE6\uDDE8\uDDEA-\uDDEC\uDDEE\uDDF1\uDDF4\uDDF5\uDDF7\uDDFA\uDDFF])|\uD83C\uDDF2(?:\uD83C[\uDDE6\uDDE8-\uDDED\uDDF0-\uDDFF])|\uD83C\uDDF1(?:\uD83C[\uDDE6-\uDDE8\uDDEE\uDDF0\uDDF7-\uDDFB\uDDFE])|\uD83C\uDDF0(?:\uD83C[\uDDEA\uDDEC-\uDDEE\uDDF2\uDDF3\uDDF5\uDDF7\uDDFC\uDDFE\uDDFF])|\uD83C\uDDEF(?:\uD83C[\uDDEA\uDDF2\uDDF4\uDDF5])|\uD83C\uDDEE(?:\uD83C[\uDDE8-\uDDEA\uDDF1-\uDDF4\uDDF6-\uDDF9])|\uD83C\uDDED(?:\uD83C[\uDDF0\uDDF2\uDDF3\uDDF7\uDDF9\uDDFA])|\uD83C\uDDEC(?:\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEE\uDDF1-\uDDF3\uDDF5-\uDDFA\uDDFC\uDDFE])|\uD83C\uDDEB(?:\uD83C[\uDDEE-\uDDF0\uDDF2\uDDF4\uDDF7])|\uD83C\uDDEA(?:\uD83C[\uDDE6\uDDE8\uDDEA\uDDEC\uDDED\uDDF7-\uDDFA])|\uD83C\uDDE9(?:\uD83C[\uDDEA\uDDEC\uDDEF\uDDF0\uDDF2\uDDF4\uDDFF])|\uD83C\uDDE8(?:\uD83C[\uDDE6\uDDE8\uDDE9\uDDEB-\uDDEE\uDDF0-\uDDF5\uDDF7\uDDFA-\uDDFF])|\uD83C\uDDE7(?:\uD83C[\uDDE6\uDDE7\uDDE9-\uDDEF\uDDF1-\uDDF4\uDDF6-\uDDF9\uDDFB\uDDFC\uDDFE\uDDFF])|\uD83C\uDDE6(?:\uD83C[\uDDE8-\uDDEC\uDDEE\uDDF1\uDDF2\uDDF4\uDDF6-\uDDFA\uDDFC\uDDFD\uDDFF])|[#\*0-9]\uFE0F\u20E3|(?:\uD83C[\uDFC3\uDFC4\uDFCA]|\uD83D[\uDC6E\uDC70\uDC71\uDC73\uDC77\uDC81\uDC82\uDC86\uDC87\uDE45-\uDE47\uDE4B\uDE4D\uDE4E\uDEA3\uDEB4-\uDEB6]|\uD83E[\uDD26\uDD35\uDD37-\uDD39\uDD3D\uDD3E\uDDB8\uDDB9\uDDCD-\uDDCF\uDDD6-\uDDDD])(?:\uD83C[\uDFFB-\uDFFF])|(?:\u26F9|\uD83C[\uDFCB\uDFCC]|\uD83D\uDD75)(?:\uD83C[\uDFFB-\uDFFF])|(?:[\u261D\u270A-\u270D]|\uD83C[\uDF85\uDFC2\uDFC7]|\uD83D[\uDC42\uDC43\uDC46-\uDC50\uDC66\uDC67\uDC6B-\uDC6D\uDC72\uDC74-\uDC76\uDC78\uDC7C\uDC83\uDC85\uDCAA\uDD74\uDD7A\uDD90\uDD95\uDD96\uDE4C\uDE4F\uDEC0\uDECC]|\uD83E[\uDD0C\uDD0F\uDD18-\uDD1C\uDD1E\uDD1F\uDD30-\uDD34\uDD36\uDD77\uDDB5\uDDB6\uDDBB\uDDD2-\uDDD5])(?:\uD83C[\uDFFB-\uDFFF])|(?:[\u231A\u231B\u23E9-\u23EC\u23F0\u23F3\u25FD\u25FE\u2614\u2615\u2648-\u2653\u267F\u2693\u26A1\u26AA\u26AB\u26BD\u26BE\u26C4\u26C5\u26CE\u26D4\u26EA\u26F2\u26F3\u26F5\u26FA\u26FD\u2705\u270A\u270B\u2728\u274C\u274E\u2753-\u2755\u2757\u2795-\u2797\u27B0\u27BF\u2B1B\u2B1C\u2B50\u2B55]|\uD83C[\uDC04\uDCCF\uDD8E\uDD91-\uDD9A\uDDE6-\uDDFF\uDE01\uDE1A\uDE2F\uDE32-\uDE36\uDE38-\uDE3A\uDE50\uDE51\uDF00-\uDF20\uDF2D-\uDF35\uDF37-\uDF7C\uDF7E-\uDF93\uDFA0-\uDFCA\uDFCF-\uDFD3\uDFE0-\uDFF0\uDFF4\uDFF8-\uDFFF]|\uD83D[\uDC00-\uDC3E\uDC40\uDC42-\uDCFC\uDCFF-\uDD3D\uDD4B-\uDD4E\uDD50-\uDD67\uDD7A\uDD95\uDD96\uDDA4\uDDFB-\uDE4F\uDE80-\uDEC5\uDECC\uDED0-\uDED2\uDED5-\uDED7\uDEEB\uDEEC\uDEF4-\uDEFC\uDFE0-\uDFEB]|\uD83E[\uDD0C-\uDD3A\uDD3C-\uDD45\uDD47-\uDD78\uDD7A-\uDDCB\uDDCD-\uDDFF\uDE70-\uDE74\uDE78-\uDE7A\uDE80-\uDE86\uDE90-\uDEA8\uDEB0-\uDEB6\uDEC0-\uDEC2\uDED0-\uDED6])|(?:[#\*0-9\xA9\xAE\u203C\u2049\u2122\u2139\u2194-\u2199\u21A9\u21AA\u231A\u231B\u2328\u23CF\u23E9-\u23F3\u23F8-\u23FA\u24C2\u25AA\u25AB\u25B6\u25C0\u25FB-\u25FE\u2600-\u2604\u260E\u2611\u2614\u2615\u2618\u261D\u2620\u2622\u2623\u2626\u262A\u262E\u262F\u2638-\u263A\u2640\u2642\u2648-\u2653\u265F\u2660\u2663\u2665\u2666\u2668\u267B\u267E\u267F\u2692-\u2697\u2699\u269B\u269C\u26A0\u26A1\u26A7\u26AA\u26AB\u26B0\u26B1\u26BD\u26BE\u26C4\u26C5\u26C8\u26CE\u26CF\u26D1\u26D3\u26D4\u26E9\u26EA\u26F0-\u26F5\u26F7-\u26FA\u26FD\u2702\u2705\u2708-\u270D\u270F\u2712\u2714\u2716\u271D\u2721\u2728\u2733\u2734\u2744\u2747\u274C\u274E\u2753-\u2755\u2757\u2763\u2764\u2795-\u2797\u27A1\u27B0\u27BF\u2934\u2935\u2B05-\u2B07\u2B1B\u2B1C\u2B50\u2B55\u3030\u303D\u3297\u3299]|\uD83C[\uDC04\uDCCF\uDD70\uDD71\uDD7E\uDD7F\uDD8E\uDD91-\uDD9A\uDDE6-\uDDFF\uDE01\uDE02\uDE1A\uDE2F\uDE32-\uDE3A\uDE50\uDE51\uDF00-\uDF21\uDF24-\uDF93\uDF96\uDF97\uDF99-\uDF9B\uDF9E-\uDFF0\uDFF3-\uDFF5\uDFF7-\uDFFF]|\uD83D[\uDC00-\uDCFD\uDCFF-\uDD3D\uDD49-\uDD4E\uDD50-\uDD67\uDD6F\uDD70\uDD73-\uDD7A\uDD87\uDD8A-\uDD8D\uDD90\uDD95\uDD96\uDDA4\uDDA5\uDDA8\uDDB1\uDDB2\uDDBC\uDDC2-\uDDC4\uDDD1-\uDDD3\uDDDC-\uDDDE\uDDE1\uDDE3\uDDE8\uDDEF\uDDF3\uDDFA-\uDE4F\uDE80-\uDEC5\uDECB-\uDED2\uDED5-\uDED7\uDEE0-\uDEE5\uDEE9\uDEEB\uDEEC\uDEF0\uDEF3-\uDEFC\uDFE0-\uDFEB]|\uD83E[\uDD0C-\uDD3A\uDD3C-\uDD45\uDD47-\uDD78\uDD7A-\uDDCB\uDDCD-\uDDFF\uDE70-\uDE74\uDE78-\uDE7A\uDE80-\uDE86\uDE90-\uDEA8\uDEB0-\uDEB6\uDEC0-\uDEC2\uDED0-\uDED6])\uFE0F|(?:[\u261D\u26F9\u270A-\u270D]|\uD83C[\uDF85\uDFC2-\uDFC4\uDFC7\uDFCA-\uDFCC]|\uD83D[\uDC42\uDC43\uDC46-\uDC50\uDC66-\uDC78\uDC7C\uDC81-\uDC83\uDC85-\uDC87\uDC8F\uDC91\uDCAA\uDD74\uDD75\uDD7A\uDD90\uDD95\uDD96\uDE45-\uDE47\uDE4B-\uDE4F\uDEA3\uDEB4-\uDEB6\uDEC0\uDECC]|\uD83E[\uDD0C\uDD0F\uDD18-\uDD1F\uDD26\uDD30-\uDD39\uDD3C-\uDD3E\uDD77\uDDB5\uDDB6\uDDB8\uDDB9\uDDBB\uDDCD-\uDDCF\uDDD1-\uDDDD])/g</span>;</span><br><span class="line"><span class="keyword">var</span> query = <span class="string">'🍎apple'</span>.replace(emojiRegex, <span class="string">''</span>);</span><br></pre></td></tr></table></figure>
 
 <p>上面的Emoji正则表达式来自<a href="https://www.npmjs.com/package/emoji-regex" target="_blank" rel="noopener">emoji-regex</a>。</p>
-<h3 id="请求频率超限"><a href="#请求频率超限" class="headerlink" title="请求频率超限"></a>请求频率超限</h3><img src="/2020/06/03/baidu-translate-api/54003-invalid-access-limit.jpg" class="" title="请求频率超限">
+<h3 id="请求频率超限"><a href="#请求频率超限" class="headerlink" title="请求频率超限"></a>请求频率超限</h3><img src="/post/baidu-translate-api/54003-invalid-access-limit.jpg" class="" title="请求频率超限">
 
 <p>对于标准版服务，QPS（每秒请求量）=1，如需更大频率，需先进行身份认证，认证通过后可切换为高级版（适用于个人，QPS=10）或尊享版（适用于企业，QPS=100）。</p>
 <p>更多问题请查看<a href="https://api.fanyi.baidu.com/api/trans/product/apidoc#languageList" target="_blank" rel="noopener">常见问题 | 百度翻译开发平台</a>。</p>
 <h3 id="使用HTTPS地址"><a href="#使用HTTPS地址" class="headerlink" title="使用HTTPS地址"></a>使用HTTPS地址</h3><p>可以看到，HTTP地址重定向到了HTTPS地址，所以可以直接使用HTTPS地址，避免重定向 。</p>
-<img src="/2020/06/03/baidu-translate-api/http-redirect-https.jpg" class="" title="HTTP重定向">
-<img src="/2020/06/03/baidu-translate-api/307-internal-redirect.jpg" class="" title="HTTP重定向">
+<img src="/post/baidu-translate-api/http-redirect-https.jpg" class="" title="HTTP重定向">
+<img src="/post/baidu-translate-api/307-internal-redirect.jpg" class="" title="HTTP重定向">
 
 <figure class="highlight javascript"><figcaption><span>index.html</span></figcaption><table><tr><td class="code"><pre><span class="line">url: <span class="string">'https://api.fanyi.baidu.com/api/trans/vip/translate'</span>,</span><br></pre></td></tr></table></figure>
 

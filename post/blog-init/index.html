@@ -17,40 +17,40 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.linjiexin.com","root":"/","scheme":"Pisces","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.linjiexin.com","root":"/","scheme":"Pisces","version":"8.0.0-rc.3","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="前言记录一下自己使用Hexo + Next + GitHub Pages 搭建个人博客的过程。 框架：Hexo版本：4.2.0GitHub：https:&#x2F;&#x2F;github.com&#x2F;hexojs&#x2F;hexo 主题：Next版本：8.0.0-rc.2GitHub：https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next 搭建GitHub Pages创建仓库转到GitHub">
+  <meta name="description" content="前言记录一下自己使用Hexo + Next + GitHub Pages 搭建个人博客的过程。 框架：Hexo版本：4.2.0GitHub：https:&#x2F;&#x2F;github.com&#x2F;hexojs&#x2F;hexo 主题：Next版本：8.0.0-rc.2GitHub：https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hexo + Next + GitHub Pages 搭建个人博客">
-<meta property="og:url" content="https://blog.linjiexin.com/2020/05/25/blog-init/index.html">
+<meta property="og:title" content="Hexo + Next + Pages 个人博客 - 雏形初现">
+<meta property="og:url" content="https://blog.linjiexin.com/post/blog-init/index.html">
 <meta property="og:site_name" content="林洁鑫的博客">
-<meta property="og:description" content="前言记录一下自己使用Hexo + Next + GitHub Pages 搭建个人博客的过程。 框架：Hexo版本：4.2.0GitHub：https:&#x2F;&#x2F;github.com&#x2F;hexojs&#x2F;hexo 主题：Next版本：8.0.0-rc.2GitHub：https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next 搭建GitHub Pages创建仓库转到GitHub">
+<meta property="og:description" content="前言记录一下自己使用Hexo + Next + GitHub Pages 搭建个人博客的过程。 框架：Hexo版本：4.2.0GitHub：https:&#x2F;&#x2F;github.com&#x2F;hexojs&#x2F;hexo 主题：Next版本：8.0.0-rc.2GitHub：https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/create-pages-repository.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/pages-init.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/create-hexo-repository.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/hexo-init-localhost.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/hexo-init-pages.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/add-domain.jpg">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/add-record.jpg">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/dns-setting.jpg">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/custom-domain-input.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/custom-domain-http1.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/custom-domain-http2.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/custom-domain-https1.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/custom-domain-https2.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/custom-domain-https3.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/custom-domain-https4.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/custom-domain-https5.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/post-demo1.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/post-demo2.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/next-init.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/next-fork1.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/next-fork2.png">
-<meta property="og:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/next-fork3.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/create-pages-repository.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/pages-init.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/create-hexo-repository.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/hexo-init-localhost.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/hexo-init-pages.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/add-domain.jpg">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/add-record.jpg">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/dns-setting.jpg">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/custom-domain-input.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/custom-domain-http1.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/custom-domain-http2.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/custom-domain-https1.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/custom-domain-https2.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/custom-domain-https3.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/custom-domain-https4.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/custom-domain-https5.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/post-demo1.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/post-demo2.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/next-init.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/next-fork1.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/next-fork2.png">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-init/next-fork3.png">
 <meta property="article:published_time" content="2020-05-25T15:26:43.000Z">
-<meta property="article:modified_time" content="2020-06-03T03:11:09.773Z">
+<meta property="article:modified_time" content="2020-06-04T07:36:05.459Z">
 <meta property="article:author" content="林洁鑫">
 <meta property="article:tag" content="林洁鑫">
 <meta property="article:tag" content="前端">
@@ -60,9 +60,9 @@
 <meta property="article:tag" content="IT">
 <meta property="article:tag" content="博客">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://blog.linjiexin.com/2020/05/25/blog-init/create-pages-repository.png">
+<meta name="twitter:image" content="https://blog.linjiexin.com/post/blog-init/create-pages-repository.png">
 
-<link rel="canonical" href="https://blog.linjiexin.com/2020/05/25/blog-init/">
+<link rel="canonical" href="https://blog.linjiexin.com/post/blog-init/">
 
 
 <script id="page-configurations">
@@ -75,7 +75,7 @@
   };
 </script>
 
-  <title>Hexo + Next + GitHub Pages 搭建个人博客 | 林洁鑫的博客</title>
+  <title>Hexo + Next + Pages 个人博客 - 雏形初现 | 林洁鑫的博客</title>
   
 
 
@@ -165,7 +165,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">4</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">5</span></a>
 
   </li>
       <li class="menu-item menu-item-search">
@@ -205,10 +205,6 @@
     </header>
 
     
-  <div class="back-to-top">
-    <i class="fa fa-arrow-up"></i>
-    <span>0%</span>
-  </div>
   <div class="reading-progress-bar"></div>
 
   <a href="https://github.com/linjiexin1996/linjiexin1996.github.io" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
@@ -226,7 +222,7 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="https://blog.linjiexin.com/2020/05/25/blog-init/">
+    <link itemprop="mainEntityOfPage" href="https://blog.linjiexin.com/post/blog-init/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.jpg">
@@ -239,7 +235,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Hexo + Next + GitHub Pages 搭建个人博客
+          Hexo + Next + Pages 个人博客 - 雏形初现
         </h1>
 
         <div class="post-meta">
@@ -256,7 +252,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-03 11:11:09" itemprop="dateModified" datetime="2020-06-03T11:11:09+08:00">2020-06-03</time>
+                <time title="修改时间：2020-06-04 15:36:05" itemprop="dateModified" datetime="2020-06-04T15:36:05+08:00">2020-06-04</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -264,17 +260,31 @@
               </span>
               <span class="post-meta-item-text">分类于</span>
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Blog/" itemprop="url" rel="index"><span itemprop="name">Blog</span></a>
+                  <a href="/categories/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E5%BB%BA%E7%AB%99%E4%B9%8B%E8%B7%AF/" itemprop="url" rel="index"><span itemprop="name">个人博客建站之路</span></a>
                 </span>
             </span>
 
           
-            <span id="/2020/05/25/blog-init/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo + Next + GitHub Pages 搭建个人博客" title="阅读次数">
+            <span id="/post/blog-init/" class="post-meta-item leancloud_visitors" data-flag-title="Hexo + Next + Pages 个人博客 - 雏形初现" title="阅读次数">
               <span class="post-meta-item-icon">
                 <i class="fa fa-eye"></i>
               </span>
               <span class="post-meta-item-text">阅读次数：</span>
               <span class="leancloud-visitors-count"></span>
+            </span><br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>4.8k</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>4 分钟</span>
             </span>
 
         </div>
@@ -289,9 +299,11 @@
         <h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>记录一下自己使用Hexo + Next + GitHub Pages 搭建个人博客的过程。</p>
 <p>框架：Hexo<br>版本：4.2.0<br>GitHub：<a href="https://github.com/hexojs/hexo" target="_blank" rel="noopener">https://github.com/hexojs/hexo</a></p>
 <p>主题：Next<br>版本：8.0.0-rc.2<br>GitHub：<a href="https://github.com/next-theme/hexo-theme-next" target="_blank" rel="noopener">https://github.com/next-theme/hexo-theme-next</a></p>
+<a id="more"></a>
+
 <h2 id="搭建GitHub-Pages"><a href="#搭建GitHub-Pages" class="headerlink" title="搭建GitHub Pages"></a>搭建GitHub Pages</h2><h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>转到<a href="https://github.com/" target="_blank" rel="noopener">GitHub</a>并<a href="https://github.com/new" target="_blank" rel="noopener">创建一个仓库</a>，命名为<em>username</em>.github.io，其中<em>username</em>是您在GitHub上的用户名（或组织名称）。</p>
 <p>如果仓库的第一部分与您的用户名不完全匹配，则它将无法正常工作，因此请确保正确无误。</p>
-<img src="/2020/05/25/blog-init/create-pages-repository.png" class="" title="创建GitHubPages仓库">
+<img src="/post/blog-init/create-pages-repository.png" class="" title="创建GitHubPages仓库">
 
 <h3 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;username&#x2F;username.github.io</span><br></pre></td></tr></table></figure>
 
@@ -300,10 +312,10 @@
 <h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add --all</span><br><span class="line">git commit -m &quot;Initial commit&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 
 <h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p>启动浏览器并转到<strong>https://<em>username</em>.github.io.</strong></p>
-<img src="/2020/05/25/blog-init/pages-init.png" class="" title="GitHubPages初始化">
+<img src="/post/blog-init/pages-init.png" class="" title="GitHubPages初始化">
 
 <h2 id="Hexo建站"><a href="#Hexo建站" class="headerlink" title="Hexo建站"></a>Hexo建站</h2><h3 id="创建仓库-1"><a href="#创建仓库-1" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>创建一个私有仓库，用于存放<code>博客源代码</code>。上一步创建的<em>username</em>.github.io仓库是用于存放<code>博客生成代码</code>。</p>
-<img src="/2020/05/25/blog-init/create-hexo-repository.png" class="" title="创建Hexo仓库">
+<img src="/post/blog-init/create-hexo-repository.png" class="" title="创建Hexo仓库">
 
 <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>安装Hexo之前需先安装：</p>
 <ul>
@@ -317,7 +329,7 @@
 
 <h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 <p>默认情况下，访问网址为：<code>http://localhost:4000/</code>。</p>
-<img src="/2020/05/25/blog-init/hexo-init-localhost.png" class="" title="hexo初始化">
+<img src="/post/blog-init/hexo-init-localhost.png" class="" title="hexo初始化">
 
 <h3 id="提交代码-1"><a href="#提交代码-1" class="headerlink" title="提交代码"></a>提交代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;blog.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;hexo init&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 
@@ -333,7 +345,7 @@
 <li><p>运行 <code>hexo clean &amp;&amp; hexo deploy</code></p>
 </li>
 <li><p>查看 <em>username</em>.github.io 上的网页是否部署成功</p>
-<img src="/2020/05/25/blog-init/hexo-init-pages.png" class="" title="hexo初始化">
+<img src="/post/blog-init/hexo-init-pages.png" class="" title="hexo初始化">
 
 </li>
 </ol>
@@ -341,23 +353,23 @@
 
 <h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><h3 id="添加域名解析记录"><a href="#添加域名解析记录" class="headerlink" title="添加域名解析记录"></a>添加域名解析记录</h3><p>我的域名是在阿里云买的，所以这一步到<a href="https://homenew.console.aliyun.com/" target="_blank" rel="noopener">阿里云控制台</a>的<a href="https://dns.console.aliyun.com/" target="_blank" rel="noopener">云解析DNS
 </a>添加域名解析记录。</p>
-<img src="/2020/05/25/blog-init/add-domain.jpg" class="" title="添加域名">
-<img src="/2020/05/25/blog-init/add-record.jpg" class="" title="添加记录">
-<img src="/2020/05/25/blog-init/dns-setting.jpg" class="" title="DNS设置">
+<img src="/post/blog-init/add-domain.jpg" class="" title="添加域名">
+<img src="/post/blog-init/add-record.jpg" class="" title="添加记录">
+<img src="/post/blog-init/dns-setting.jpg" class="" title="DNS设置">
 
 <h3 id="设置自定义域名"><a href="#设置自定义域名" class="headerlink" title="设置自定义域名"></a>设置自定义域名</h3><p>转到<em>username</em>.github.io仓库，点击“Settings”，找到“GitHub Pages”，输入自己的域名。</p>
-<img src="/2020/05/25/blog-init/custom-domain-input.png" class="" title="输入自定义域名">
+<img src="/post/blog-init/custom-domain-input.png" class="" title="输入自定义域名">
 
 <p>点击“Save”，页面自动刷新，再看下“GitHub Pages”。</p>
-<img src="/2020/05/25/blog-init/custom-domain-http1.png" class="" title="自定义域名HTTP生效">
-<img src="/2020/05/25/blog-init/custom-domain-http2.png" class="" title="自定义域名HTTP生效">
+<img src="/post/blog-init/custom-domain-http1.png" class="" title="自定义域名HTTP生效">
+<img src="/post/blog-init/custom-domain-http2.png" class="" title="自定义域名HTTP生效">
 
 <p>由于TLS证书未生效，所以此时还是http协议<code>http://blog.linjiexin.com/</code>，地址栏显示“不安全”，等证书生效后，再看将会是https协议<code>https://blog.linjiexin.com/</code>：</p>
-<img src="/2020/05/25/blog-init/custom-domain-https1.png" class="" title="自定义域名HTTPS生效">
-<img src="/2020/05/25/blog-init/custom-domain-https2.png" class="" title="自定义域名HTTPS生效">
-<img src="/2020/05/25/blog-init/custom-domain-https3.png" class="" title="自定义域名HTTPS生效">
-<img src="/2020/05/25/blog-init/custom-domain-https4.png" class="" title="自定义域名HTTPS生效">
-<img src="/2020/05/25/blog-init/custom-domain-https5.png" class="" title="自定义域名HTTPS生效">
+<img src="/post/blog-init/custom-domain-https1.png" class="" title="自定义域名HTTPS生效">
+<img src="/post/blog-init/custom-domain-https2.png" class="" title="自定义域名HTTPS生效">
+<img src="/post/blog-init/custom-domain-https3.png" class="" title="自定义域名HTTPS生效">
+<img src="/post/blog-init/custom-domain-https4.png" class="" title="自定义域名HTTPS生效">
+<img src="/post/blog-init/custom-domain-https5.png" class="" title="自定义域名HTTPS生效">
 
 <h3 id="添加CNAME"><a href="#添加CNAME" class="headerlink" title="添加CNAME"></a>添加CNAME</h3><p>域名绑定成功后，仓库根目录会多出一个<code>CNAME</code>文件，内容为绑定的域名：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blog.linjiexin.com</span><br></pre></td></tr></table></figure>
@@ -390,14 +402,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: My New Post</span><br><span class="line">date: 2020-05-16 13:14:08</span><br><span class="line">tags:</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">加点内容</span><br></pre></td></tr></table></figure>
 
 <p>在本地服务器（<code>http://localhost:4000/</code>）上查看。</p>
-<img src="/2020/05/25/blog-init/post-demo1.png" class="" title="MyNewPost">
+<img src="/post/blog-init/post-demo1.png" class="" title="MyNewPost">
 
 <h3 id="引用资源"><a href="#引用资源" class="headerlink" title="引用资源"></a>引用资源</h3><p>正确的引用图片方式是使用下列的标签插件而不是 markdown：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img example.jpg This is an example image %&#125;</span><br></pre></td></tr></table></figure>
 
 <p>通过这种方式，图片将会同时出现在文章和主页以及归档页中。</p>
 <p>如果通过使用相对路径的常规 markdown 语法<code>![](/example.jpg)</code>，它将<em>不会</em>出现在首页上。（但是它会在文章中按你期待的方式工作）</p>
-<img src="/2020/05/25/blog-init/post-demo2.png" class="" title="MyNewPost">
+<img src="/post/blog-init/post-demo2.png" class="" title="MyNewPost">
 
 <h3 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h3><p>生成静态文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
@@ -422,10 +434,10 @@
 </ol>
 <p>在浏览器中打开<code>http://localhost:4000</code>，查看效果。</p>
 <p>这是默认的NexT方案– Muse。</p>
-<img src="/2020/05/25/blog-init/next-init.png" class="" title="初始化next主题">
+<img src="/post/blog-init/next-init.png" class="" title="初始化next主题">
 
 <h3 id="提交代码-5"><a href="#提交代码-5" class="headerlink" title="提交代码"></a>提交代码</h3><p>因为前面是直接把Next主题仓库克隆到站点目录，有什么改动是无法推送到作者 Git 仓库的，所以这里将<a href="https://github.com/next-theme/hexo-theme-next" target="_blank" rel="noopener">Next主题仓库</a>Fork到自己仓库：</p>
-<img src="/2020/05/25/blog-init/next-fork1.png" class="" title="forknext主题">
+<img src="/post/blog-init/next-fork1.png" class="" title="forknext主题">
 
 <p>得到自己账号下同名仓库的URL，添加子模块：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;hexo-theme-next.git themes&#x2F;next</span><br></pre></td></tr></table></figure>
@@ -437,10 +449,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;config: 使用Next主题&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 
 <p>在自己的博客源代码仓库上可以看到<code>themes/next</code>目录是显示成这样的：</p>
-<img src="/2020/05/25/blog-init/next-fork2.png" class="" title="forknext主题">
+<img src="/post/blog-init/next-fork2.png" class="" title="forknext主题">
 
 <p>点击跳转到Fork的仓库。</p>
-<img src="/2020/05/25/blog-init/next-fork3.png" class="" title="forknext主题">
+<img src="/post/blog-init/next-fork3.png" class="" title="forknext主题">
 
 <h3 id="选择方案"><a href="#选择方案" class="headerlink" title="选择方案"></a>选择方案</h3><p>先修改主题仓库远程地址为自己的，后面才能正常提交代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd themes&#x2F;next</span><br><span class="line">git remote set-url origin https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;hexo-theme-next.git</span><br><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
@@ -468,6 +480,26 @@
     
     
     
+        <div class="reward-container">
+  <div>请站长吃颗糖 🍬</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    赞赏
+  </button>
+  <div id="qr" style="display: none;">
+      
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="林洁鑫 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="林洁鑫 支付宝">
+        <p>支付宝</p>
+      </div>
+
+  </div>
+</div>
+
         
 
 <div>
@@ -477,7 +509,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="https://blog.linjiexin.com/2020/05/25/blog-init/" title="Hexo + Next + GitHub Pages 搭建个人博客">https://blog.linjiexin.com/2020/05/25/blog-init/</a>
+    <a href="https://blog.linjiexin.com/post/blog-init/" title="Hexo + Next + Pages 个人博客 - 雏形初现">https://blog.linjiexin.com/post/blog-init/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="noopener" target="_blank"><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -495,8 +527,8 @@
     <div class="post-nav">
       <div class="post-nav-item"></div>
       <div class="post-nav-item">
-    <a href="/2020/05/28/blog-config/" rel="next" title="Hexo + Next + GitHub Pages 配置Next主题">
-      Hexo + Next + GitHub Pages 配置Next主题 <i class="fa fa-chevron-right"></i>
+    <a href="/post/blog-config/" rel="next" title="Hexo + Next + Pages 个人博客 - Next主题配置">
+      Hexo + Next + Pages 个人博客 - Next主题配置 <i class="fa fa-chevron-right"></i>
     </a></div>
     </div>
       </footer>
@@ -572,7 +604,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">4</span>
+          <span class="site-state-item-count">5</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -590,6 +622,14 @@
       </div>
   </nav>
 </div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/linjiexin1996" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i></a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:798832135@qq.com" title="E-Mail → mailto:798832135@qq.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i></a>
+      </span>
+  </div>
   <div class="cc-license motion-element" itemprop="license">
     <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
   </div>
@@ -597,6 +637,10 @@
 
 
       </div>
+        <div class="back-to-top motion-element">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
 
     </div>
   </aside>
@@ -621,8 +665,6 @@
   </span>
   <span class="author" itemprop="copyrightHolder">林洁鑫</span>
 </div>
-  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" class="theme-link" rel="noopener" target="_blank">NexT.Pisces</a> 强力驱动
-  </div>
 
         
 <div class="busuanzi-count">
