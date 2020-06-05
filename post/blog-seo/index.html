@@ -11,6 +11,7 @@
   <link rel="mask-icon" href="/images/logo.svg" color="#222">
   <meta http-equiv="Cache-Control" content="no-transform">
   <meta http-equiv="Cache-Control" content="no-siteapp">
+  <meta name="google-site-verification" content="hu6cbrmYNHgSFYaI55sR_IzwwHFIpdH81A5qduuFzhk">
   <meta name="baidu-site-verification" content="1BcHDM2uXj">
 
 <link rel="stylesheet" href="/css/main.css">
@@ -32,16 +33,12 @@
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.linjiexin.com/post/blog-seo/site-blog-linjiexin-com.jpg">
 <meta property="og:image" content="https://blog.linjiexin.com/post/blog-seo/baidu-push.jpg">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-seo/google-search-welcome.jpg">
+<meta property="og:image" content="https://blog.linjiexin.com/post/blog-seo/google-site-verification.jpg">
 <meta property="article:published_time" content="2020-06-04T12:26:36.000Z">
-<meta property="article:modified_time" content="2020-06-04T10:27:42.559Z">
+<meta property="article:modified_time" content="2020-06-05T08:05:03.728Z">
 <meta property="article:author" content="林洁鑫">
-<meta property="article:tag" content="林洁鑫">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content="FrontEnd">
-<meta property="article:tag" content="前端工程师">
-<meta property="article:tag" content="程序员">
-<meta property="article:tag" content="IT">
-<meta property="article:tag" content="博客">
+<meta property="article:tag" content="SEO">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.linjiexin.com/post/blog-seo/site-blog-linjiexin-com.jpg">
 
@@ -138,7 +135,7 @@
   </li>
         <li class="menu-item menu-item-tags">
 
-    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">2</span></a>
+    <a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签<span class="badge">3</span></a>
 
   </li>
         <li class="menu-item menu-item-categories">
@@ -227,10 +224,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">发表于</span>
-              
 
-              <time title="创建时间：2020-06-04 20:26:36 / 修改时间：18:27:42" itemprop="dateCreated datePublished" datetime="2020-06-04T20:26:36+08:00">2020-06-04</time>
+              <time title="创建时间：2020-06-04 20:26:36" itemprop="dateCreated datePublished" datetime="2020-06-04T20:26:36+08:00">2020-06-04</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-06-05 16:05:03" itemprop="dateModified" datetime="2020-06-05T16:05:03+08:00">2020-06-05</time>
+              </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
                 <i class="far fa-folder"></i>
@@ -254,7 +257,7 @@
                 <i class="far fa-file-word"></i>
               </span>
                 <span class="post-meta-item-text">本文字数：</span>
-              <span>2k</span>
+              <span>2.3k</span>
             </span>
             <span class="post-meta-item" title="阅读时长">
               <span class="post-meta-item-icon">
@@ -326,6 +329,27 @@
 <p>部署后访问站点可以看到自动推送请求：</p>
 <img src="/post/blog-seo/baidu-push.jpg" class="" title="百度自动推送">
 
+<h3 id="等待收录"><a href="#等待收录" class="headerlink" title="等待收录"></a>等待收录</h3><p>2020年6月4日提交站点，等待收录中……</p>
+<h2 id="让Google收录你的站点"><a href="#让Google收录你的站点" class="headerlink" title="让Google收录你的站点"></a>让Google收录你的站点</h2><p>登录<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS93ZWJtYXN0ZXJzLw==">Google 网站站长<i class="fa fa-external-link-alt"></i></span>，选择<code>资源类型</code>，输入并点击<code>继续</code>：</p>
+<img src="/post/blog-seo/google-search-welcome.jpg" class="" title="欢迎使用Google Search Console">
+
+<p>验证所有权，选择<code>HTML标记</code>方式：</p>
+<img src="/post/blog-seo/google-site-verification.jpg" class="" title="验证所有权">
+
+<p>复制<code>meta</code>标签的<code>content</code>内容，打开<code>主题配置文件</code>，补充<code>google_site_verification</code>内容：</p>
+<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">google_site_verification:</span> <span class="string">XXXXXXXXXXXXXXXXXXXXXXX</span></span><br></pre></td></tr></table></figure>
+
+<p>重新部署站点后点击<code>验证</code>。</p>
+<!-- 相比于百度，Google的效率高多了，当天19:25验证站点且提交sitemap，隔天9:30就查看到了收录结果。 -->
+
+<!-- [验证网站所有权](https://support.google.com/webmasters/answer/9008080#html_verification) -->
+
+<!-- 
+
+<p>除了百度和Google两大搜索引擎外，还有搜狗、360等其他搜索引擎，流程都是一样的，大家自行选择添加。<br><span class="exturl" data-url="aHR0cDovL25mby5zby5jb20vc2l0ZV9zdWJtaXQuaHRtbA==">360网站收录<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cDovL3poYW56aGFuZy5zb2dvdS5jb20v">搜狗站长平台<i class="fa fa-external-link-alt"></i></span></p>
+<p>360网站收录需要提供网站ICP备案信息。</p>
+ -->
+
 <h2 id="持续更新中…"><a href="#持续更新中…" class="headerlink" title="持续更新中…"></a>持续更新中…</h2>
     </div>
 
@@ -371,6 +395,9 @@
 
 
       <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/SEO/" rel="tag"><i class="fa fa-tag"></i> SEO</a>
+          </div>
 
         
 
@@ -440,7 +467,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SEO简介"><span class="nav-number">1.</span> <span class="nav-text">SEO简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化目录结构"><span class="nav-number">2.</span> <span class="nav-text">优化目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开主题SEO优化选项"><span class="nav-number">3.</span> <span class="nav-text">打开主题SEO优化选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让百度收录你的站点"><span class="nav-number">4.</span> <span class="nav-text">让百度收录你的站点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看收录情况"><span class="nav-number">4.1.</span> <span class="nav-text">查看收录情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加网站"><span class="nav-number">4.2.</span> <span class="nav-text">添加网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证网站"><span class="nav-number">4.3.</span> <span class="nav-text">验证网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动推送"><span class="nav-number">4.4.</span> <span class="nav-text">自动推送</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持续更新中…"><span class="nav-number">5.</span> <span class="nav-text">持续更新中…</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#SEO简介"><span class="nav-number">1.</span> <span class="nav-text">SEO简介</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#优化目录结构"><span class="nav-number">2.</span> <span class="nav-text">优化目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#打开主题SEO优化选项"><span class="nav-number">3.</span> <span class="nav-text">打开主题SEO优化选项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让百度收录你的站点"><span class="nav-number">4.</span> <span class="nav-text">让百度收录你的站点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#查看收录情况"><span class="nav-number">4.1.</span> <span class="nav-text">查看收录情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加网站"><span class="nav-number">4.2.</span> <span class="nav-text">添加网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证网站"><span class="nav-number">4.3.</span> <span class="nav-text">验证网站</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自动推送"><span class="nav-number">4.4.</span> <span class="nav-text">自动推送</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#等待收录"><span class="nav-number">4.5.</span> <span class="nav-text">等待收录</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#让Google收录你的站点"><span class="nav-number">5.</span> <span class="nav-text">让Google收录你的站点</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#持续更新中…"><span class="nav-number">6.</span> <span class="nav-text">持续更新中…</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
@@ -469,7 +496,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-count">3</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>

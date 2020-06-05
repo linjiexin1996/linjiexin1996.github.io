@@ -56,10 +56,34 @@
 <p>部署后访问站点可以看到自动推送请求：</p>
 <img src="/post/blog-seo/baidu-push.jpg" class="" title="百度自动推送">
 
+<h3 id="等待收录"><a href="#等待收录" class="headerlink" title="等待收录"></a>等待收录</h3><p>2020年6月4日提交站点，等待收录中……</p>
+<h2 id="让Google收录你的站点"><a href="#让Google收录你的站点" class="headerlink" title="让Google收录你的站点"></a>让Google收录你的站点</h2><p>登录<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS93ZWJtYXN0ZXJzLw==">Google 网站站长<i class="fa fa-external-link-alt"></i></span>，选择<code>资源类型</code>，输入并点击<code>继续</code>：</p>
+<img src="/post/blog-seo/google-search-welcome.jpg" class="" title="欢迎使用Google Search Console">
+
+<p>验证所有权，选择<code>HTML标记</code>方式：</p>
+<img src="/post/blog-seo/google-site-verification.jpg" class="" title="验证所有权">
+
+<p>复制<code>meta</code>标签的<code>content</code>内容，打开<code>主题配置文件</code>，补充<code>google_site_verification</code>内容：</p>
+<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">google_site_verification:</span> <span class="string">XXXXXXXXXXXXXXXXXXXXXXX</span></span><br></pre></td></tr></table></figure>
+
+<p>重新部署站点后点击<code>验证</code>。</p>
+<!-- 相比于百度，Google的效率高多了，当天19:25验证站点且提交sitemap，隔天9:30就查看到了收录结果。 -->
+
+<!-- [验证网站所有权](https://support.google.com/webmasters/answer/9008080#html_verification) -->
+
+<!-- 
+
+<p>除了百度和Google两大搜索引擎外，还有搜狗、360等其他搜索引擎，流程都是一样的，大家自行选择添加。<br><span class="exturl" data-url="aHR0cDovL25mby5zby5jb20vc2l0ZV9zdWJtaXQuaHRtbA==">360网站收录<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cDovL3poYW56aGFuZy5zb2dvdS5jb20v">搜狗站长平台<i class="fa fa-external-link-alt"></i></span></p>
+<p>360网站收录需要提供网站ICP备案信息。</p>
+ -->
+
 <h2 id="持续更新中…"><a href="#持续更新中…" class="headerlink" title="持续更新中…"></a>持续更新中…</h2>]]></content>
       <categories>
         <category>个人博客建站之路</category>
       </categories>
+      <tags>
+        <tag>SEO</tag>
+      </tags>
   </entry>
   <entry>
     <title>Hexo + Next + Pages 个人博客 - 第三方服务集成</title>
