@@ -28,7 +28,7 @@
 <p>详见<span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL3RoZW1lLXNldHRpbmdzL3Nlby5odG1s">SEO | NexT<i class="fa fa-external-link-alt"></i></span>。</p>
 <h2 id="让百度收录你的站点"><a href="#让百度收录你的站点" class="headerlink" title="让百度收录你的站点"></a>让百度收录你的站点</h2><p>为了让别人能通过网上搜索找到你的网站，首先要做的就是让各大搜索引擎收录你的站点。</p>
 <h3 id="查看收录情况"><a href="#查看收录情况" class="headerlink" title="查看收录情况"></a>查看收录情况</h3><p>在搜索引擎中输入<code>site:&lt;域名&gt;</code>，可以看到站点的收录情况，如果是下图这种情况，说明搜索引擎还没有收录我们的网站。所有搜索引擎都可以使用这种方法查看网站的收录情况。</p>
-<img src="/post/blog-seo/site-blog-linjiexin-com.jpg" class="" title="site:blog.linjiexin.com">
+<img src="/post/blog-seo/baidu-site-blog-linjiexin-com.jpg" class="" title="site:blog.linjiexin.com">
 
 <h3 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h3><p>登录<span class="exturl" data-url="aHR0cHM6Ly96aXl1YW4uYmFpZHUuY29tLw==">百度搜索资源平台<i class="fa fa-external-link-alt"></i></span>，在“用户中心 → 站点管理”里<span class="exturl" data-url="aHR0cHM6Ly96aXl1YW4uYmFpZHUuY29tL3NpdGUvaW5kZXg=">添加网站<i class="fa fa-external-link-alt"></i></span>。</p>
 <blockquote>
@@ -56,28 +56,45 @@
 <p>部署后访问站点可以看到自动推送请求：</p>
 <img src="/post/blog-seo/baidu-push.jpg" class="" title="百度自动推送">
 
+<h3 id="生成Sitemap"><a href="#生成Sitemap" class="headerlink" title="生成Sitemap"></a>生成Sitemap</h3><p>Sitemap（站点地图）是一种文件，你可以通过该文件列出你网站上的网页，从而将你网站内容的组织架构告知搜索引擎。<br>搜索引擎网页抓取工具会读取此文件，以便更加智能地抓取你的网站。</p>
+<p>使用npm自动生成网站的sitemap，后面可提交到百度搜索引擎。</p>
+<p>安装sitemap插件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap hexo-generator-baidu-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<p>执行<code>hexo g</code>后可以在public目录下看到自动生成的“sitemap.xml”和“baidusitemap.xml”文件，前者是搜索引擎通用文件，后者是百度专用的sitemap文件。</p>
+<h3 id="提交Sitemap"><a href="#提交Sitemap" class="headerlink" title="提交Sitemap"></a>提交Sitemap</h3><p>部署站点后将前面生成的sitemap文件线上地址填入百度搜索资源平台，点击提交。提交完之后，可在Sitemap列表里看到提交的Sitemap文件，如果Sitemap文件里面有新的网站链接，可以选择文件后，点击“手动更新文件”，即对更新的网站链接进行了提交。</p>
+<!--  -->
+
 <h3 id="等待收录"><a href="#等待收录" class="headerlink" title="等待收录"></a>等待收录</h3><p>2020年6月4日提交站点，等待收录中……</p>
-<h2 id="让Google收录你的站点"><a href="#让Google收录你的站点" class="headerlink" title="让Google收录你的站点"></a>让Google收录你的站点</h2><p>登录<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS93ZWJtYXN0ZXJzLw==">Google 网站站长<i class="fa fa-external-link-alt"></i></span>，选择<code>资源类型</code>，输入并点击<code>继续</code>：</p>
+<h2 id="让Google收录你的站点"><a href="#让Google收录你的站点" class="headerlink" title="让Google收录你的站点"></a>让Google收录你的站点</h2><h3 id="查看收录情况-1"><a href="#查看收录情况-1" class="headerlink" title="查看收录情况"></a>查看收录情况</h3><p>使用Google搜索<code>site:blog.linjiexin.com</code>，可以看到还没被收录：</p>
+<img src="/post/blog-seo/baidu-site-blog-linjiexin-com.jpg" class="" title="site:blog.linjiexin.com">
+
+<h3 id="添加网站-1"><a href="#添加网站-1" class="headerlink" title="添加网站"></a>添加网站</h3><p>登录<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS93ZWJtYXN0ZXJzLw==">Google 网站站长<i class="fa fa-external-link-alt"></i></span>，选择<code>资源类型</code>，输入并点击<code>继续</code>：</p>
 <img src="/post/blog-seo/google-search-welcome.jpg" class="" title="欢迎使用Google Search Console">
 
-<p>验证所有权，选择<code>HTML标记</code>方式：</p>
+<h3 id="验证网站-1"><a href="#验证网站-1" class="headerlink" title="验证网站"></a>验证网站</h3><p>验证所有权，选择<code>HTML标记</code>方式：</p>
 <img src="/post/blog-seo/google-site-verification.jpg" class="" title="验证所有权">
 
 <p>复制<code>meta</code>标签的<code>content</code>内容，打开<code>主题配置文件</code>，补充<code>google_site_verification</code>内容：</p>
 <figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">google_site_verification:</span> <span class="string">XXXXXXXXXXXXXXXXXXXXXXX</span></span><br></pre></td></tr></table></figure>
 
-<p>重新部署站点后点击<code>验证</code>。</p>
+<p>重新部署站点后点击<code>验证</code>：</p>
+<img src="/post/blog-seo/google-site-verification-success.jpg" class="" title="已完成所有权验证">
+
+<h3 id="提交站点"><a href="#提交站点" class="headerlink" title="提交站点"></a>提交站点</h3><h3 id="等待收录-1"><a href="#等待收录-1" class="headerlink" title="等待收录"></a>等待收录</h3><p>2020年6月5日提交站点，等待收录中……</p>
 <!-- 相比于百度，Google的效率高多了，当天19:25验证站点且提交sitemap，隔天9:30就查看到了收录结果。 -->
 
-<!-- [验证网站所有权](https://support.google.com/webmasters/answer/9008080#html_verification) -->
-
 <!-- 
+除了百度和Google两大搜索引擎外，还有搜狗、360等其他搜索引擎，流程都是一样的，大家自行选择添加。
+[360网站收录](http://nfo.so.com/site_submit.html)
+[搜狗站长平台](http://zhanzhang.sogou.com/)
 
-<p>除了百度和Google两大搜索引擎外，还有搜狗、360等其他搜索引擎，流程都是一样的，大家自行选择添加。<br><span class="exturl" data-url="aHR0cDovL25mby5zby5jb20vc2l0ZV9zdWJtaXQuaHRtbA==">360网站收录<i class="fa fa-external-link-alt"></i></span><br><span class="exturl" data-url="aHR0cDovL3poYW56aGFuZy5zb2dvdS5jb20v">搜狗站长平台<i class="fa fa-external-link-alt"></i></span></p>
-<p>360网站收录需要提供网站ICP备案信息。</p>
+360网站收录需要提供网站ICP备案信息。
  -->
 
-<h2 id="持续更新中…"><a href="#持续更新中…" class="headerlink" title="持续更新中…"></a>持续更新中…</h2>]]></content>
+<h2 id="持续更新中…"><a href="#持续更新中…" class="headerlink" title="持续更新中…"></a>持续更新中…</h2><!-- [验证网站所有权 - Search Console帮助](https://support.google.com/webmasters/answer/9008080#html_verification) -->
+
+]]></content>
       <categories>
         <category>个人博客建站之路</category>
       </categories>
@@ -182,136 +199,6 @@
 <li><span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL3RoaXJkLXBhcnR5LXNlcnZpY2VzL3N0YXRpc3RpY3MtYW5kLWFuYWx5dGljcy5odG1s">Statistics and Analytics | NexT<i class="fa fa-external-link-alt"></i></span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by10aGVtZS1uZXh0L2Jsb2IvbWFzdGVyL2RvY3MvemgtQ04vTEVBTkNMT1VELUNPVU5URVItU0VDVVJJVFkubWQ=">修复 LeanCloud 统计插件安全漏洞<i class="fa fa-external-link-alt"></i></span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9sZWFmZXJ4Lm9ubGluZS8yMDE4LzAyLzExL2xjLXNlY3VyaXR5Lw==">Leancloud访客统计插件重大安全漏洞修复指南<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-]]></content>
-      <categories>
-        <category>个人博客建站之路</category>
-      </categories>
-  </entry>
-  <entry>
-    <title>Hexo + Next + Pages 个人博客 - Next主题配置</title>
-    <url>/post/blog-config/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>记录一下我的博客的Next主题配置。</p>
-<p>还没有博客的可以参考我前面写的一篇文章<a href="../../../../2020/05/25/blog-init/index.html">Hexo + Next + GitHub Pages 搭建个人博客</a>。</p>
-<a id="more"></a>
-
-<p>框架：Hexo<br>版本：4.2.0<br>GitHub：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhv">https://github.com/hexojs/hexo<i class="fa fa-external-link-alt"></i></span></p>
-<p>主题：Next<br>版本：8.0.0-rc.2<br>GitHub：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">https://github.com/next-theme/hexo-theme-next<i class="fa fa-external-link-alt"></i></span></p>
-<h2 id="菜单项"><a href="#菜单项" class="headerlink" title="菜单项"></a>菜单项</h2><p>打开主题配置文件<code>next/_config.yml</code>，找到<code>menu</code>，按需取消注释，开启菜单项：</p>
-<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="comment"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
-
-<p>除<code>home</code>和<code>archives</code>之外，该<code>menu</code>部分下的所有自定义页面都需要手动创建，可参考<span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL3RoZW1lLXNldHRpbmdzL2N1c3RvbS1wYWdlcy5odG1s">Custom Pages | NexT<i class="fa fa-external-link-alt"></i></span>。</p>
-<p>创建“标签”页面：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
-
-<p>创建“分类”页面：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
-
-<p>创建“关于”页面：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page about</span><br></pre></td></tr></table></figure>
-
-<p>“标签”和”分类”页面需要设置<code>type</code>才会显示内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<p>给文章设置”分类”和”标签”的示例：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: Testing Article</span><br><span class="line">categories:</span><br><span class="line">- Diary</span><br><span class="line">tags:</span><br><span class="line">- PS3</span><br><span class="line">- Games</span><br></pre></td></tr></table></figure>
-
-<p>详见<span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3poLWNuL2RvY3MvZnJvbnQtbWF0dGVyLmh0bWwjJUU1JTg4JTg2JUU3JUIxJUJCJUU1JTkyJThDJUU2JUEwJTg3JUU3JUFEJUJF">Front-matter | Hexo<i class="fa fa-external-link-alt"></i></span>。</p>
-<p>设置<code>badges</code>为<code>true</code>，菜单项<code>标签</code>、<code>分类</code>、<code>归档</code>将在右侧显示对应的数量。</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">menu_settings:</span><br><span class="line">  badges: true</span><br></pre></td></tr></table></figure>
-
-<img src="/post/blog-config/configuring-menu-items.jpg" class="" title="配置菜单项">
-
-<h2 id="网站图标"><a href="#网站图标" class="headerlink" title="网站图标"></a>网站图标</h2><p>找个或自己做个图标，可以到<span class="exturl" data-url="aHR0cHM6Ly93d3cuaWNvbmZvbnQuY24v">Iconfont<i class="fa fa-external-link-alt"></i></span>找，然后到<span class="exturl" data-url="aHR0cHM6Ly9yZWFsZmF2aWNvbmdlbmVyYXRvci5uZXQv">Favicon Generator<i class="fa fa-external-link-alt"></i></span>生成适配多浏览器多平台的自定义图标压缩包。</p>
-<img src="/post/blog-config/iconfont-star.jpg" class="" title="iconfont星星">
-
-<img src="/post/blog-config/configuring-favicon.jpg" class="" title="配置图标">
-
-<p>下载解压后将图标文件夹放在<code>next/source/images</code>目录下，然后打开主题配置文件<code>next/_config.yml</code>，配置如下：</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  small: &#x2F;images&#x2F;favicon&#x2F;favicon-16x16.png</span><br><span class="line">  medium: &#x2F;images&#x2F;favicon&#x2F;favicon-32x32.png</span><br><span class="line">  apple_touch_icon: &#x2F;images&#x2F;favicon&#x2F;apple-touch-icon.png</span><br></pre></td></tr></table></figure>
-
-<h2 id="个人头像"><a href="#个人头像" class="headerlink" title="个人头像"></a>个人头像</h2><p>将头像<code>avatar.jpg</code>放在<code>next/source/images</code>目录下，然后打开主题配置文件<code>next/_config.yml</code>，配置如下：</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">avatar:</span><br><span class="line">  url: &#x2F;images&#x2F;avatar.jpg</span><br><span class="line">  rounded: true</span><br><span class="line">  rotated: true</span><br></pre></td></tr></table></figure>
-
-<p><code>rounded</code>是将头像显示成圆形，<code>rotated</code>是在光标悬停在头像上时旋转头像。</p>
-<img src="/post/blog-config/configuring-avatar.jpg" class="" title="配置侧边栏头像">
-
-<h2 id="控制台提醒"><a href="#控制台提醒" class="headerlink" title="控制台提醒"></a>控制台提醒</h2><figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">reminder: true</span><br></pre></td></tr></table></figure>
-
-<p>开启后，在控制台中会自动检查更新和警报，比如：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WARN  Your theme NexT is outdated. Current version: v8.0.0-rc.2, latest version: v8.0.0-rc.3</span><br><span class="line">WARN  Visit https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next&#x2F;releases for more information.</span><br></pre></td></tr></table></figure>
-
-<h2 id="最小化生成"><a href="#最小化生成" class="headerlink" title="最小化生成"></a>最小化生成</h2><figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">minify: true</span><br></pre></td></tr></table></figure>
-
-<p>执行<code>hexo generate</code>生成静态文件时后将移除不必要的文件。</p>
-<h2 id="知识共享"><a href="#知识共享" class="headerlink" title="知识共享"></a>知识共享</h2><p>NexT支持在侧边栏和和文章底部显示<span class="exturl" data-url="aHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcv">Creative Commons 4.0国际许可<i class="fa fa-external-link-alt"></i></span>，包括<code>by</code>，<code>by-nc</code>，<code>by-nc-nd</code>，<code>by-nc-sa</code>，<code>by-nd</code>，<code>by-sa</code>，<code>zero</code>。这些许可证允许创作者传达他们保留哪些权利，以及为了接收者或其他创作者的利益而放弃哪些权利。</p>
-<p>可以通过编辑主题配置文件中<code>creative_commons</code>部分中的值来配置它，例如</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: true</span><br><span class="line">  post: true</span><br><span class="line">  language:</span><br></pre></td></tr></table></figure>
-
-<p>截图如下：</p>
-<img src="/post/blog-config/creative-commons-post.jpg" class="" title="显示”知识共享“">
-<img src="/post/blog-config/creative-commons-sidebar.jpg" class="" title="显示”知识共享“">
-
-<h2 id="移动设备适应"><a href="#移动设备适应" class="headerlink" title="移动设备适应"></a>移动设备适应</h2><figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">mobile_layout_economy: true</span><br></pre></td></tr></table></figure>
-
-<p>在宽度较小的设备上减少边距。</p>
-<h2 id="代码块样式"><a href="#代码块样式" class="headerlink" title="代码块样式"></a>代码块样式</h2><p>Next使用<span class="exturl" data-url="aHR0cHM6Ly9oaWdobGlnaHRqcy5vcmcv">highlight.js<i class="fa fa-external-link-alt"></i></span>支持代码高亮。默认样式为白色，有90多种样式可供选择。</p>
-<p>更改<code>theme</code>的值以选择想要的高亮样式，例如：</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">codeblock:</span><br><span class="line">  theme:</span><br><span class="line">    light: tomorrow</span><br><span class="line">    dark: tomorrow-night</span><br></pre></td></tr></table></figure>
-
-<h2 id="阅读进度指示器"><a href="#阅读进度指示器" class="headerlink" title="阅读进度指示器"></a>阅读进度指示器</h2><p>NexT支持页面滚动阅读进度指示器，可以通过在主题配置文件中将<code>reading_progress.enable</code>的值设置为<code>true</code>来启用它。</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">reading_progress:</span><br><span class="line">  enable: true</span><br><span class="line">  position: top</span><br><span class="line">  color: &quot;#37c6c0&quot;</span><br><span class="line">  height: 3px</span><br></pre></td></tr></table></figure>
-
-<!-- ## 书签
-
-书签是一个允许用户保存其阅读进度的插件。用户只需单击页面左上方的书签图标（如🔖）即可保存滚动位置。当他们下次访问您的博客时，可以自动恢复每个页面的最后滚动位置。可以通过在主题配置文件中将`bookmark.enable`的值设置为`true`来启用它。
-
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">bookmark:</span><br><span class="line">  enable: true</span><br><span class="line">  color: &quot;#222&quot;</span><br><span class="line">  save: auto</span><br></pre></td></tr></table></figure> -->
-
-<h2 id="GitHub-Banner"><a href="#GitHub-Banner" class="headerlink" title="GitHub Banner"></a>GitHub Banner</h2><p>在右上角显示Github Banner，点击跳转个人GitHub页面，这里可以设置为博客的公开仓库地址。</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">github_banner:</span><br><span class="line">  enable: true</span><br><span class="line">  permalink: https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;linjiexin1996.github.io</span><br><span class="line">  title: Follow me on GitHub</span><br></pre></td></tr></table></figure>
-
-<h2 id="网站页脚"><a href="#网站页脚" class="headerlink" title="网站页脚"></a>网站页脚</h2><h3 id="指定网站开始时间"><a href="#指定网站开始时间" class="headerlink" title="指定网站开始时间"></a>指定网站开始时间</h3><p>默认情况下，NexT在页脚中显示当前年份，如<code>© 2020</code>。</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">footer:</span><br><span class="line">  since: 2020</span><br></pre></td></tr></table></figure>
-
-<h3 id="开启页脚图标动画"><a href="#开启页脚图标动画" class="headerlink" title="开启页脚图标动画"></a>开启页脚图标动画</h3><figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">footer:</span><br><span class="line">  icon:</span><br><span class="line">    animated: true</span><br></pre></td></tr></table></figure>
-
-<h3 id="隐藏Hexo和Next信息"><a href="#隐藏Hexo和Next信息" class="headerlink" title="隐藏Hexo和Next信息"></a>隐藏Hexo和Next信息</h3><p>默认情况下，NexT显示Hexo和主题方案信息，例如<code>由 Hexo &amp; NexT.Pisces 强力驱动</code>。</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">footer:</span><br><span class="line">  powered: false</span><br></pre></td></tr></table></figure>
-
-<h2 id="侧边栏"><a href="#侧边栏" class="headerlink" title="侧边栏"></a>侧边栏</h2><h3 id="回到顶部"><a href="#回到顶部" class="headerlink" title="回到顶部"></a>回到顶部</h3><p>将<code>back2top.sidebar</code>设置为<code>true</code>后，原本在网站右下角的回到顶部按钮转移到的侧边栏底部，开启<code>back2top.scrollpercent</code>后将会在按钮旁显示当前滚动条距离顶部百分比。</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: true</span><br><span class="line">  sidebar: true</span><br><span class="line">  scrollpercent: true</span><br></pre></td></tr></table></figure>
-
-<h3 id="社交链接"><a href="#社交链接" class="headerlink" title="社交链接"></a>社交链接</h3><p>添加<code>GitHub</code>和<code>E-Mail</code>链接：</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">social:</span><br><span class="line">  GitHub: https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996 || fab fa-github</span><br><span class="line">  E-Mail: mailto:798832135@qq.com || fa fa-envelope</span><br></pre></td></tr></table></figure>
-
-<p>只显示图标：</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">social_icons:</span><br><span class="line">  icons_only: true</span><br></pre></td></tr></table></figure>
-
-<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><h3 id="字数统计"><a href="#字数统计" class="headerlink" title="字数统计"></a>字数统计</h3><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-word-counter</code>:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-word-counter</span><br></pre></td></tr></table></figure>
-
-<p>通过在<code>站点配置文件</code>增加以下内容来激活插件：</p>
-<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  total_symbols: false</span><br><span class="line">  total_time: false</span><br><span class="line">  awl: 4</span><br><span class="line">  wpm: 275</span><br></pre></td></tr></table></figure>
-
-<h3 id="标签图标"><a href="#标签图标" class="headerlink" title="标签图标"></a>标签图标</h3><p>默认情况下，帖子底部的标签左侧有一个符号＃，这里将其替换替换为图标：</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">tag_icon: true</span><br></pre></td></tr></table></figure>
-
-<h3 id="赞赏"><a href="#赞赏" class="headerlink" title="赞赏"></a>赞赏</h3><p>将支付宝和微信收款码图片放置于主题的<code>source/images</code>目录下，然后修改配置：</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">reward_settings:</span><br><span class="line">  enable: true</span><br><span class="line">  animation: false</span><br><span class="line">  comment: 请站长吃颗糖 🍬</span><br><span class="line"></span><br><span class="line">reward:</span><br><span class="line">  wechatpay: &#x2F;images&#x2F;wechatpay.jpg</span><br><span class="line">  alipay: &#x2F;images&#x2F;alipay.jpg</span><br></pre></td></tr></table></figure>
-
-<h2 id="自定义404页面"><a href="#自定义404页面" class="headerlink" title="自定义404页面"></a>自定义404页面</h2><p>在站点的<code>source</code>目录下创建<code>404</code>目录，并在<code>404</code>目录下创建<code>index.md</code>文件：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd source</span><br><span class="line">mkdir 404</span><br><span class="line">touch 404&#x2F;index.md</span><br></pre></td></tr></table></figure>
-
-<p>编辑<code>404/index.md</code>文件，启用<code>公益404</code>（腾讯提供的服务）：</p>
-<figure class="highlight plain"><figcaption><span>blog/source/404/index.md</span></figcaption><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 404</span><br><span class="line">date: 1970-01-01 00:00:00</span><br><span class="line">---</span><br><span class="line">&lt;script src&#x3D;&quot;&#x2F;&#x2F;qzonestyle.gtimg.cn&#x2F;qzone&#x2F;hybrid&#x2F;app&#x2F;404&#x2F;search_children.js&quot;</span><br><span class="line">        charset&#x3D;&quot;utf-8&quot; homePageUrl&#x3D;&quot;&#x2F;&quot; homePageName&#x3D;&quot;Back to home&quot;&gt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
-
-<p>你也可以向其中添加任何内容。</p>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL2dldHRpbmctc3RhcnRlZC8=">Getting Started | NexT<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL3RoZW1lLXNldHRpbmdzLw==">Theme Settings<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 ]]></content>
       <categories>
@@ -498,6 +385,136 @@
 <li><span class="exturl" data-url="aHR0cHM6Ly9wYWdlcy5naXRodWIuY29tLw==">GitHub Pages<i class="fa fa-external-link-alt"></i></span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3poLWNuL2RvY3Mv">文档 | Hexo<i class="fa fa-external-link-alt"></i></span></li>
 <li><span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL2dldHRpbmctc3RhcnRlZC8=">Getting Started | NexT<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+]]></content>
+      <categories>
+        <category>个人博客建站之路</category>
+      </categories>
+  </entry>
+  <entry>
+    <title>Hexo + Next + Pages 个人博客 - Next主题配置</title>
+    <url>/post/blog-config/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>记录一下我的博客的Next主题配置。</p>
+<p>还没有博客的可以参考我前面写的一篇文章<a href="../../../../2020/05/25/blog-init/index.html">Hexo + Next + GitHub Pages 搭建个人博客</a>。</p>
+<a id="more"></a>
+
+<p>框架：Hexo<br>版本：4.2.0<br>GitHub：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhv">https://github.com/hexojs/hexo<i class="fa fa-external-link-alt"></i></span></p>
+<p>主题：Next<br>版本：8.0.0-rc.2<br>GitHub：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">https://github.com/next-theme/hexo-theme-next<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="菜单项"><a href="#菜单项" class="headerlink" title="菜单项"></a>菜单项</h2><p>打开主题配置文件<code>next/_config.yml</code>，找到<code>menu</code>，按需取消注释，开启菜单项：</p>
+<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">menu:</span></span><br><span class="line">  <span class="attr">home:</span> <span class="string">/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-home</span></span><br><span class="line">  <span class="attr">about:</span> <span class="string">/about/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">tags:</span> <span class="string">/tags/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-tags</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="string">/categories/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-th</span></span><br><span class="line">  <span class="attr">archives:</span> <span class="string">/archives/</span> <span class="string">||</span> <span class="string">fa</span> <span class="string">fa-archive</span></span><br><span class="line">  <span class="comment"># schedule: /schedule/ || fa fa-calendar</span></span><br><span class="line">  <span class="comment"># sitemap: /sitemap.xml || fa fa-sitemap</span></span><br><span class="line">  <span class="comment"># commonweal: /404/ || fa fa-heartbeat</span></span><br></pre></td></tr></table></figure>
+
+<p>除<code>home</code>和<code>archives</code>之外，该<code>menu</code>部分下的所有自定义页面都需要手动创建，可参考<span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL3RoZW1lLXNldHRpbmdzL2N1c3RvbS1wYWdlcy5odG1s">Custom Pages | NexT<i class="fa fa-external-link-alt"></i></span>。</p>
+<p>创建“标签”页面：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure>
+
+<p>创建“分类”页面：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page categories</span><br></pre></td></tr></table></figure>
+
+<p>创建“关于”页面：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo new page about</span><br></pre></td></tr></table></figure>
+
+<p>“标签”和”分类”页面需要设置<code>type</code>才会显示内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 分类</span><br><span class="line">type: &quot;categories&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<p>给文章设置”分类”和”标签”的示例：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">title: Testing Article</span><br><span class="line">categories:</span><br><span class="line">- Diary</span><br><span class="line">tags:</span><br><span class="line">- PS3</span><br><span class="line">- Games</span><br></pre></td></tr></table></figure>
+
+<p>详见<span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlvL3poLWNuL2RvY3MvZnJvbnQtbWF0dGVyLmh0bWwjJUU1JTg4JTg2JUU3JUIxJUJCJUU1JTkyJThDJUU2JUEwJTg3JUU3JUFEJUJF">Front-matter | Hexo<i class="fa fa-external-link-alt"></i></span>。</p>
+<p>设置<code>badges</code>为<code>true</code>，菜单项<code>标签</code>、<code>分类</code>、<code>归档</code>将在右侧显示对应的数量。</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">menu_settings:</span><br><span class="line">  badges: true</span><br></pre></td></tr></table></figure>
+
+<img src="/post/blog-config/configuring-menu-items.jpg" class="" title="配置菜单项">
+
+<h2 id="网站图标"><a href="#网站图标" class="headerlink" title="网站图标"></a>网站图标</h2><p>找个或自己做个图标，可以到<span class="exturl" data-url="aHR0cHM6Ly93d3cuaWNvbmZvbnQuY24v">Iconfont<i class="fa fa-external-link-alt"></i></span>找，然后到<span class="exturl" data-url="aHR0cHM6Ly9yZWFsZmF2aWNvbmdlbmVyYXRvci5uZXQv">Favicon Generator<i class="fa fa-external-link-alt"></i></span>生成适配多浏览器多平台的自定义图标压缩包。</p>
+<img src="/post/blog-config/iconfont-star.jpg" class="" title="iconfont星星">
+
+<img src="/post/blog-config/configuring-favicon.jpg" class="" title="配置图标">
+
+<p>下载解压后将图标文件夹放在<code>next/source/images</code>目录下，然后打开主题配置文件<code>next/_config.yml</code>，配置如下：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">favicon:</span><br><span class="line">  small: &#x2F;images&#x2F;favicon&#x2F;favicon-16x16.png</span><br><span class="line">  medium: &#x2F;images&#x2F;favicon&#x2F;favicon-32x32.png</span><br><span class="line">  apple_touch_icon: &#x2F;images&#x2F;favicon&#x2F;apple-touch-icon.png</span><br></pre></td></tr></table></figure>
+
+<h2 id="个人头像"><a href="#个人头像" class="headerlink" title="个人头像"></a>个人头像</h2><p>将头像<code>avatar.jpg</code>放在<code>next/source/images</code>目录下，然后打开主题配置文件<code>next/_config.yml</code>，配置如下：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">avatar:</span><br><span class="line">  url: &#x2F;images&#x2F;avatar.jpg</span><br><span class="line">  rounded: true</span><br><span class="line">  rotated: true</span><br></pre></td></tr></table></figure>
+
+<p><code>rounded</code>是将头像显示成圆形，<code>rotated</code>是在光标悬停在头像上时旋转头像。</p>
+<img src="/post/blog-config/configuring-avatar.jpg" class="" title="配置侧边栏头像">
+
+<h2 id="控制台提醒"><a href="#控制台提醒" class="headerlink" title="控制台提醒"></a>控制台提醒</h2><figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">reminder: true</span><br></pre></td></tr></table></figure>
+
+<p>开启后，在控制台中会自动检查更新和警报，比如：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">WARN  Your theme NexT is outdated. Current version: v8.0.0-rc.2, latest version: v8.0.0-rc.3</span><br><span class="line">WARN  Visit https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next&#x2F;releases for more information.</span><br></pre></td></tr></table></figure>
+
+<h2 id="最小化生成"><a href="#最小化生成" class="headerlink" title="最小化生成"></a>最小化生成</h2><figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">minify: true</span><br></pre></td></tr></table></figure>
+
+<p>执行<code>hexo generate</code>生成静态文件时后将移除不必要的文件。</p>
+<h2 id="知识共享"><a href="#知识共享" class="headerlink" title="知识共享"></a>知识共享</h2><p>NexT支持在侧边栏和和文章底部显示<span class="exturl" data-url="aHR0cDovL2NyZWF0aXZlY29tbW9ucy5vcmcv">Creative Commons 4.0国际许可<i class="fa fa-external-link-alt"></i></span>，包括<code>by</code>，<code>by-nc</code>，<code>by-nc-nd</code>，<code>by-nc-sa</code>，<code>by-nd</code>，<code>by-sa</code>，<code>zero</code>。这些许可证允许创作者传达他们保留哪些权利，以及为了接收者或其他创作者的利益而放弃哪些权利。</p>
+<p>可以通过编辑主题配置文件中<code>creative_commons</code>部分中的值来配置它，例如</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">creative_commons:</span><br><span class="line">  license: by-nc-sa</span><br><span class="line">  sidebar: true</span><br><span class="line">  post: true</span><br><span class="line">  language:</span><br></pre></td></tr></table></figure>
+
+<p>截图如下：</p>
+<img src="/post/blog-config/creative-commons-post.jpg" class="" title="显示”知识共享“">
+<img src="/post/blog-config/creative-commons-sidebar.jpg" class="" title="显示”知识共享“">
+
+<h2 id="移动设备适应"><a href="#移动设备适应" class="headerlink" title="移动设备适应"></a>移动设备适应</h2><figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">mobile_layout_economy: true</span><br></pre></td></tr></table></figure>
+
+<p>在宽度较小的设备上减少边距。</p>
+<h2 id="代码块样式"><a href="#代码块样式" class="headerlink" title="代码块样式"></a>代码块样式</h2><p>Next使用<span class="exturl" data-url="aHR0cHM6Ly9oaWdobGlnaHRqcy5vcmcv">highlight.js<i class="fa fa-external-link-alt"></i></span>支持代码高亮。默认样式为白色，有90多种样式可供选择。</p>
+<p>更改<code>theme</code>的值以选择想要的高亮样式，例如：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">codeblock:</span><br><span class="line">  theme:</span><br><span class="line">    light: tomorrow</span><br><span class="line">    dark: tomorrow-night</span><br></pre></td></tr></table></figure>
+
+<h2 id="阅读进度指示器"><a href="#阅读进度指示器" class="headerlink" title="阅读进度指示器"></a>阅读进度指示器</h2><p>NexT支持页面滚动阅读进度指示器，可以通过在主题配置文件中将<code>reading_progress.enable</code>的值设置为<code>true</code>来启用它。</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">reading_progress:</span><br><span class="line">  enable: true</span><br><span class="line">  position: top</span><br><span class="line">  color: &quot;#37c6c0&quot;</span><br><span class="line">  height: 3px</span><br></pre></td></tr></table></figure>
+
+<!-- ## 书签
+
+书签是一个允许用户保存其阅读进度的插件。用户只需单击页面左上方的书签图标（如🔖）即可保存滚动位置。当他们下次访问您的博客时，可以自动恢复每个页面的最后滚动位置。可以通过在主题配置文件中将`bookmark.enable`的值设置为`true`来启用它。
+
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">bookmark:</span><br><span class="line">  enable: true</span><br><span class="line">  color: &quot;#222&quot;</span><br><span class="line">  save: auto</span><br></pre></td></tr></table></figure> -->
+
+<h2 id="GitHub-Banner"><a href="#GitHub-Banner" class="headerlink" title="GitHub Banner"></a>GitHub Banner</h2><p>在右上角显示Github Banner，点击跳转个人GitHub页面，这里可以设置为博客的公开仓库地址。</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">github_banner:</span><br><span class="line">  enable: true</span><br><span class="line">  permalink: https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;linjiexin1996.github.io</span><br><span class="line">  title: Follow me on GitHub</span><br></pre></td></tr></table></figure>
+
+<h2 id="网站页脚"><a href="#网站页脚" class="headerlink" title="网站页脚"></a>网站页脚</h2><h3 id="指定网站开始时间"><a href="#指定网站开始时间" class="headerlink" title="指定网站开始时间"></a>指定网站开始时间</h3><p>默认情况下，NexT在页脚中显示当前年份，如<code>© 2020</code>。</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">footer:</span><br><span class="line">  since: 2020</span><br></pre></td></tr></table></figure>
+
+<h3 id="开启页脚图标动画"><a href="#开启页脚图标动画" class="headerlink" title="开启页脚图标动画"></a>开启页脚图标动画</h3><figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">footer:</span><br><span class="line">  icon:</span><br><span class="line">    animated: true</span><br></pre></td></tr></table></figure>
+
+<h3 id="隐藏Hexo和Next信息"><a href="#隐藏Hexo和Next信息" class="headerlink" title="隐藏Hexo和Next信息"></a>隐藏Hexo和Next信息</h3><p>默认情况下，NexT显示Hexo和主题方案信息，例如<code>由 Hexo &amp; NexT.Pisces 强力驱动</code>。</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">footer:</span><br><span class="line">  powered: false</span><br></pre></td></tr></table></figure>
+
+<h2 id="侧边栏"><a href="#侧边栏" class="headerlink" title="侧边栏"></a>侧边栏</h2><h3 id="回到顶部"><a href="#回到顶部" class="headerlink" title="回到顶部"></a>回到顶部</h3><p>将<code>back2top.sidebar</code>设置为<code>true</code>后，原本在网站右下角的回到顶部按钮转移到的侧边栏底部，开启<code>back2top.scrollpercent</code>后将会在按钮旁显示当前滚动条距离顶部百分比。</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">back2top:</span><br><span class="line">  enable: true</span><br><span class="line">  sidebar: true</span><br><span class="line">  scrollpercent: true</span><br></pre></td></tr></table></figure>
+
+<h3 id="社交链接"><a href="#社交链接" class="headerlink" title="社交链接"></a>社交链接</h3><p>添加<code>GitHub</code>和<code>E-Mail</code>链接：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">social:</span><br><span class="line">  GitHub: https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996 || fab fa-github</span><br><span class="line">  E-Mail: mailto:798832135@qq.com || fa fa-envelope</span><br></pre></td></tr></table></figure>
+
+<p>只显示图标：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">social_icons:</span><br><span class="line">  icons_only: true</span><br></pre></td></tr></table></figure>
+
+<h2 id="文章"><a href="#文章" class="headerlink" title="文章"></a>文章</h2><h3 id="字数统计"><a href="#字数统计" class="headerlink" title="字数统计"></a>字数统计</h3><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-word-counter</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-word-counter</span><br></pre></td></tr></table></figure>
+
+<p>通过在<code>站点配置文件</code>增加以下内容来激活插件：</p>
+<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">symbols_count_time:</span><br><span class="line">  symbols: true</span><br><span class="line">  time: true</span><br><span class="line">  total_symbols: false</span><br><span class="line">  total_time: false</span><br><span class="line">  awl: 4</span><br><span class="line">  wpm: 275</span><br></pre></td></tr></table></figure>
+
+<h3 id="标签图标"><a href="#标签图标" class="headerlink" title="标签图标"></a>标签图标</h3><p>默认情况下，帖子底部的标签左侧有一个符号＃，这里将其替换替换为图标：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">tag_icon: true</span><br></pre></td></tr></table></figure>
+
+<h3 id="赞赏"><a href="#赞赏" class="headerlink" title="赞赏"></a>赞赏</h3><p>将支付宝和微信收款码图片放置于主题的<code>source/images</code>目录下，然后修改配置：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">reward_settings:</span><br><span class="line">  enable: true</span><br><span class="line">  animation: false</span><br><span class="line">  comment: 请站长吃颗糖 🍬</span><br><span class="line"></span><br><span class="line">reward:</span><br><span class="line">  wechatpay: &#x2F;images&#x2F;wechatpay.jpg</span><br><span class="line">  alipay: &#x2F;images&#x2F;alipay.jpg</span><br></pre></td></tr></table></figure>
+
+<h2 id="自定义404页面"><a href="#自定义404页面" class="headerlink" title="自定义404页面"></a>自定义404页面</h2><p>在站点的<code>source</code>目录下创建<code>404</code>目录，并在<code>404</code>目录下创建<code>index.md</code>文件：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">cd source</span><br><span class="line">mkdir 404</span><br><span class="line">touch 404&#x2F;index.md</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>404/index.md</code>文件，启用<code>公益404</code>（腾讯提供的服务）：</p>
+<figure class="highlight plain"><figcaption><span>blog/source/404/index.md</span></figcaption><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 404</span><br><span class="line">date: 1970-01-01 00:00:00</span><br><span class="line">---</span><br><span class="line">&lt;script src&#x3D;&quot;&#x2F;&#x2F;qzonestyle.gtimg.cn&#x2F;qzone&#x2F;hybrid&#x2F;app&#x2F;404&#x2F;search_children.js&quot;</span><br><span class="line">        charset&#x3D;&quot;utf-8&quot; homePageUrl&#x3D;&quot;&#x2F;&quot; homePageName&#x3D;&quot;Back to home&quot;&gt;</span><br><span class="line">&lt;&#x2F;script&gt;</span><br></pre></td></tr></table></figure>
+
+<p>你也可以向其中添加任何内容。</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL2dldHRpbmctc3RhcnRlZC8=">Getting Started | NexT<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL3RoZW1lLXNldHRpbmdzLw==">Theme Settings<i class="fa fa-external-link-alt"></i></span></li>
 </ul>
 ]]></content>
       <categories>
