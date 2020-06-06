@@ -1,122 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Hexo + Next + Pages 个人博客 - SEO优化</title>
-    <url>/post/blog-seo/</url>
-    <content><![CDATA[<h2 id="SEO简介"><a href="#SEO简介" class="headerlink" title="SEO简介"></a>SEO简介</h2><p>SEO（Search Engine Optimization），汉译为“搜索引擎优化”。SEO是指通过站内优化比如网站结构调整、网站内容建设、网站代码优化等以及站外优化，来提高网站在有关搜索引擎内的自然排名，从而获得更多的免费流量。</p>
-<a id="more"></a>
-
-<h2 id="优化目录结构"><a href="#优化目录结构" class="headerlink" title="优化目录结构"></a>优化目录结构</h2><blockquote>
-<p>网站目录层级不超过三层是对搜索引擎友好的。</p>
-</blockquote>
-<p>Hexo默认的文章目录结构是<code>site/year/month/day/title/</code>，层级过多，这个可在<code>站点配置文件</code>里修改，下面是我的配置：</p>
-<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://blog.linjiexin.com</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:dir/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line">  <span class="attr">dir:</span> <span class="string">post</span></span><br></pre></td></tr></table></figure>
-
-<p>以自定义目录名（默认post）+文章标题的形式作为文章的永久链接。目录名可在文章页通过设置<code>dir</code>实现自定义，比如：</p>
-<figure class="highlight yaml"><figcaption><span>life.md</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">生活日志</span></span><br><span class="line"><span class="attr">dir:</span> <span class="string">life</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
-
-<div class="note warning"><p>注意事项：<br>这一步最好是在网站初建时（没有太多文章）时设置，因为修改文章地址会导致一些问题：</p>
-<ul>
-<li>影响到一些第三方服务。比如，如果你已经使用了LeanCloud进行阅读次数统计，这将会造成文章阅读数值清零重计，因为文章的URL改变了，被认为是一篇新文章。</li>
-<li>已被收录的文章，在还没被搜索引擎重新收录之前，别人通过搜索打开后是404页面。</li>
-</ul>
-</div>
-
-<h2 id="打开主题SEO优化选项"><a href="#打开主题SEO优化选项" class="headerlink" title="打开主题SEO优化选项"></a>打开主题SEO优化选项</h2><p>开启<code>disable_baidu_transformation</code>、<code>index_with_subtitle</code>、<code>exturl</code>：</p>
-<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Disable Baidu transformation on mobile devices.</span></span><br><span class="line"><span class="attr">disable_baidu_transformation:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># If true, site-subtitle will be added to index page.</span></span><br><span class="line"><span class="comment"># Remember to set up your site-subtitle in Hexo `_config.yml` (e.g. subtitle: Subtitle)</span></span><br><span class="line"><span class="attr">index_with_subtitle:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Automatically add external URL with Base64 encrypt &amp; decrypt.</span></span><br><span class="line"><span class="attr">exturl:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>详见<span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL3RoZW1lLXNldHRpbmdzL3Nlby5odG1s">SEO | NexT<i class="fa fa-external-link-alt"></i></span>。</p>
-<h2 id="让百度收录你的站点"><a href="#让百度收录你的站点" class="headerlink" title="让百度收录你的站点"></a>让百度收录你的站点</h2><p>为了让别人能通过网上搜索找到你的网站，首先要做的就是让各大搜索引擎收录你的站点。</p>
-<h3 id="查看收录情况"><a href="#查看收录情况" class="headerlink" title="查看收录情况"></a>查看收录情况</h3><p>在搜索引擎中输入<code>site:&lt;域名&gt;</code>，可以看到站点的收录情况，如果是下图这种情况，说明搜索引擎还没有收录我们的网站。所有搜索引擎都可以使用这种方法查看网站的收录情况。</p>
-<img src="/post/blog-seo/baidu-site-blog-linjiexin-com.jpg" class="" title="site:blog.linjiexin.com">
-
-<h3 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h3><p>登录<span class="exturl" data-url="aHR0cHM6Ly96aXl1YW4uYmFpZHUuY29tLw==">百度搜索资源平台<i class="fa fa-external-link-alt"></i></span>，在“用户中心 → 站点管理”里<span class="exturl" data-url="aHR0cHM6Ly96aXl1YW4uYmFpZHUuY29tL3NpdGUvaW5kZXg=">添加网站<i class="fa fa-external-link-alt"></i></span>。</p>
-<img src="/post/blog-seo/baidu-add-site.jpg" class="" title="百度添加网站">
-
-<blockquote>
-<p>网站不要输入GitHub Pages地址（xxx.github.io），因为GitHub禁止百度爬虫抓取数据。</p>
-</blockquote>
-<p>为什么 Github Pages 禁用了百度爬虫？<br>官方回复：</p>
-<blockquote>
-<p>Sorry for the trouble with this. We are currently blocking the Baidu user agent from crawling GitHub Pages sites in response to this user agent being responsible for an excessive amount of requests, which was causing availability issues for other GitHub customers.</p>
-<p>This is unlikely to change any time soon, so if you need the Baidu user agent to be able to crawl your site you will need to host it elsewhere.</p>
-<p>Apologies again for the inconvenience.</p>
-</blockquote>
-<p>大致意思就是百度爬虫过多的请求对很多 Github 用户造成了可用性问题，而禁止百度爬虫这一决定短期内不太可能改变。如果你需要用百度爬虫来抓取你的站点，你需要在其他地方托管它。</p>
-<!-- 这个问题我们后续在讨论，现在继续百度搜索引擎的收录。 -->
-
-<h3 id="验证网站"><a href="#验证网站" class="headerlink" title="验证网站"></a>验证网站</h3><p>输入网站后，下一步是选择“站点属性”，按照自己站点特性进行选择即可，最后一步是“验证网站”，选择“HTML标签验证”方式，获取到验证码：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;baidu-site-verification&quot; content&#x3D;&quot;XXXXXXXXXXXXXXXXXXXXXXX&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
-
-<p>编辑<code>主题配置文件</code>，添加或更改<code>baidu_site_verification</code>部分：</p>
-<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">baidu_site_verification:</span> <span class="string">XXXXXXXXXXXXXXXXXXXXXXX</span></span><br></pre></td></tr></table></figure>
-
-<p>然后重新部署。</p>
-<h3 id="自动推送"><a href="#自动推送" class="headerlink" title="自动推送"></a>自动推送</h3><p>编辑<code>主题配置文件</code>，开启自动推送：</p>
-<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">baidu_push:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
-
-<p>部署后访问站点可以看到自动推送请求：</p>
-<img src="/post/blog-seo/baidu-push.jpg" class="" title="百度自动推送">
-
-<h3 id="生成Sitemap"><a href="#生成Sitemap" class="headerlink" title="生成Sitemap"></a>生成Sitemap</h3><p>Sitemap（站点地图）是一种文件，你可以通过该文件列出你网站上的网页，从而将你网站内容的组织架构告知搜索引擎。<br>搜索引擎网页抓取工具会读取此文件，以便更加智能地抓取你的网站。</p>
-<p>可以使用<code>hexo-generator-sitemap</code>自动生成网站的sitemap，先安装插件：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
-
-<p>执行<code>hexo g</code>后可以在<code>public</code>目录下看到自动生成的<code>sitemap.xml</code>。</p>
-<h3 id="提交Sitemap"><a href="#提交Sitemap" class="headerlink" title="提交Sitemap"></a>提交Sitemap</h3><p>部署站点后将前面生成的<code>sitemap.xml</code>线上地址填入百度搜索资源平台，点击提交：</p>
-<img src="/post/blog-seo/baidu-submit-sitemap.jpg" class="" title="百度提交sitemap">
-
-<p>提交成功后，可在Sitemap列表里看到提交的Sitemap文件：</p>
-<img src="/post/blog-seo/baidu-submit-sitemap-list.jpg" class="" title="百度已提交的sitemap">
-
-<p>如果Sitemap文件里面有新的网站链接，可以选择文件，然后点击“手动更新文件”。</p>
-<h3 id="等待收录"><a href="#等待收录" class="headerlink" title="等待收录"></a>等待收录</h3><ul>
-<li>2020-06-04 提交站点，并访问博客文章进行自动推送</li>
-<li>2020-06-05 提交Sitemap</li>
-<li>等待收录中……</li>
-</ul>
-<h2 id="让Google收录你的站点"><a href="#让Google收录你的站点" class="headerlink" title="让Google收录你的站点"></a>让Google收录你的站点</h2><h3 id="查看收录情况-1"><a href="#查看收录情况-1" class="headerlink" title="查看收录情况"></a>查看收录情况</h3><p>使用Google搜索<code>site:blog.linjiexin.com</code>，可以看到还没被收录：</p>
-<img src="/post/blog-seo/baidu-site-blog-linjiexin-com.jpg" class="" title="site:blog.linjiexin.com">
-
-<h3 id="添加网站-1"><a href="#添加网站-1" class="headerlink" title="添加网站"></a>添加网站</h3><p>登录<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS93ZWJtYXN0ZXJzLw==">Google 网站站长<i class="fa fa-external-link-alt"></i></span>，选择<code>资源类型</code>，输入并点击<code>继续</code>：</p>
-<img src="/post/blog-seo/google-search-welcome.jpg" class="" title="欢迎使用Google Search Console">
-
-<h3 id="验证网站-1"><a href="#验证网站-1" class="headerlink" title="验证网站"></a>验证网站</h3><p>验证所有权，选择<code>HTML标记</code>方式：</p>
-<img src="/post/blog-seo/google-site-verification.jpg" class="" title="验证所有权">
-
-<p>复制<code>meta</code>标签的<code>content</code>内容，打开<code>主题配置文件</code>，补充<code>google_site_verification</code>内容：</p>
-<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">google_site_verification:</span> <span class="string">XXXXXXXXXXXXXXXXXXXXXXX</span></span><br></pre></td></tr></table></figure>
-
-<p>重新部署站点后点击<code>验证</code>：</p>
-<img src="/post/blog-seo/google-site-verification-success.jpg" class="" title="已完成所有权验证">
-
-<h3 id="提交Sitemap-1"><a href="#提交Sitemap-1" class="headerlink" title="提交Sitemap"></a>提交Sitemap</h3><img src="/post/blog-seo/google-submit-sitemap.jpg" class="" title="Google提交Sitemap">
-<img src="/post/blog-seo/google-submit-sitemap-list.jpg" class="" title="Google已提交的Sitemap">
-
-<h3 id="等待收录-1"><a href="#等待收录-1" class="headerlink" title="等待收录"></a>等待收录</h3><ul>
-<li>2020-06-05 提交站点</li>
-<li>等待收录中……<!-- 相比于百度，Google的效率高多了，当天19:25验证站点且提交sitemap，隔天9:30就查看到了收录结果。 -->
-
-</li>
-</ul>
-<h2 id="其他搜索引擎"><a href="#其他搜索引擎" class="headerlink" title="其他搜索引擎"></a>其他搜索引擎</h2><p>其他搜索引擎流程基本一致，大家按需添加即可：</p>
-<ul>
-<li><span class="exturl" data-url="aHR0cDovL2luZm8uc28uY29tL3NpdGVfc3VibWl0Lmh0bWw=">网站收录_360搜索<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cDovL3poYW56aGFuZy5zb2dvdS5jb20v">搜狗站长平台<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmluZy5jb20vdG9vbGJveC93ZWJtYXN0ZXIv">必应 Bing - 网站管理员工具<i class="fa fa-external-link-alt"></i></span></li>
-<li>……</li>
-</ul>
-<h2 id="持续更新中…"><a href="#持续更新中…" class="headerlink" title="持续更新中…"></a>持续更新中…</h2><!-- [验证网站所有权 - Search Console帮助](https://support.google.com/webmasters/answer/9008080#html_verification) -->
-
-]]></content>
-      <categories>
-        <category>个人博客建站之路</category>
-      </categories>
-      <tags>
-        <tag>SEO</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo + Next + Pages 个人博客 - 第三方服务集成</title>
     <url>/post/blog-services/</url>
     <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>文中第三方服务集成时的Hexo和Next版本说明如下：</p>
@@ -534,6 +418,151 @@
       <categories>
         <category>个人博客建站之路</category>
       </categories>
+  </entry>
+  <entry>
+    <title>Hexo + Next + Pages 个人博客 - SEO优化</title>
+    <url>/post/blog-seo/</url>
+    <content><![CDATA[<h2 id="SEO简介"><a href="#SEO简介" class="headerlink" title="SEO简介"></a>SEO简介</h2><p>SEO（Search Engine Optimization），汉译为“搜索引擎优化”。SEO是指通过站内优化比如网站结构调整、网站内容建设、网站代码优化等以及站外优化，来提高网站在有关搜索引擎内的自然排名，从而获得更多的免费流量。</p>
+<a id="more"></a>
+
+<h2 id="版本声明"><a href="#版本声明" class="headerlink" title="版本声明"></a>版本声明</h2><p>框架：Hexo<br>版本：4.2.0<br>GitHub：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhv">https://github.com/hexojs/hexo<i class="fa fa-external-link-alt"></i></span></p>
+<p>主题：Next<br>版本：8.0.0-rc.3<br>GitHub：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">https://github.com/next-theme/hexo-theme-next<i class="fa fa-external-link-alt"></i></span></p>
+<h2 id="优化目录结构"><a href="#优化目录结构" class="headerlink" title="优化目录结构"></a>优化目录结构</h2><blockquote>
+<p>网站目录层级不超过三层是对搜索引擎友好的。</p>
+</blockquote>
+<p>Hexo默认的文章目录结构是<code>site/year/month/day/title/</code>，层级过多，这个可在<code>站点配置文件</code>里修改，下面是我的配置：</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">url:</span> <span class="string">https://blog.linjiexin.com</span></span><br><span class="line"><span class="attr">root:</span> <span class="string">/</span></span><br><span class="line"><span class="attr">permalink:</span> <span class="string">:dir/:title/</span></span><br><span class="line"><span class="attr">permalink_defaults:</span></span><br><span class="line">  <span class="attr">dir:</span> <span class="string">post</span></span><br></pre></td></tr></table></figure>
+
+<p>以自定义目录名（默认post）+文章标题的形式作为文章的永久链接。目录名可在文章页通过设置<code>dir</code>实现自定义，比如：</p>
+<figure class="highlight yaml"><figcaption><span>life.md</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">生活日志</span></span><br><span class="line"><span class="attr">dir:</span> <span class="string">life</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
+
+<div class="note warning"><p>注意事项：<br>这一步最好是在网站初建时（没有太多文章）时设置，因为修改文章地址会导致一些问题：</p>
+<ul>
+<li>影响到一些第三方服务。比如，如果你已经使用了LeanCloud进行阅读次数统计，这将会造成文章阅读数值清零重计，因为文章的URL改变了，被认为是一篇新文章。</li>
+<li>已被收录的文章，在还没被搜索引擎重新收录之前，别人通过搜索打开后是404页面。</li>
+</ul>
+</div>
+
+<h2 id="优化网站URL"><a href="#优化网站URL" class="headerlink" title="优化网站URL"></a>优化网站URL</h2><blockquote>
+<p>网站URL中不要包含中文以及除了&amp;? =符号之外的特殊符号。<br>URL越短越好。</p>
+</blockquote>
+<p>也就是说不要用中文作为文章文件名。</p>
+<p>如果分类（categories）或标签（tags）是中文的情况下，路径也会包含中文，这个可在<code>站点配置文件</code>里设置映射内容，下面以目录为例：</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Category &amp; Tag</span></span><br><span class="line"><span class="attr">default_category:</span> <span class="string">uncategorized</span></span><br><span class="line"><span class="attr">category_map:</span></span><br><span class="line">  <span class="string">前端:</span> <span class="string">frontend</span></span><br><span class="line">  <span class="string">后端:</span> <span class="string">backend</span></span><br><span class="line">  <span class="attr">Android:</span> <span class="string">android</span></span><br><span class="line">  <span class="attr">IOS:</span> <span class="string">ios</span></span><br><span class="line">  <span class="string">工具:</span> <span class="string">toolkit</span></span><br><span class="line">  <span class="string">安全:</span> <span class="string">netsec</span></span><br><span class="line">  <span class="string">程序员:</span> <span class="string">programmer</span></span><br><span class="line">  <span class="string">生活:</span> <span class="string">life</span></span><br><span class="line">  <span class="string">职场:</span> <span class="string">workplace</span></span><br><span class="line"><span class="attr">tag_map:</span></span><br></pre></td></tr></table></figure>
+
+<p>冒号前面是分类名称，后面是访问路径。</p>
+<h2 id="打开主题SEO优化选项"><a href="#打开主题SEO优化选项" class="headerlink" title="打开主题SEO优化选项"></a>打开主题SEO优化选项</h2><p>开启<code>disable_baidu_transformation</code>、<code>index_with_subtitle</code>、<code>exturl</code>：</p>
+<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># Disable Baidu transformation on mobile devices.</span></span><br><span class="line"><span class="attr">disable_baidu_transformation:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># If true, site-subtitle will be added to index page.</span></span><br><span class="line"><span class="comment"># Remember to set up your site-subtitle in Hexo `_config.yml` (e.g. subtitle: Subtitle)</span></span><br><span class="line"><span class="attr">index_with_subtitle:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Automatically add external URL with Base64 encrypt &amp; decrypt.</span></span><br><span class="line"><span class="attr">exturl:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>详见<span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL3RoZW1lLXNldHRpbmdzL3Nlby5odG1s">SEO | NexT<i class="fa fa-external-link-alt"></i></span>。</p>
+<h2 id="让百度收录你的站点"><a href="#让百度收录你的站点" class="headerlink" title="让百度收录你的站点"></a>让百度收录你的站点</h2><p>为了让别人能通过网上搜索找到你的网站，首先要做的就是让各大搜索引擎收录你的站点。</p>
+<h3 id="查看收录情况"><a href="#查看收录情况" class="headerlink" title="查看收录情况"></a>查看收录情况</h3><p>在搜索引擎中输入<code>site:&lt;域名&gt;</code>，可以看到站点的收录情况，如果是下图这种情况，说明搜索引擎还没有收录我们的网站。所有搜索引擎都可以使用这种方法查看网站的收录情况。</p>
+<img src="/post/blog-seo/baidu-site-blog-linjiexin-com.jpg" class="" title="site:blog.linjiexin.com">
+
+<h3 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h3><p>登录<span class="exturl" data-url="aHR0cHM6Ly96aXl1YW4uYmFpZHUuY29tLw==">百度搜索资源平台<i class="fa fa-external-link-alt"></i></span>，在“用户中心 → 站点管理”里<span class="exturl" data-url="aHR0cHM6Ly96aXl1YW4uYmFpZHUuY29tL3NpdGUvaW5kZXg=">添加网站<i class="fa fa-external-link-alt"></i></span>。</p>
+<img src="/post/blog-seo/baidu-add-site.jpg" class="" title="百度添加网站">
+
+<blockquote>
+<p>网站不要输入GitHub Pages地址（xxx.github.io），因为GitHub禁止百度爬虫抓取数据。</p>
+</blockquote>
+<p>为什么 Github Pages 禁用了百度爬虫？<br>官方回复：</p>
+<blockquote>
+<p>Sorry for the trouble with this. We are currently blocking the Baidu user agent from crawling GitHub Pages sites in response to this user agent being responsible for an excessive amount of requests, which was causing availability issues for other GitHub customers.</p>
+<p>This is unlikely to change any time soon, so if you need the Baidu user agent to be able to crawl your site you will need to host it elsewhere.</p>
+<p>Apologies again for the inconvenience.</p>
+</blockquote>
+<p>大致意思就是百度爬虫过多的请求对很多 Github 用户造成了可用性问题，而禁止百度爬虫这一决定短期内不太可能改变。如果你需要用百度爬虫来抓取你的站点，你需要在其他地方托管它。</p>
+<!-- 这个问题我们后续在讨论，现在继续百度搜索引擎的收录。 -->
+
+<h3 id="验证网站"><a href="#验证网站" class="headerlink" title="验证网站"></a>验证网站</h3><p>输入网站后，下一步是选择“站点属性”，按照自己站点特性进行选择即可，最后一步是“验证网站”，选择“HTML标签验证”方式，获取到验证码：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&lt;meta name&#x3D;&quot;baidu-site-verification&quot; content&#x3D;&quot;XXXXXXXXXXXXXXXXXXXXXXX&quot; &#x2F;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>主题配置文件</code>，添加或更改<code>baidu_site_verification</code>部分：</p>
+<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">baidu_site_verification:</span> <span class="string">XXXXXXXXXXXXXXXXXXXXXXX</span></span><br></pre></td></tr></table></figure>
+
+<p>然后重新部署。</p>
+<h3 id="自动推送"><a href="#自动推送" class="headerlink" title="自动推送"></a>自动推送</h3><p>编辑<code>主题配置文件</code>，开启自动推送：</p>
+<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">baidu_push:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>部署后访问站点可以看到自动推送请求：</p>
+<img src="/post/blog-seo/baidu-push.jpg" class="" title="百度自动推送">
+
+<h3 id="生成Sitemap"><a href="#生成Sitemap" class="headerlink" title="生成Sitemap"></a>生成Sitemap</h3><p>Sitemap（站点地图）是一种文件，你可以通过该文件列出你网站上的网页，从而将你网站内容的组织架构告知搜索引擎。<br>搜索引擎网页抓取工具会读取此文件，以便更加智能地抓取你的网站。</p>
+<p>可以使用<code>hexo-generator-sitemap</code>自动生成网站的sitemap，先安装插件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-sitemap --save</span><br></pre></td></tr></table></figure>
+
+<p>执行<code>hexo g</code>后可以在<code>public</code>目录下看到自动生成的<code>sitemap.xml</code>。</p>
+<h3 id="提交Sitemap"><a href="#提交Sitemap" class="headerlink" title="提交Sitemap"></a>提交Sitemap</h3><p>部署站点后将前面生成的<code>sitemap.xml</code>线上地址填入百度搜索资源平台，点击提交：</p>
+<img src="/post/blog-seo/baidu-submit-sitemap.jpg" class="" title="百度提交sitemap">
+
+<p>提交成功后，可在Sitemap列表里看到提交的Sitemap文件：</p>
+<img src="/post/blog-seo/baidu-submit-sitemap-list.jpg" class="" title="百度已提交的sitemap">
+
+<p>如果Sitemap文件里面有新的网站链接，可以选择文件，然后点击“手动更新文件”。</p>
+<h3 id="主动推送"><a href="#主动推送" class="headerlink" title="主动推送"></a>主动推送</h3><p>1、安装<code>hexo-baidu-url-submit</code>插件：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">npm install hexo-baidu-url-submit --save</span><br></pre></td></tr></table></figure>
+
+<p>2、在<code>站点配置文件</code>里添加以下内容：</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="comment"># 百度链接提交 - 主动推送</span></span><br><span class="line"><span class="attr">baidu_url_submit:</span></span><br><span class="line">  <span class="attr">count:</span> <span class="number">10</span> <span class="comment">## 提交最新的x个链接</span></span><br><span class="line">  <span class="attr">host:</span> <span class="string">linjiexin.me</span> <span class="comment">## 在百度搜索资源平台验证的站点</span></span><br><span class="line">  <span class="attr">token:</span> <span class="string">your_token</span> <span class="comment">## 在搜索资源平台申请的推送用的准入密钥</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">baidu_urls.txt</span> <span class="comment">## 文本文档的地址，新链接会保存在此文本文档里</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>请注意，本插件的配置文件中包含秘钥，请您妥善管理好您的博客源码。<br>如果要托管在git仓库里，请选择私有仓库。</p>
+</blockquote>
+<p>count的值按照自己实际情况调整，可以设置大点的数。<br>当值为“1”时，如果你新写了两篇文章，然后部署，只会主动推送最新一篇文章的链接。</p>
+<p>3、在<code>站点配置文件</code>加入新的<code>deploy</code><br>：</p>
+<figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line"> <span class="bullet">-</span> <span class="attr">type:</span> <span class="string">baidu_url_submitter</span></span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>推送功能的实现，分为两部分：<br>新链接的产生， hexo generate 会产生一个文本文件，里面包含最新的链接<br>新链接的提交， hexo deploy 会从上述文件中读取链接，提交至百度搜索引擎</p>
+</blockquote>
+<p>这里的提交实际是使用了<code>API提交</code>，查看<code>准入密钥</code>：</p>
+<img src="/post/blog-seo/baidu-api-submit-token.jpg" class="" title="API提交">
+
+<h3 id="等待收录"><a href="#等待收录" class="headerlink" title="等待收录"></a>等待收录</h3><ul>
+<li>2020-06-04 提交站点，并访问博客文章进行自动推送</li>
+<li>2020-06-05 提交Sitemap</li>
+<li>等待收录中……</li>
+</ul>
+<h2 id="让Google收录你的站点"><a href="#让Google收录你的站点" class="headerlink" title="让Google收录你的站点"></a>让Google收录你的站点</h2><h3 id="查看收录情况-1"><a href="#查看收录情况-1" class="headerlink" title="查看收录情况"></a>查看收录情况</h3><p>使用Google搜索<code>site:blog.linjiexin.com</code>，可以看到还没被收录：</p>
+<img src="/post/blog-seo/baidu-site-blog-linjiexin-com.jpg" class="" title="site:blog.linjiexin.com">
+
+<h3 id="添加网站-1"><a href="#添加网站-1" class="headerlink" title="添加网站"></a>添加网站</h3><p>登录<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS93ZWJtYXN0ZXJzLw==">Google 网站站长<i class="fa fa-external-link-alt"></i></span>，选择<code>资源类型</code>，输入并点击<code>继续</code>：</p>
+<img src="/post/blog-seo/google-search-welcome.jpg" class="" title="欢迎使用Google Search Console">
+
+<h3 id="验证网站-1"><a href="#验证网站-1" class="headerlink" title="验证网站"></a>验证网站</h3><p>验证所有权，选择<code>HTML标记</code>方式：</p>
+<img src="/post/blog-seo/google-site-verification.jpg" class="" title="验证所有权">
+
+<p>复制<code>meta</code>标签的<code>content</code>内容，打开<code>主题配置文件</code>，补充<code>google_site_verification</code>内容：</p>
+<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">google_site_verification:</span> <span class="string">XXXXXXXXXXXXXXXXXXXXXXX</span></span><br></pre></td></tr></table></figure>
+
+<p>重新部署站点后点击<code>验证</code>：</p>
+<img src="/post/blog-seo/google-site-verification-success.jpg" class="" title="已完成所有权验证">
+
+<h3 id="提交Sitemap-1"><a href="#提交Sitemap-1" class="headerlink" title="提交Sitemap"></a>提交Sitemap</h3><img src="/post/blog-seo/google-submit-sitemap.jpg" class="" title="Google提交Sitemap">
+<img src="/post/blog-seo/google-submit-sitemap-list.jpg" class="" title="Google已提交的Sitemap">
+
+<h3 id="等待收录-1"><a href="#等待收录-1" class="headerlink" title="等待收录"></a>等待收录</h3><ul>
+<li>2020-06-05 提交站点和Sitemap</li>
+<li>2020-06-06 搜索到收录结果</li>
+</ul>
+<img src="/post/blog-seo/google-site-blog-linjiexin-com-success.jpg" class="" title="Google SEO">
+
+<h2 id="其他搜索引擎"><a href="#其他搜索引擎" class="headerlink" title="其他搜索引擎"></a>其他搜索引擎</h2><p>其他搜索引擎流程基本一致，大家按需添加即可：</p>
+<ul>
+<li><span class="exturl" data-url="aHR0cDovL2luZm8uc28uY29tL3NpdGVfc3VibWl0Lmh0bWw=">网站收录_360搜索<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cDovL3poYW56aGFuZy5zb2dvdS5jb20v">搜狗站长平台<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly93d3cuYmluZy5jb20vdG9vbGJveC93ZWJtYXN0ZXIv">必应 Bing - 网站管理员工具<i class="fa fa-external-link-alt"></i></span></li>
+<li>……</li>
+</ul>
+<h2 id="持续更新中…"><a href="#持续更新中…" class="headerlink" title="持续更新中…"></a>持续更新中…</h2><!-- [验证网站所有权 - Search Console帮助](https://support.google.com/webmasters/answer/9008080#html_verification) -->
+
+]]></content>
+      <categories>
+        <category>个人博客建站之路</category>
+      </categories>
+      <tags>
+        <tag>SEO</tag>
+      </tags>
   </entry>
   <entry>
     <title>JS判断是否输入emoji表情，过滤emoji表情</title>
