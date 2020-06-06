@@ -149,6 +149,11 @@
     <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">6</span></a>
 
   </li>
+        <li class="menu-item menu-item-messages">
+
+    <a href="/messages/" rel="section"><i class="fa fa-comments fa-fw"></i>留言板<span class="badge valine-comment-count" data-xid="/messages/" itemprop="commentCount">-</span></a>
+
+  </li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
         </a>
@@ -539,6 +544,19 @@
   
 
   
+
+
+<script>
+NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
+  NexT.utils.getScript('//cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', () => {
+    new Valine(Object.assign({
+      el         : '#valine-comments',
+      path       : location.pathname,
+    }, {"enable":true,"appId":"1EcHaMOtrgWPDeNGqBGF77wo-gzGzoHsz","appKey":"BmmftwKTFzvP24wgPwr4tOJl","placeholder":"Just go go","avatar":"mm","meta":["nick","mail","link"],"pageSize":10,"language":null,"visitor":false,"comment_count":true,"recordIP":false,"serverURLs":null}
+    ));
+  }, window.Valine);
+});
+</script>
 
 </body>
 </html>
