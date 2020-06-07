@@ -23,7 +23,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.linjiexin.com","root":"/","scheme":"Pisces","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.linjiexin.com","root":"/","scheme":"Pisces","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="SEO简介SEO（Search Engine Optimization），汉译为“搜索引擎优化”。SEO是指通过站内优化比如网站结构调整、网站内容建设、网站代码优化等以及站外优化，来提高网站在有关搜索引擎内的自然排名，从而获得更多的免费流量。">
@@ -157,7 +157,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">6</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">7</span></a>
 
   </li>
         <li class="menu-item menu-item-messages">
@@ -354,10 +354,10 @@
 <figure class="highlight yaml"><figcaption><span>post.md</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">标题</span></span><br><span class="line"><span class="attr">description:</span> <span class="string">自定义描述</span></span><br><span class="line"><span class="attr">keywords:</span> <span class="string">关键词</span></span><br><span class="line"><span class="meta">---</span></span><br></pre></td></tr></table></figure>
 
 <p>默认配置下，设置了<code>description</code>之后，在首页文章摘要列表不会显示文章内容，而是显示<code>description</code>内容。</p>
-<img src="/post/blog-seo/custom-description-home.jpg" class="">
+<img data-src="/post/blog-seo/custom-description-home.jpg" class="">
 
 <p>在文章详情页则会在标题下方显示<code>description</code>内容。</p>
-<img src="/post/blog-seo/custom-description-post.jpg" class="">
+<img data-src="/post/blog-seo/custom-description-post.jpg" class="">
 
 <p>如果不想在文章详情页显示<code>description</code>的话，可打开<code>themes/next/layout/_macro/post.njk</code>，注释以下内容：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;%- if post.description and (not theme.excerpt_description or not is_index) %&#125;</span><br><span class="line">  &lt;div class&#x3D;&quot;post-description&quot;&gt;&#123;&#123; post.description &#125;&#125;&lt;&#x2F;div&gt;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
@@ -368,10 +368,10 @@
 <p>详见<span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL3RoZW1lLXNldHRpbmdzL3Nlby5odG1s">SEO | NexT<i class="fa fa-external-link-alt"></i></span>。</p>
 <h2 id="让百度收录你的站点"><a href="#让百度收录你的站点" class="headerlink" title="让百度收录你的站点"></a>让百度收录你的站点</h2><p>为了让别人能通过网上搜索找到你的网站，首先要做的就是让各大搜索引擎收录你的站点。</p>
 <h3 id="查看收录情况"><a href="#查看收录情况" class="headerlink" title="查看收录情况"></a>查看收录情况</h3><p>在搜索引擎中输入<code>site:&lt;域名&gt;</code>，可以看到站点的收录情况，如果是下图这种情况，说明搜索引擎还没有收录我们的网站。所有搜索引擎都可以使用这种方法查看网站的收录情况。</p>
-<img src="/post/blog-seo/baidu-site-blog-linjiexin-com.jpg" class="" title="site:blog.linjiexin.com">
+<img data-src="/post/blog-seo/baidu-site-blog-linjiexin-com.jpg" class="" title="site:blog.linjiexin.com">
 
 <h3 id="添加网站"><a href="#添加网站" class="headerlink" title="添加网站"></a>添加网站</h3><p>登录<span class="exturl" data-url="aHR0cHM6Ly96aXl1YW4uYmFpZHUuY29tLw==">百度搜索资源平台<i class="fa fa-external-link-alt"></i></span>，在“用户中心 → 站点管理”里<span class="exturl" data-url="aHR0cHM6Ly96aXl1YW4uYmFpZHUuY29tL3NpdGUvaW5kZXg=">添加网站<i class="fa fa-external-link-alt"></i></span>。</p>
-<img src="/post/blog-seo/baidu-add-site.jpg" class="" title="百度添加网站">
+<img data-src="/post/blog-seo/baidu-add-site.jpg" class="" title="百度添加网站">
 
 <blockquote>
 <p>网站不要输入GitHub Pages地址（xxx.github.io），因为GitHub禁止百度爬虫抓取数据。</p>
@@ -396,7 +396,7 @@
 <figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">baidu_push:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
 
 <p>部署后访问站点可以看到自动推送请求：</p>
-<img src="/post/blog-seo/baidu-push.jpg" class="" title="百度自动推送">
+<img data-src="/post/blog-seo/baidu-push.jpg" class="" title="百度自动推送">
 
 <h3 id="生成Sitemap"><a href="#生成Sitemap" class="headerlink" title="生成Sitemap"></a>生成Sitemap</h3><p>Sitemap（站点地图）是一种文件，你可以通过该文件列出你网站上的网页，从而将你网站内容的组织架构告知搜索引擎。<br>搜索引擎网页抓取工具会读取此文件，以便更加智能地抓取你的网站。</p>
 <p>可以使用<code>hexo-generator-sitemap</code>自动生成网站的sitemap，先安装插件：</p>
@@ -404,17 +404,17 @@
 
 <p>执行<code>hexo g</code>后可以在<code>public</code>目录下看到自动生成的<code>sitemap.xml</code>。</p>
 <h3 id="提交Sitemap"><a href="#提交Sitemap" class="headerlink" title="提交Sitemap"></a>提交Sitemap</h3><p>部署站点后将前面生成的<code>sitemap.xml</code>线上地址填入百度搜索资源平台，点击提交：</p>
-<img src="/post/blog-seo/baidu-submit-sitemap.jpg" class="" title="百度提交sitemap">
+<img data-src="/post/blog-seo/baidu-submit-sitemap.jpg" class="" title="百度提交sitemap">
 
 <p>提交成功后，可在Sitemap列表里看到提交的Sitemap文件：</p>
-<img src="/post/blog-seo/baidu-submit-sitemap-list.jpg" class="" title="百度已提交的sitemap">
+<img data-src="/post/blog-seo/baidu-submit-sitemap-list.jpg" class="" title="百度已提交的sitemap">
 
 <p>如果Sitemap文件里面有新的网站链接，可以选择文件，然后点击“手动更新文件”。</p>
 <h3 id="主动推送"><a href="#主动推送" class="headerlink" title="主动推送"></a>主动推送</h3><p>1、安装<code>hexo-baidu-url-submit</code>插件：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install hexo-baidu-url-submit --save</span><br></pre></td></tr></table></figure>
 
 <p>2、获取<code>API提交</code>的<code>准入密钥</code>（可以修改）：</p>
-<img src="/post/blog-seo/baidu-api-submit-token.jpg" class="" title="API提交">
+<img data-src="/post/blog-seo/baidu-api-submit-token.jpg" class="" title="API提交">
 
 <p>3、在<code>站点配置文件</code>里添加以下内容：</p>
 <figure class="highlight yaml"><figcaption><span>_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 百度链接提交 - 主动推送</span></span><br><span class="line"><span class="attr">baidu_url_submit:</span></span><br><span class="line">  <span class="attr">count:</span> <span class="number">10</span> <span class="comment">## 提交最新的x个链接</span></span><br><span class="line">  <span class="attr">host:</span> <span class="string">blog.linjiexin.com</span> <span class="comment">## 在百度搜索资源平台验证的站点</span></span><br><span class="line">  <span class="attr">token:</span> <span class="string">your_token</span> <span class="comment">## 在搜索资源平台申请的推送用的准入密钥</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">baidu_urls.txt</span> <span class="comment">## 文本文档的地址，新链接会保存在此文本文档里</span></span><br></pre></td></tr></table></figure>
@@ -429,8 +429,8 @@
 <blockquote>
 <p>推送功能的实现，分为两部分：<br>新链接的产生， hexo generate 会产生一个文本文件，里面包含最新的链接<br>新链接的提交， hexo deploy 会从上述文件中读取链接，提交至百度搜索引擎</p>
 </blockquote>
-<img src="/post/blog-seo/generate-baidu-urls.jpg" class="" title="生成baidu_urls.txt">
-<img src="/post/blog-seo/deploy-baidu-url-submitter.jpg" class="" title="主动推送文章链接">
+<img data-src="/post/blog-seo/generate-baidu-urls.jpg" class="" title="生成baidu_urls.txt">
+<img data-src="/post/blog-seo/deploy-baidu-url-submitter.jpg" class="" title="主动推送文章链接">
 
 <h3 id="关于链接提交工具"><a href="#关于链接提交工具" class="headerlink" title="关于链接提交工具"></a>关于链接提交工具</h3><p>百度搜索资源平台的<span class="exturl" data-url="aHR0cHM6Ly96aXl1YW4uYmFpZHUuY29tL2xpbmtzdWJtaXQvaW5kZXg=">链接提交工具<i class="fa fa-external-link-alt"></i></span>是网站主动向百度搜索推送数据的工具，可缩短爬虫发现网站链接时间，网站时效性内容建议使用链接提交工具，实时向搜索推送数据。此工具可加快爬虫抓取速度，但无法解决网站内容是否收录问题。</p>
 <p>有两种提交方式，自动提交和手动提交，自动提交又分为主动推送（实时）、自动推送和sitemap，这里只讨论自动提交。</p>
@@ -450,28 +450,28 @@
 <li>等待收录中……</li>
 </ul>
 <h2 id="让Google收录你的站点"><a href="#让Google收录你的站点" class="headerlink" title="让Google收录你的站点"></a>让Google收录你的站点</h2><h3 id="查看收录情况-1"><a href="#查看收录情况-1" class="headerlink" title="查看收录情况"></a>查看收录情况</h3><p>使用Google搜索<code>site:blog.linjiexin.com</code>，可以看到还没被收录：</p>
-<img src="/post/blog-seo/baidu-site-blog-linjiexin-com.jpg" class="" title="site:blog.linjiexin.com">
+<img data-src="/post/blog-seo/baidu-site-blog-linjiexin-com.jpg" class="" title="site:blog.linjiexin.com">
 
 <h3 id="添加网站-1"><a href="#添加网站-1" class="headerlink" title="添加网站"></a>添加网站</h3><p>登录<span class="exturl" data-url="aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS93ZWJtYXN0ZXJzLw==">Google 网站站长<i class="fa fa-external-link-alt"></i></span>，选择<code>资源类型</code>，输入并点击<code>继续</code>：</p>
-<img src="/post/blog-seo/google-search-welcome.jpg" class="" title="欢迎使用Google Search Console">
+<img data-src="/post/blog-seo/google-search-welcome.jpg" class="" title="欢迎使用Google Search Console">
 
 <h3 id="验证网站-1"><a href="#验证网站-1" class="headerlink" title="验证网站"></a>验证网站</h3><p>验证所有权，选择<code>HTML标记</code>方式：</p>
-<img src="/post/blog-seo/google-site-verification.jpg" class="" title="验证所有权">
+<img data-src="/post/blog-seo/google-site-verification.jpg" class="" title="验证所有权">
 
 <p>复制<code>meta</code>标签的<code>content</code>内容，打开<code>主题配置文件</code>，补充<code>google_site_verification</code>内容：</p>
 <figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">google_site_verification:</span> <span class="string">XXXXXXXXXXXXXXXXXXXXXXX</span></span><br></pre></td></tr></table></figure>
 
 <p>重新部署站点后点击<code>验证</code>：</p>
-<img src="/post/blog-seo/google-site-verification-success.jpg" class="" title="已完成所有权验证">
+<img data-src="/post/blog-seo/google-site-verification-success.jpg" class="" title="已完成所有权验证">
 
-<h3 id="提交Sitemap-1"><a href="#提交Sitemap-1" class="headerlink" title="提交Sitemap"></a>提交Sitemap</h3><img src="/post/blog-seo/google-submit-sitemap.jpg" class="" title="Google提交Sitemap">
-<img src="/post/blog-seo/google-submit-sitemap-list.jpg" class="" title="Google已提交的Sitemap">
+<h3 id="提交Sitemap-1"><a href="#提交Sitemap-1" class="headerlink" title="提交Sitemap"></a>提交Sitemap</h3><img data-src="/post/blog-seo/google-submit-sitemap.jpg" class="" title="Google提交Sitemap">
+<img data-src="/post/blog-seo/google-submit-sitemap-list.jpg" class="" title="Google已提交的Sitemap">
 
 <h3 id="等待收录-1"><a href="#等待收录-1" class="headerlink" title="等待收录"></a>等待收录</h3><ul>
 <li>2020-06-05 提交站点和Sitemap</li>
 <li>2020-06-06 搜索到收录结果</li>
 </ul>
-<img src="/post/blog-seo/google-site-blog-linjiexin-com-success.jpg" class="" title="Google SEO">
+<img data-src="/post/blog-seo/google-site-blog-linjiexin-com-success.jpg" class="" title="Google SEO">
 
 <h2 id="其他搜索引擎"><a href="#其他搜索引擎" class="headerlink" title="其他搜索引擎"></a>其他搜索引擎</h2><p>其他搜索引擎流程基本一致，大家按需添加即可：</p>
 <ul>
@@ -487,7 +487,7 @@
     
     
         <div class="reward-container">
-  <div>请站长吃颗糖 🍬</div>
+  <div>谢谢支持，ღ( ´･ᴗ･` )比心</div>
   <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     赞赏
   </button>
@@ -540,7 +540,10 @@
     <a href="/post/baidu-translate-api/" rel="prev" title="使用百度通用翻译API">
       <i class="fa fa-chevron-left"></i> 使用百度通用翻译API
     </a></div>
-      <div class="post-nav-item"></div>
+      <div class="post-nav-item">
+    <a href="/post/blog-custom/" rel="next" title="Hexo + Next + Pages 个人博客 - 个性化">
+      Hexo + Next + Pages 个人博客 - 个性化 <i class="fa fa-chevron-right"></i>
+    </a></div>
     </div>
       </footer>
     
@@ -616,7 +619,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -799,6 +802,7 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -860,6 +864,6 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
   }, window.Valine);
 });
 </script>
-
+<script src="../../scripts/love.js"></script>
 </body>
 </html>

@@ -23,7 +23,7 @@
 
 <script id="hexo-configurations">
     var NexT = window.NexT || {};
-    var CONFIG = {"hostname":"blog.linjiexin.com","root":"/","scheme":"Pisces","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+    var CONFIG = {"hostname":"blog.linjiexin.com","root":"/","scheme":"Pisces","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
   <meta name="description" content="前言记录一下自己使用Hexo + Next + GitHub Pages 搭建个人博客的过程。 框架：Hexo版本：4.2.0GitHub：https:&#x2F;&#x2F;github.com&#x2F;hexojs&#x2F;hexo 主题：Next版本：8.0.0-rc.2GitHub：https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-theme-next">
@@ -162,7 +162,7 @@
   </li>
         <li class="menu-item menu-item-archives">
 
-    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">6</span></a>
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档<span class="badge">7</span></a>
 
   </li>
         <li class="menu-item menu-item-messages">
@@ -324,7 +324,7 @@
 
 <h2 id="搭建GitHub-Pages"><a href="#搭建GitHub-Pages" class="headerlink" title="搭建GitHub Pages"></a>搭建GitHub Pages</h2><h3 id="创建仓库"><a href="#创建仓库" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>转到<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tLw==">GitHub<i class="fa fa-external-link-alt"></i></span>并<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25ldw==">创建一个仓库<i class="fa fa-external-link-alt"></i></span>，命名为<em>username</em>.github.io，其中<em>username</em>是您在GitHub上的用户名（或组织名称）。</p>
 <p>如果仓库的第一部分与您的用户名不完全匹配，则它将无法正常工作，因此请确保正确无误。</p>
-<img src="/post/blog-init/create-pages-repository.png" class="" title="创建GitHubPages仓库">
+<img data-src="/post/blog-init/create-pages-repository.png" class="" title="创建GitHubPages仓库">
 
 <h3 id="克隆仓库"><a href="#克隆仓库" class="headerlink" title="克隆仓库"></a>克隆仓库</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone https:&#x2F;&#x2F;github.com&#x2F;username&#x2F;username.github.io</span><br></pre></td></tr></table></figure>
 
@@ -333,10 +333,10 @@
 <h3 id="提交代码"><a href="#提交代码" class="headerlink" title="提交代码"></a>提交代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add --all</span><br><span class="line">git commit -m &quot;Initial commit&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 
 <h3 id="完成"><a href="#完成" class="headerlink" title="完成"></a>完成</h3><p>启动浏览器并转到<strong>https://<em>username</em>.github.io.</strong></p>
-<img src="/post/blog-init/pages-init.png" class="" title="GitHubPages初始化">
+<img data-src="/post/blog-init/pages-init.png" class="" title="GitHubPages初始化">
 
 <h2 id="Hexo建站"><a href="#Hexo建站" class="headerlink" title="Hexo建站"></a>Hexo建站</h2><h3 id="创建仓库-1"><a href="#创建仓库-1" class="headerlink" title="创建仓库"></a>创建仓库</h3><p>创建一个私有仓库，用于存放<code>博客源代码</code>。上一步创建的<em>username</em>.github.io仓库是用于存放<code>博客生成代码</code>。</p>
-<img src="/post/blog-init/create-hexo-repository.png" class="" title="创建Hexo仓库">
+<img data-src="/post/blog-init/create-hexo-repository.png" class="" title="创建Hexo仓库">
 
 <h3 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h3><p>安装Hexo之前需先安装：</p>
 <ul>
@@ -350,7 +350,7 @@
 
 <h3 id="启动服务器"><a href="#启动服务器" class="headerlink" title="启动服务器"></a>启动服务器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo server</span><br></pre></td></tr></table></figure>
 <p>默认情况下，访问网址为：<code>http://localhost:4000/</code>。</p>
-<img src="/post/blog-init/hexo-init-localhost.png" class="" title="hexo初始化">
+<img data-src="/post/blog-init/hexo-init-localhost.png" class="" title="hexo初始化">
 
 <h3 id="提交代码-1"><a href="#提交代码-1" class="headerlink" title="提交代码"></a>提交代码</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">git init</span><br><span class="line">git remote add origin https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;blog.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;hexo init&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
 
@@ -366,7 +366,7 @@
 <li><p>运行 <code>hexo clean &amp;&amp; hexo deploy</code></p>
 </li>
 <li><p>查看 <em>username</em>.github.io 上的网页是否部署成功</p>
-<img src="/post/blog-init/hexo-init-pages.png" class="" title="hexo初始化">
+<img data-src="/post/blog-init/hexo-init-pages.png" class="" title="hexo初始化">
 
 </li>
 </ol>
@@ -374,23 +374,23 @@
 
 <h2 id="绑定域名"><a href="#绑定域名" class="headerlink" title="绑定域名"></a>绑定域名</h2><h3 id="添加域名解析记录"><a href="#添加域名解析记录" class="headerlink" title="添加域名解析记录"></a>添加域名解析记录</h3><p>我的域名是在阿里云买的，所以这一步到<span class="exturl" data-url="aHR0cHM6Ly9ob21lbmV3LmNvbnNvbGUuYWxpeXVuLmNvbS8=">阿里云控制台<i class="fa fa-external-link-alt"></i></span>的<span class="exturl" data-url="aHR0cHM6Ly9kbnMuY29uc29sZS5hbGl5dW4uY29tLw==">云解析DNS
 <i class="fa fa-external-link-alt"></i></span>添加域名解析记录。</p>
-<img src="/post/blog-init/add-domain.jpg" class="" title="添加域名">
-<img src="/post/blog-init/add-record.jpg" class="" title="添加记录">
-<img src="/post/blog-init/dns-setting.jpg" class="" title="DNS设置">
+<img data-src="/post/blog-init/add-domain.jpg" class="" title="添加域名">
+<img data-src="/post/blog-init/add-record.jpg" class="" title="添加记录">
+<img data-src="/post/blog-init/dns-setting.jpg" class="" title="DNS设置">
 
 <h3 id="设置自定义域名"><a href="#设置自定义域名" class="headerlink" title="设置自定义域名"></a>设置自定义域名</h3><p>转到<em>username</em>.github.io仓库，点击“Settings”，找到“GitHub Pages”，输入自己的域名。</p>
-<img src="/post/blog-init/custom-domain-input.png" class="" title="输入自定义域名">
+<img data-src="/post/blog-init/custom-domain-input.png" class="" title="输入自定义域名">
 
 <p>点击“Save”，页面自动刷新，再看下“GitHub Pages”。</p>
-<img src="/post/blog-init/custom-domain-http1.png" class="" title="自定义域名HTTP生效">
-<img src="/post/blog-init/custom-domain-http2.png" class="" title="自定义域名HTTP生效">
+<img data-src="/post/blog-init/custom-domain-http1.png" class="" title="自定义域名HTTP生效">
+<img data-src="/post/blog-init/custom-domain-http2.png" class="" title="自定义域名HTTP生效">
 
 <p>由于TLS证书未生效，所以此时还是http协议<code>http://blog.linjiexin.com/</code>，地址栏显示“不安全”，等证书生效后，再看将会是https协议<code>https://blog.linjiexin.com/</code>：</p>
-<img src="/post/blog-init/custom-domain-https1.png" class="" title="自定义域名HTTPS生效">
-<img src="/post/blog-init/custom-domain-https2.png" class="" title="自定义域名HTTPS生效">
-<img src="/post/blog-init/custom-domain-https3.png" class="" title="自定义域名HTTPS生效">
-<img src="/post/blog-init/custom-domain-https4.png" class="" title="自定义域名HTTPS生效">
-<img src="/post/blog-init/custom-domain-https5.png" class="" title="自定义域名HTTPS生效">
+<img data-src="/post/blog-init/custom-domain-https1.png" class="" title="自定义域名HTTPS生效">
+<img data-src="/post/blog-init/custom-domain-https2.png" class="" title="自定义域名HTTPS生效">
+<img data-src="/post/blog-init/custom-domain-https3.png" class="" title="自定义域名HTTPS生效">
+<img data-src="/post/blog-init/custom-domain-https4.png" class="" title="自定义域名HTTPS生效">
+<img data-src="/post/blog-init/custom-domain-https5.png" class="" title="自定义域名HTTPS生效">
 
 <h3 id="添加CNAME"><a href="#添加CNAME" class="headerlink" title="添加CNAME"></a>添加CNAME</h3><p>域名绑定成功后，仓库根目录会多出一个<code>CNAME</code>文件，内容为绑定的域名：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">blog.linjiexin.com</span><br></pre></td></tr></table></figure>
@@ -423,14 +423,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: My New Post</span><br><span class="line">date: 2020-05-16 13:14:08</span><br><span class="line">tags:</span><br><span class="line">---</span><br><span class="line"></span><br><span class="line">加点内容</span><br></pre></td></tr></table></figure>
 
 <p>在本地服务器（<code>http://localhost:4000/</code>）上查看。</p>
-<img src="/post/blog-init/post-demo1.png" class="" title="MyNewPost">
+<img data-src="/post/blog-init/post-demo1.png" class="" title="MyNewPost">
 
 <h3 id="引用资源"><a href="#引用资源" class="headerlink" title="引用资源"></a>引用资源</h3><p>正确的引用图片方式是使用下列的标签插件而不是 markdown：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#123;% asset_img example.jpg This is an example image %&#125;</span><br></pre></td></tr></table></figure>
 
 <p>通过这种方式，图片将会同时出现在文章和主页以及归档页中。</p>
 <p>如果通过使用相对路径的常规 markdown 语法<code>![](/example.jpg)</code>，它将<em>不会</em>出现在首页上。（但是它会在文章中按你期待的方式工作）</p>
-<img src="/post/blog-init/post-demo2.png" class="" title="MyNewPost">
+<img data-src="/post/blog-init/post-demo2.png" class="" title="MyNewPost">
 
 <h3 id="发表文章"><a href="#发表文章" class="headerlink" title="发表文章"></a>发表文章</h3><p>生成静态文件：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo generate</span><br></pre></td></tr></table></figure>
@@ -455,10 +455,10 @@
 </ol>
 <p>在浏览器中打开<code>http://localhost:4000</code>，查看效果。</p>
 <p>这是默认的NexT方案– Muse。</p>
-<img src="/post/blog-init/next-init.png" class="" title="初始化next主题">
+<img data-src="/post/blog-init/next-init.png" class="" title="初始化next主题">
 
 <h3 id="提交代码-5"><a href="#提交代码-5" class="headerlink" title="提交代码"></a>提交代码</h3><p>因为前面是直接把Next主题仓库克隆到站点目录，有什么改动是无法推送到作者 Git 仓库的，所以这里将<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">Next主题仓库<i class="fa fa-external-link-alt"></i></span>Fork到自己仓库：</p>
-<img src="/post/blog-init/next-fork1.png" class="" title="forknext主题">
+<img data-src="/post/blog-init/next-fork1.png" class="" title="forknext主题">
 
 <p>得到自己账号下同名仓库的URL，添加子模块：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git submodule add https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;hexo-theme-next.git themes&#x2F;next</span><br></pre></td></tr></table></figure>
@@ -470,10 +470,10 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m &quot;config: 使用Next主题&quot;</span><br><span class="line">git push</span><br></pre></td></tr></table></figure>
 
 <p>在自己的博客源代码仓库上可以看到<code>themes/next</code>目录是显示成这样的：</p>
-<img src="/post/blog-init/next-fork2.png" class="" title="forknext主题">
+<img data-src="/post/blog-init/next-fork2.png" class="" title="forknext主题">
 
 <p>点击跳转到Fork的仓库。</p>
-<img src="/post/blog-init/next-fork3.png" class="" title="forknext主题">
+<img data-src="/post/blog-init/next-fork3.png" class="" title="forknext主题">
 
 <h3 id="选择方案"><a href="#选择方案" class="headerlink" title="选择方案"></a>选择方案</h3><p>先修改主题仓库远程地址为自己的，后面才能正常提交代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd themes&#x2F;next</span><br><span class="line">git remote set-url origin https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;hexo-theme-next.git</span><br><span class="line">git checkout master</span><br></pre></td></tr></table></figure>
@@ -503,7 +503,7 @@
     
     
         <div class="reward-container">
-  <div>请站长吃颗糖 🍬</div>
+  <div>谢谢支持，ღ( ´･ᴗ･` )比心</div>
   <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
     赞赏
   </button>
@@ -632,7 +632,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">6</span>
+          <span class="site-state-item-count">7</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -815,6 +815,7 @@
 
   
   <script src="/lib/anime.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/lozad@1/dist/lozad.min.js"></script>
   <script src="/lib/velocity/velocity.min.js"></script>
   <script src="/lib/velocity/velocity.ui.min.js"></script>
 
@@ -876,6 +877,6 @@ NexT.utils.loadComments(document.querySelector('#valine-comments'), () => {
   }, window.Valine);
 });
 </script>
-
+<script src="../../scripts/love.js"></script>
 </body>
 </html>

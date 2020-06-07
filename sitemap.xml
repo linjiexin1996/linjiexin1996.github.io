@@ -2,9 +2,23 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://blog.linjiexin.com/post/blog-custom/</loc>
+    
+    <lastmod>2020-06-07T05:39:39.233Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>https://blog.linjiexin.com/post/blog-config/</loc>
+    
+    <lastmod>2020-06-07T03:55:55.449Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://blog.linjiexin.com/post/blog-services/</loc>
     
-    <lastmod>2020-06-07T01:31:48.641Z</lastmod>
+    <lastmod>2020-06-07T03:33:25.654Z</lastmod>
     
   </url>
   
@@ -12,13 +26,6 @@
     <loc>https://blog.linjiexin.com/post/blog-seo/</loc>
     
     <lastmod>2020-06-07T01:31:39.573Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://blog.linjiexin.com/post/blog-config/</loc>
-    
-    <lastmod>2020-06-07T01:31:24.846Z</lastmod>
     
   </url>
   
