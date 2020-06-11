@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://www.linjiexin.com/post/blog-init/</loc>
+    
+    <lastmod>2020-06-11T01:22:16.697Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://www.linjiexin.com/post/blog-seo/</loc>
     
     <lastmod>2020-06-10T23:05:30.336Z</lastmod>
@@ -12,13 +19,6 @@
     <loc>https://www.linjiexin.com/post/blog-custom/</loc>
     
     <lastmod>2020-06-10T23:05:30.335Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://www.linjiexin.com/post/blog-init/</loc>
-    
-    <lastmod>2020-06-10T22:46:41.509Z</lastmod>
     
   </url>
   
