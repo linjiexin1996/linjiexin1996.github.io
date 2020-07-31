@@ -76,6 +76,17 @@
       </tags>
   </entry>
   <entry>
+    <title>使用JS获取自己的Chrome扩展程序ID</title>
+    <url>/post/get-extension-id/</url>
+    <content><![CDATA[<p>可以通过两种不同的方式获取自己的扩展程序ID（不需要额外的权限）：</p>
+<p><strong>使用 runtime api</strong><br>var extId = chrome.runtime.id</p>
+<p><strong>使用 i18n api</strong><br>var extId = chrome.i18n.getMessage(“@@extension_id”)</p>
+]]></content>
+      <tags>
+        <tag>Extensions</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>使用vue-cli搭建Electron项目</title>
     <url>/post/create-electron-project/</url>
     <content><![CDATA[<h2 id="环境配置"><a href="#环境配置" class="headerlink" title="环境配置"></a>环境配置</h2><ol>
@@ -118,6 +129,24 @@
 ]]></content>
       <tags>
         <tag>Electron</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>一个用JS判断用户是否在中国大陆的方法</title>
+    <url>/post/is-in-chinese-mainland/</url>
+    <content><![CDATA[<p>这里思路是使用<code>XMLHttpRequest</code>请求一个被墙的资源，如果成功则说明用户环境非中国大陆局域网。</p>
+<p>可以用 Facebook 的 API 来做测试，因为 Facebook API 有加 Access-Control-Allow-Origin:*，没有跨域问题，这里使用 graph.facebook.com/feed 作为测试接口：</p>
+<figure class="highlight javascript"><table><tr><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 位于中国大陆</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;function&#125;</span> </span>cb 回调函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isInChineseMainland = <span class="function">(<span class="params">cb</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> url = <span class="string">'https://graph.facebook.com/feed?callback=h'</span></span><br><span class="line">  <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">  <span class="keyword">var</span> called = <span class="literal">false</span></span><br><span class="line">  xhr.open(<span class="string">'GET'</span>, url)</span><br><span class="line">  xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span> &amp;&amp; xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">      called = <span class="literal">true</span></span><br><span class="line">      cb(<span class="literal">false</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  xhr.send()</span><br><span class="line">  <span class="comment">// 这个 facebook API 很快，超时时间这里设置为1s</span></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!called) &#123;</span><br><span class="line">      xhr.abort()</span><br><span class="line">      cb(<span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意上面加了 callback 参数，这是因为这个请求本身是有问题的，缺少 OAuth Token，如果直接请求 graph.facebook.com/feed 的话，便是 400 了。我们假装成是一个 JSONP 请求，status code 便是 200 了。</p>
+<a id="more"></a>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC82ODQ0OTAzNDczODE3ODQ1Nzcz">一个简单的判断用户是否在中国的方法<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>network</tag>
       </tags>
   </entry>
   <entry>

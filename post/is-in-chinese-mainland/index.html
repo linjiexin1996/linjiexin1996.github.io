@@ -26,26 +26,20 @@
     var CONFIG = {"hostname":"www.linjiexin.com","root":"/","scheme":"Pisces","version":"8.0.0-rc.3","exturl":true,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":"mac"},"back2top":{"enable":true,"sidebar":true,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":true,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="遇见未知的自己">
-<meta property="og:type" content="website">
-<meta property="og:title" content="标签">
-<meta property="og:url" content="https://www.linjiexin.com/tags/index.html">
+  <meta name="description" content="这里思路是使用XMLHttpRequest请求一个被墙的资源，如果成功则说明用户环境非中国大陆局域网。 可以用 Facebook 的 API 来做测试，因为 Facebook API 有加 Access-Control-Allow-Origin:*，没有跨域问题，这里使用 graph.facebook.com&#x2F;feed 作为测试接口： 1234567891011121314151617181920">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个用JS判断用户是否在中国大陆的方法">
+<meta property="og:url" content="https://www.linjiexin.com/post/is-in-chinese-mainland/index.html">
 <meta property="og:site_name" content="林洁鑫的博客">
-<meta property="og:description" content="遇见未知的自己">
+<meta property="og:description" content="这里思路是使用XMLHttpRequest请求一个被墙的资源，如果成功则说明用户环境非中国大陆局域网。 可以用 Facebook 的 API 来做测试，因为 Facebook API 有加 Access-Control-Allow-Origin:*，没有跨域问题，这里使用 graph.facebook.com&#x2F;feed 作为测试接口： 1234567891011121314151617181920">
 <meta property="og:locale" content="zh_CN">
-<meta property="article:published_time" content="2020-06-02T09:52:11.000Z">
-<meta property="article:modified_time" content="2020-06-06T15:16:03.091Z">
+<meta property="article:published_time" content="2020-07-27T12:13:05.000Z">
+<meta property="article:modified_time" content="2020-07-31T06:59:04.276Z">
 <meta property="article:author" content="林洁鑫">
-<meta property="article:tag" content="林洁鑫">
-<meta property="article:tag" content="前端">
-<meta property="article:tag" content="FrontEnd">
-<meta property="article:tag" content="前端工程师">
-<meta property="article:tag" content="程序员">
-<meta property="article:tag" content="IT">
-<meta property="article:tag" content="博客">
+<meta property="article:tag" content="network">
 <meta name="twitter:card" content="summary">
 
-<link rel="canonical" href="https://www.linjiexin.com/tags/">
+<link rel="canonical" href="https://www.linjiexin.com/post/is-in-chinese-mainland/">
 
 
 <script id="page-configurations">
@@ -53,13 +47,12 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>标签 | 林洁鑫的博客
-</title>
+  <title>一个用JS判断用户是否在中国大陆的方法 | 林洁鑫的博客</title>
   
 
 
@@ -203,55 +196,178 @@
       <div class="main-inner">
         <div class="content-wrap">
           
-  
-  
 
-          <div class="content page posts-expand">
+          <div class="content post posts-expand">
             
 
     
-    
-    
-    <div class="post-block" lang="zh-CN">
-      <header class="post-header">
-
-<h1 class="post-title" itemprop="name headline">标签
-</h1>
-
-<div class="post-meta">
   
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://www.linjiexin.com/post/is-in-chinese-mainland/">
 
-</div>
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpg">
+      <meta itemprop="name" content="林洁鑫">
+      <meta itemprop="description" content="遇见未知的自己">
+    </span>
 
-</header>
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="林洁鑫的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一个用JS判断用户是否在中国大陆的方法
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+
+              <time title="创建时间：2020-07-27 20:13:05" itemprop="dateCreated datePublished" datetime="2020-07-27T20:13:05+08:00">2020-07-27</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">更新于</span>
+                <time title="修改时间：2020-07-31 14:59:04" itemprop="dateModified" datetime="2020-07-31T14:59:04+08:00">2020-07-31</time>
+              </span>
+
+          
+            <span id="/post/is-in-chinese-mainland/" class="post-meta-item leancloud_visitors" data-flag-title="一个用JS判断用户是否在中国大陆的方法" title="阅读次数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-eye"></i>
+              </span>
+              <span class="post-meta-item-text">阅读次数：</span>
+              <span class="leancloud-visitors-count"></span>
+            </span>
+  
+  <span class="post-meta-item">
+    
+      <span class="post-meta-item-icon">
+        <i class="far fa-comment"></i>
+      </span>
+      <span class="post-meta-item-text">Valine：</span>
+    
+    <a title="valine" href="/post/is-in-chinese-mainland/#valine-comments" itemprop="discussionUrl">
+      <span class="post-comments-count valine-comment-count" data-xid="/post/is-in-chinese-mainland/" itemprop="commentCount"></span>
+    </a>
+  </span>
+  
+  <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="far fa-file-word"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>788</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="far fa-clock"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
+        <p>这里思路是使用<code>XMLHttpRequest</code>请求一个被墙的资源，如果成功则说明用户环境非中国大陆局域网。</p>
+<p>可以用 Facebook 的 API 来做测试，因为 Facebook API 有加 Access-Control-Allow-Origin:*，没有跨域问题，这里使用 graph.facebook.com/feed 作为测试接口：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 位于中国大陆</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@param <span class="type">&#123;function&#125;</span> </span>cb 回调函数</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> isInChineseMainland = <span class="function">(<span class="params">cb</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">var</span> url = <span class="string">'https://graph.facebook.com/feed?callback=h'</span></span><br><span class="line">  <span class="keyword">var</span> xhr = <span class="keyword">new</span> XMLHttpRequest()</span><br><span class="line">  <span class="keyword">var</span> called = <span class="literal">false</span></span><br><span class="line">  xhr.open(<span class="string">'GET'</span>, url)</span><br><span class="line">  xhr.onreadystatechange = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (xhr.readyState === <span class="number">4</span> &amp;&amp; xhr.status === <span class="number">200</span>) &#123;</span><br><span class="line">      called = <span class="literal">true</span></span><br><span class="line">      cb(<span class="literal">false</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">  xhr.send()</span><br><span class="line">  <span class="comment">// 这个 facebook API 很快，超时时间这里设置为1s</span></span><br><span class="line">  setTimeout(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (!called) &#123;</span><br><span class="line">      xhr.abort()</span><br><span class="line">      cb(<span class="literal">true</span>)</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="number">1000</span>)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意上面加了 callback 参数，这是因为这个请求本身是有问题的，缺少 OAuth Token，如果直接请求 graph.facebook.com/feed 的话，便是 400 了。我们假装成是一个 JSONP 请求，status code 便是 200 了。</p>
+<a id="more"></a>
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly9qdWVqaW4uaW0vcG9zdC82ODQ0OTAzNDczODE3ODQ1Nzcz">一个简单的判断用户是否在中国的方法<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+
+    </div>
+
+    
+    
+    
+        <div class="reward-container">
+  <div>谢谢支持，ღ( ´･ᴗ･` )比心</div>
+  <button onclick="var qr = document.getElementById('qr'); qr.style.display = (qr.style.display === 'none') ? 'block' : 'none';">
+    赞赏
+  </button>
+  <div id="qr" style="display: none;">
       
-      
-      <div class="post-body">
-          <div class="tag-cloud">
-            <div class="tag-cloud-title">
-              目前共计 9 个标签
-            </div>
-            <div class="tag-cloud-tags">
-              <a href="/tags/Electron/" style="font-size: 12px;" class="tag-cloud-0">Electron</a> <a href="/tags/Extensions/" style="font-size: 12px;" class="tag-cloud-0">Extensions</a> <a href="/tags/github/" style="font-size: 12px;" class="tag-cloud-0">GitHub</a> <a href="/tags/Hexo/" style="font-size: 30px;" class="tag-cloud-10">Hexo</a> <a href="/tags/Next/" style="font-size: 30px;" class="tag-cloud-10">Next</a> <a href="/tags/seo/" style="font-size: 12px;" class="tag-cloud-0">SEO</a> <a href="/tags/emoji/" style="font-size: 12px;" class="tag-cloud-0">emoji</a> <a href="/tags/network/" style="font-size: 12px;" class="tag-cloud-0">network</a> <a href="/tags/translate/" style="font-size: 12px;" class="tag-cloud-0">translate</a>
-            </div>
-          </div>
-        
+      <div style="display: inline-block;">
+        <img src="/images/wechatpay.jpg" alt="林洁鑫 微信支付">
+        <p>微信支付</p>
       </div>
       
-      
-      
-    </div>
-    
+      <div style="display: inline-block;">
+        <img src="/images/alipay.jpg" alt="林洁鑫 支付宝">
+        <p>支付宝</p>
+      </div>
 
+  </div>
+</div>
+
+        
+
+<div>
+<ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>林洁鑫
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="https://www.linjiexin.com/post/is-in-chinese-mainland/" title="一个用JS判断用户是否在中国大陆的方法">https://www.linjiexin.com/post/is-in-chinese-mainland/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC8="><i class="fab fa-fw fa-creative-commons"></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/network/" rel="tag"><i class="fa fa-tag"></i> network</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/post/create-electron-project/" rel="prev" title="使用vue-cli搭建Electron项目">
+      <i class="fa fa-chevron-left"></i> 使用vue-cli搭建Electron项目
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/post/get-extension-id/" rel="next" title="使用JS获取自己的Chrome扩展程序ID">
+      使用JS获取自己的Chrome扩展程序ID <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
     
-    
-    
+  </article>
+  
+  
+  
+
 
 
           </div>
           
+    <div class="comments" id="valine-comments"></div>
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -298,6 +414,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#参考链接"><span class="nav-number">1.</span> <span class="nav-text">参考链接</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
