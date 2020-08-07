@@ -1,3 +1,4 @@
+https://www.linjiexin.com/post/module-naming/
 https://www.linjiexin.com/post/get-extension-id/
 https://www.linjiexin.com/post/is-in-chinese-mainland/
 https://www.linjiexin.com/post/create-electron-project/
@@ -7,4 +8,3 @@ https://www.linjiexin.com/post/blog-seo/
 https://www.linjiexin.com/post/baidu-translate-api/
 https://www.linjiexin.com/post/emoji-regex/
 https://www.linjiexin.com/post/blog-services/
-https://www.linjiexin.com/post/blog-config/
