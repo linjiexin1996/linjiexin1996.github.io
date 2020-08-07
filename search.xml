@@ -483,166 +483,6 @@
       </tags>
   </entry>
   <entry>
-    <title>Hexo + Next + Pages 个人博客 - 第三方服务集成</title>
-    <url>/post/blog-services/</url>
-    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>文中第三方服务集成时的Hexo和Next版本说明如下：</p>
-<p>框架：Hexo<br>版本：4.2.0<br>GitHub：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhv">https://github.com/hexojs/hexo<i class="fa fa-external-link-alt"></i></span></p>
-<p>主题：Next<br>版本：8.0.0-rc.2<br>GitHub：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">https://github.com/next-theme/hexo-theme-next<i class="fa fa-external-link-alt"></i></span></p>
-<p>整个过程中若有更新主题版本，文中也会说明更新的版本号，并体现在目录中“主题更新”。</p>
-<a id="more"></a>
-
-<h2 id="统计与分析"><a href="#统计与分析" class="headerlink" title="统计与分析"></a>统计与分析</h2><h3 id="不蒜子"><a href="#不蒜子" class="headerlink" title="不蒜子"></a>不蒜子</h3><p>打开主题配置文件<code>next/_config.yml</code>，通过将<code>busuanzicount.enable</code>的值设置为<code>true</code>启用不蒜子计数，将<code>busuanzi_count.post_views</code>设置为<code>false</code>关闭文章计数（将会使用LeanCloud）。</p>
-<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors_icon:</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">total_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br><span class="line">  <span class="attr">post_views:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">post_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br></pre></td></tr></table></figure>
-
-<p>根据上面的配置，网站底部将会显示站点UV和PV，文章中将会显示页面PV。</p>
-<img data-src="/post/blog-services/busuanzi-total.jpg" class="" title="站点UV和PV">
-<!-- <img data-src="/post/blog-services/busuanzi-post.jpg" class="" title="文章PV"> -->
-
-<h3 id="LeanCloud"><a href="#LeanCloud" class="headerlink" title="LeanCloud"></a>LeanCloud</h3><h4 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h4><p>注册<span class="exturl" data-url="aHR0cHM6Ly9sZWFuY2xvdWQuY24vZGFzaGJvYXJkL2xvZ2luLmh0bWwjL3NpZ251cA==">Lean Cloud<i class="fa fa-external-link-alt"></i></span>账号：</p>
-<img data-src="/post/blog-services/lean-cloud-signup.jpg" class="" title="注册LeanCloud账号">
-
-<h4 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h4><p>登录后进入<span class="exturl" data-url="aHR0cHM6Ly9sZWFuY2xvdWQuY24vZGFzaGJvYXJkL2FwcGxpc3QuaHRtbCMvYXBwcw==">控制台<i class="fa fa-external-link-alt"></i></span>：</p>
-<img data-src="/post/blog-services/lean-cloud-applist.jpg" class="" title="控制台">
-
-<!-- 注意，目前华东节点和华北节点创建应用需要先在账号设置完成实名认证，并且官方表明“[在国内市场将只服务于可验证的商业客户](https://leancloudblog.com/domain-incident/)”；美国节点暂无上述要求，并且账号系统与华东节点和华北节点是独立的，如需使用请前往 LeanCloud 国际版官网 [leancloud.app](https://leancloud.app/) 注册登录。 -->
-
-<p>创建应用（需要先<strong>实名认证</strong>和<strong>验证手机号码</strong>）：</p>
-<img data-src="/post/blog-services/lean-cloud-create-app.jpg" class="" title="创建应用">
-<img data-src="/post/blog-services/lean-cloud-blog.jpg" class="" title="博客应用">
-
-<h4 id="创建Counter类"><a href="#创建Counter类" class="headerlink" title="创建Counter类"></a>创建Counter类</h4><p>点击<code>存储</code>：</p>
-<img data-src="/post/blog-services/lean-cloud-storage-mark.jpg" class="" title="点击“存储”">
-
-<p>点击<code>创建Class</code>：</p>
-<img data-src="/post/blog-services/lean-cloud-class-mark.jpg" class="" title="点击“创建Class”">
-
-<p>创建Class，输入名称“Counter”，点击<code>添加</code>：</p>
-<img data-src="/post/blog-services/lean-cloud-create-class.jpg" class="" title="创建Class">
-
-<h4 id="开启插件"><a href="#开启插件" class="headerlink" title="开启插件"></a>开启插件</h4><p>编辑<code>主题配置文件</code>，并在<code>leancloud_visitors</code>部分下填充选项。</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># Show number of visitors to each article.</span><br><span class="line"># You can visit https:&#x2F;&#x2F;leancloud.cn get AppID and AppKey.</span><br><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: #&lt;app_id&gt;</span><br><span class="line">  app_key: #&lt;app_key&gt;</span><br><span class="line">  # Required for apps from CN region</span><br><span class="line">  server_url: # &lt;your server url&gt;</span><br><span class="line">  # Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-leancloud-counter-security</span><br><span class="line">  # If you don&#39;t care about security in lc counter and just want to use it directly</span><br><span class="line">  # (without hexo-leancloud-counter-security plugin), set the &#96;security&#96; to &#96;false&#96;.</span><br><span class="line">  security: true</span><br></pre></td></tr></table></figure>
-
-<p><code>app_id</code>、<code>app_key</code>和<code>server_url</code>位于<code>设置→应用Keys</code>：</p>
-<img data-src="/post/blog-services/lean-cloud-blog-keys.jpg" class="" title="博客应用Keys">
-
-<p>配置<code>Web安全域名</code>，这里填写自己博客的域名，注意协议、域名和端口号需严格一致：</p>
-<img data-src="/post/blog-services/lean-cloud-web-security-domain.jpg" class="" title="配置Web安全域名">
-
-<p>到这里还没结束，此时如果部署并在线上看效果，会看到如下报错：</p>
-<img data-src="/post/blog-services/lean-cloud-security-bug.jpg" class="" title="博客应用Keys">
-
-<p>这是LeanCloud统计插件的安全漏洞，最简单的解决办法的将配置项<code>security</code>设置为<code>false</code>，但这样不安全，下面将介绍如何修复这个漏洞。</p>
-<h4 id="修复安全漏洞"><a href="#修复安全漏洞" class="headerlink" title="修复安全漏洞"></a>修复安全漏洞</h4><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-leancloud-counter-security</code>:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-leancloud-counter-security</span><br></pre></td></tr></table></figure>
-
-<p>打开站点配置文件，新增以下配置，<code>app_id</code>、<code>app_key</code>、<code>server_url</code>和上一步一致，<code>username</code>和<code>password</code>替换为你自己的用户名和密码（不必与 LeanCloud 的账号相同），此用户名和密码将在 Hexo 部署时使用。</p>
-<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">leancloud_counter_security:</span><br><span class="line">  enable_sync: true</span><br><span class="line">  app_id: &lt;your app id&gt;</span><br><span class="line">  app_key: &lt;your app key&gt;</span><br><span class="line">  server_url: &lt;your server url&gt; # Required for apps from CN region, e.g. https:&#x2F;&#x2F;leancloud.cn</span><br><span class="line">  username: &lt;your username&gt; # Will be asked while deploying if is left blank</span><br><span class="line">  password: &lt;your password&gt; # Recommmended to be left blank. Will be asked while deploying if is left blank</span><br></pre></td></tr></table></figure>
-
-<p>通过运行以下命令添加应用用户，<username>和<password>与上面配置保持一致：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo lc-counter register &lt;username&gt; &lt;password&gt;</span><br></pre></td></tr></table></figure>
-
-<p>添加成功后，可以在<code>存储→用户</code>里查看：</p>
-<img data-src="/post/blog-services/lean-cloud-register-user.jpg" class="" title="添加用户">
-
-<p>当然，也可以在这个页面上来<code>添加用户</code>。</p>
-<p>在站点配置文件的<code>deploy</code>下添加以下项：</p>
-<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  # other deployer</span><br><span class="line">  - type: leancloud_counter_security_sync</span><br></pre></td></tr></table></figure>
-
-<p>添加后我的<code>deploy</code>完整配置为（注意格式）：</p>
-<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  - type: git</span><br><span class="line">    repo: https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;linjiexin1996.github.io</span><br><span class="line">  - type: leancloud_counter_security_sync</span><br></pre></td></tr></table></figure>
-
-<p>运行<code>hexo clean &amp;&amp; hexo deploy</code>部署，站点<code>source</code>目录下自动生成了一个文件<code>leancloud.memo</code>，记录着已经在使用LeanCloud统计的文章：</p>
-<figure class="highlight plain"><figcaption><span>blog/source/leancloud.memo</span></figcaption><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">&#123;&quot;title&quot;:&quot;Hexo + Next + GitHub Pages 搭建个人博客&quot;,&quot;url&quot;:&quot;&#x2F;2020&#x2F;05&#x2F;25&#x2F;blog-init&#x2F;&quot;&#125;,</span><br><span class="line">&#123;&quot;title&quot;:&quot;Hexo + Next + GitHub Pages 配置Next主题&quot;,&quot;url&quot;:&quot;&#x2F;2020&#x2F;05&#x2F;28&#x2F;blog-config&#x2F;&quot;&#125;,</span><br><span class="line">&#123;&quot;title&quot;:&quot;Hexo + Next + GitHub Pages 集成第三方服务&quot;,&quot;url&quot;:&quot;&#x2F;2020&#x2F;05&#x2F;28&#x2F;blog-services&#x2F;&quot;&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
-<p>查看<code>Counter Class</code>，图中的<code>time</code>字段就是文章的阅读次数：</p>
-<img data-src="/post/blog-services/lean-cloud-counter-class.jpg" class="" title="CounterClass">
-
-<p>查看线上环境效果：</p>
-<img data-src="/post/blog-services/lean-cloud-counter-effect.jpg" class="" title="LeanCloud计数">
-
-<h2 id="主题更新"><a href="#主题更新" class="headerlink" title="主题更新"></a>主题更新</h2><p>2020年6月2日博主更新了站点的Next主题至最新版本<span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9uZXh0LTgtMC0wLXJjLTMtcmVsZWFzZWQv">NexT 8.0.0-rc.3 Released<i class="fa fa-external-link-alt"></i></span>，后面的配置均基于该版本。</p>
-<h2 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h2><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-generator-searchdb</code>:</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
-
-<p>编辑<code>站点配置文件</code>，添加以下内容：</p>
-<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># Local Search</span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
-
-<p>编辑<code>主题配置文件</code>，启用本地搜索：</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # If auto, trigger search by changing input.</span><br><span class="line">  # If manual, trigger search by pressing enter key or search button.</span><br><span class="line">  trigger: auto</span><br><span class="line">  # Show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  # Unescape html strings to the readable one.</span><br><span class="line">  unescape: false</span><br><span class="line">  # Preload the search data when the page loads.</span><br><span class="line">  preload: false</span><br></pre></td></tr></table></figure>
-
-<p>启用成功后，侧边栏菜单会多出一项“搜索”，点击显示搜索弹窗：</p>
-<img data-src="/post/blog-services/local-search.jpg" class="" title="本地搜索">
-
-<h2 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h2><h3 id="开启评论区"><a href="#开启评论区" class="headerlink" title="开启评论区"></a>开启评论区</h3><p>Valine是一款基于LeanCloud的快速，简单和高效的无后端评论系统。</p>
-<p>LeanCloud的账号前面我们已经注册，appId和appKey也已经得到，这里直接修改<code>主题配置文件</code>，将<code>enable</code>的值改为<code>true</code>，填入<code>appId</code>和<code>appKey</code>，然后就可以看到效果了。</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">valine:</span><br><span class="line">  enable: true</span><br><span class="line">  appId: 1EcHaMOtrgWPDeNGqBGF77wo-gzGzoHsz # Your leancloud application appid</span><br><span class="line">  appKey: BmmftwKTFzvP24wgPwr4tOJl # Your leancloud application appkey</span><br><span class="line">  placeholder: Just go go # Comment box placeholder</span><br><span class="line">  avatar: mm # Gravatar style</span><br><span class="line">  meta: [nick, mail, link] # Custom comment header</span><br><span class="line">  pageSize: 10 # Pagination size</span><br><span class="line">  language: # Language, available values: en, zh-cn</span><br><span class="line">  visitor: false # Article reading statistic</span><br><span class="line">  comment_count: true # If false, comment count will only be displayed in post page, not in home page</span><br><span class="line">  recordIP: false # Whether to record the commenter IP</span><br><span class="line">  serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span><br><span class="line">  #post_meta_order: 0</span><br></pre></td></tr></table></figure>
-
-<p>文章底部会多出评论区：</p>
-<img data-src="/post/blog-services/valine-area.jpg" class="" title="Valine">
-
-<p>建议将开启评论系统懒加载：</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">comments:</span><br><span class="line">  lazyload: true</span><br></pre></td></tr></table></figure>
-
-<h3 id="评论管理"><a href="#评论管理" class="headerlink" title="评论管理"></a>评论管理</h3><p>添加一条评论：</p>
-<img data-src="/post/blog-services/valine-comment.jpg" class="" title="添加一条评论">
-
-<p>到LeanCloud控制台可以看到自动创建了一个<code>Comment</code>类，里面保存着刚才的评论：</p>
-<img data-src="/post/blog-services/lean-cloud-comment-class.jpg" class="" title="Comment类">
-
-<p>我们可以对评论内容进行管理，如删除恶意评论。</p>
-<h3 id="隐藏评论区"><a href="#隐藏评论区" class="headerlink" title="隐藏评论区"></a>隐藏评论区</h3><p>有些页面我们可能不想要显示评论区，比如“分类”、“标签”、“关于”等，对于这些页面，可以在头部增加<code>comments: false</code>来隐藏评论区，以<code>标签</code>为例：</p>
-<figure class="highlight plain"><figcaption><span>tags/index.md</span></figcaption><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">date: 2020-06-02 17:52:11</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
-
-<h3 id="制作留言板"><a href="#制作留言板" class="headerlink" title="制作留言板"></a>制作留言板</h3><p>创建留言板页面：</p>
-<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page messages</span><br></pre></td></tr></table></figure>
-
-<p>编辑<code>主题配置文件</code>，在<code>menu</code>下增加<code>messages</code>：</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  messages: &#x2F;messages&#x2F; || fa fa-comments</span><br></pre></td></tr></table></figure>
-
-<p>此时侧边栏显示的留言板名称为英文，即页面文件名称<code>message</code>，需要设置下翻译，编辑<code>简体中文文件</code>，在<code>menu</code>下增加<code>messages</code>：</p>
-<figure class="highlight plain"><figcaption><span>next/languages/zh-CN.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  messages: 留言板</span><br></pre></td></tr></table></figure>
-
-<p>如果想要在侧边栏“留言板”右侧显示计数，打开<code>next/layout/_partials/header/menu-item.njk</code>，在<code>for menu, count in badges</code>对应的<code>endfor</code>下方增加以下内容：</p>
-<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;%- if name &#x3D;&#x3D; &#39;messages&#39; %&#125;</span><br><span class="line">  &#123;%- set menuBadge &#x3D; &#39;&lt;span class&#x3D;&quot;badge valine-comment-count&quot; data-xid&#x3D;&quot;&#x2F;messages&#x2F;&quot; itemprop&#x3D;&quot;commentCount&quot;&gt;-&lt;&#x2F;span&gt;&#39; %&#125;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="头像配置"><a href="#头像配置" class="headerlink" title="头像配置"></a>头像配置</h3><p>Valine 目前使用的是Gravatar作为评论列表头像，需自行登录或注册<span class="exturl" data-url="aHR0cDovL2NuLmdyYXZhdGFyLmNvbS8=">Gravatar<i class="fa fa-external-link-alt"></i></span>，然后修改自己的头像。评论的时候，留下在Gravatar注册时所使用的邮箱即可。</p>
-<div class="note "><p>Gravatar是一图像跟随著您到访过的网站，当您在博客中留言或发表文章，它将会出现在您的名称旁。头像协助识别您在博客和论坛发表的文章，何乐而不为呢？</p>
-</div>
-
-<p>除了Gravatar头像，我们还可以使用QQ头像，打开<code>主题配置文件</code>，找到<code>valine</code>，添加<code>enableQQ: true</code>，启用昵称框自动获取QQ昵称和QQ头像功能：</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">valine:</span><br><span class="line">  enableQQ: true</span><br></pre></td></tr></table></figure>
-
-<p>配置好之后，往“昵称框”输入一个QQ号码：</p>
-<img data-src="/post/blog-services/valine-enable-qq-input.jpg" class="" title="输入QQ号码">
-
-<p>然后按下”Tab”键（触发blur事件），可以看到昵称框里的QQ号码被替换成QQ昵称，邮箱框里自动输入了QQ邮箱：</p>
-<img data-src="/post/blog-services/valine-enable-qq-blur.jpg" class="" title="自动获取QQ昵称和QQ头像">
-
-<p>发布评论，可以看到头像位置是一开始输入的QQ号码的QQ头像：</p>
-<img data-src="/post/blog-services/valine-enable-qq-result.jpg" class="" title="自动获取QQ昵称和QQ头像">
-
-<p>功能是开启了，但游客很可能不知道呀，所以可以给个提示：</p>
-<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">valine:</span><br><span class="line">  placeholder: Just go go (在昵称框输入QQ号码，按下Tab键，自动获取QQ昵称和QQ头像)</span><br></pre></td></tr></table></figure>
-
-<!-- ### 邮件提醒 -->
-
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL3RoaXJkLXBhcnR5LXNlcnZpY2VzLw==">Third-party Services | NexT<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by10aGVtZS1uZXh0L2Jsb2IvbWFzdGVyL2RvY3MvemgtQ04vTEVBTkNMT1VELUNPVU5URVItU0VDVVJJVFkubWQ=">修复 LeanCloud 统计插件安全漏洞<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9sZWFmZXJ4Lm9ubGluZS8yMDE4LzAyLzExL2xjLXNlY3VyaXR5Lw==">Leancloud访客统计插件重大安全漏洞修复指南<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly92YWxpbmUuanMub3JnLw==">Valine<i class="fa fa-external-link-alt"></i></span></li>
-<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poYW9qdW4xOTk4L1ZhbGluZS1BZG1pbg==">Valine-Admin<i class="fa fa-external-link-alt"></i></span></li>
-</ul>
-]]></content>
-      <categories>
-        <category>个人博客建站之路</category>
-      </categories>
-      <tags>
-        <tag>Hexo</tag>
-        <tag>Next</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Hexo + Next + Pages 个人博客 - SEO优化</title>
     <url>/post/blog-seo/</url>
     <content><![CDATA[<h2 id="SEO简介"><a href="#SEO简介" class="headerlink" title="SEO简介"></a>SEO简介</h2><p>SEO（Search Engine Optimization），汉译为“搜索引擎优化”。SEO是指通过站内优化比如网站结构调整、网站内容建设、网站代码优化等以及站外优化，来提高网站在有关搜索引擎内的自然排名，从而获得更多的免费流量。</p>
@@ -844,6 +684,166 @@
 ]]></content>
       <tags>
         <tag>emoji</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo + Next + Pages 个人博客 - 第三方服务集成</title>
+    <url>/post/blog-services/</url>
+    <content><![CDATA[<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>文中第三方服务集成时的Hexo和Next版本说明如下：</p>
+<p>框架：Hexo<br>版本：4.2.0<br>GitHub：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2hleG9qcy9oZXhv">https://github.com/hexojs/hexo<i class="fa fa-external-link-alt"></i></span></p>
+<p>主题：Next<br>版本：8.0.0-rc.2<br>GitHub：<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL25leHQtdGhlbWUvaGV4by10aGVtZS1uZXh0">https://github.com/next-theme/hexo-theme-next<i class="fa fa-external-link-alt"></i></span></p>
+<p>整个过程中若有更新主题版本，文中也会说明更新的版本号，并体现在目录中“主题更新”。</p>
+<a id="more"></a>
+
+<h2 id="统计与分析"><a href="#统计与分析" class="headerlink" title="统计与分析"></a>统计与分析</h2><h3 id="不蒜子"><a href="#不蒜子" class="headerlink" title="不蒜子"></a>不蒜子</h3><p>打开主题配置文件<code>next/_config.yml</code>，通过将<code>busuanzicount.enable</code>的值设置为<code>true</code>启用不蒜子计数，将<code>busuanzi_count.post_views</code>设置为<code>false</code>关闭文章计数（将会使用LeanCloud）。</p>
+<figure class="highlight yaml"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors_icon:</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">total_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br><span class="line">  <span class="attr">post_views:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">post_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br></pre></td></tr></table></figure>
+
+<p>根据上面的配置，网站底部将会显示站点UV和PV，文章中将会显示页面PV。</p>
+<img data-src="/post/blog-services/busuanzi-total.jpg" class="" title="站点UV和PV">
+<!-- <img data-src="/post/blog-services/busuanzi-post.jpg" class="" title="文章PV"> -->
+
+<h3 id="LeanCloud"><a href="#LeanCloud" class="headerlink" title="LeanCloud"></a>LeanCloud</h3><h4 id="注册账号"><a href="#注册账号" class="headerlink" title="注册账号"></a>注册账号</h4><p>注册<span class="exturl" data-url="aHR0cHM6Ly9sZWFuY2xvdWQuY24vZGFzaGJvYXJkL2xvZ2luLmh0bWwjL3NpZ251cA==">Lean Cloud<i class="fa fa-external-link-alt"></i></span>账号：</p>
+<img data-src="/post/blog-services/lean-cloud-signup.jpg" class="" title="注册LeanCloud账号">
+
+<h4 id="创建应用"><a href="#创建应用" class="headerlink" title="创建应用"></a>创建应用</h4><p>登录后进入<span class="exturl" data-url="aHR0cHM6Ly9sZWFuY2xvdWQuY24vZGFzaGJvYXJkL2FwcGxpc3QuaHRtbCMvYXBwcw==">控制台<i class="fa fa-external-link-alt"></i></span>：</p>
+<img data-src="/post/blog-services/lean-cloud-applist.jpg" class="" title="控制台">
+
+<!-- 注意，目前华东节点和华北节点创建应用需要先在账号设置完成实名认证，并且官方表明“[在国内市场将只服务于可验证的商业客户](https://leancloudblog.com/domain-incident/)”；美国节点暂无上述要求，并且账号系统与华东节点和华北节点是独立的，如需使用请前往 LeanCloud 国际版官网 [leancloud.app](https://leancloud.app/) 注册登录。 -->
+
+<p>创建应用（需要先<strong>实名认证</strong>和<strong>验证手机号码</strong>）：</p>
+<img data-src="/post/blog-services/lean-cloud-create-app.jpg" class="" title="创建应用">
+<img data-src="/post/blog-services/lean-cloud-blog.jpg" class="" title="博客应用">
+
+<h4 id="创建Counter类"><a href="#创建Counter类" class="headerlink" title="创建Counter类"></a>创建Counter类</h4><p>点击<code>存储</code>：</p>
+<img data-src="/post/blog-services/lean-cloud-storage-mark.jpg" class="" title="点击“存储”">
+
+<p>点击<code>创建Class</code>：</p>
+<img data-src="/post/blog-services/lean-cloud-class-mark.jpg" class="" title="点击“创建Class”">
+
+<p>创建Class，输入名称“Counter”，点击<code>添加</code>：</p>
+<img data-src="/post/blog-services/lean-cloud-create-class.jpg" class="" title="创建Class">
+
+<h4 id="开启插件"><a href="#开启插件" class="headerlink" title="开启插件"></a>开启插件</h4><p>编辑<code>主题配置文件</code>，并在<code>leancloud_visitors</code>部分下填充选项。</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># Show number of visitors to each article.</span><br><span class="line"># You can visit https:&#x2F;&#x2F;leancloud.cn get AppID and AppKey.</span><br><span class="line">leancloud_visitors:</span><br><span class="line">  enable: true</span><br><span class="line">  app_id: #&lt;app_id&gt;</span><br><span class="line">  app_key: #&lt;app_key&gt;</span><br><span class="line">  # Required for apps from CN region</span><br><span class="line">  server_url: # &lt;your server url&gt;</span><br><span class="line">  # Dependencies: https:&#x2F;&#x2F;github.com&#x2F;theme-next&#x2F;hexo-leancloud-counter-security</span><br><span class="line">  # If you don&#39;t care about security in lc counter and just want to use it directly</span><br><span class="line">  # (without hexo-leancloud-counter-security plugin), set the &#96;security&#96; to &#96;false&#96;.</span><br><span class="line">  security: true</span><br></pre></td></tr></table></figure>
+
+<p><code>app_id</code>、<code>app_key</code>和<code>server_url</code>位于<code>设置→应用Keys</code>：</p>
+<img data-src="/post/blog-services/lean-cloud-blog-keys.jpg" class="" title="博客应用Keys">
+
+<p>配置<code>Web安全域名</code>，这里填写自己博客的域名，注意协议、域名和端口号需严格一致：</p>
+<img data-src="/post/blog-services/lean-cloud-web-security-domain.jpg" class="" title="配置Web安全域名">
+
+<p>到这里还没结束，此时如果部署并在线上看效果，会看到如下报错：</p>
+<img data-src="/post/blog-services/lean-cloud-security-bug.jpg" class="" title="博客应用Keys">
+
+<p>这是LeanCloud统计插件的安全漏洞，最简单的解决办法的将配置项<code>security</code>设置为<code>false</code>，但这样不安全，下面将介绍如何修复这个漏洞。</p>
+<h4 id="修复安全漏洞"><a href="#修复安全漏洞" class="headerlink" title="修复安全漏洞"></a>修复安全漏洞</h4><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-leancloud-counter-security</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-leancloud-counter-security</span><br></pre></td></tr></table></figure>
+
+<p>打开站点配置文件，新增以下配置，<code>app_id</code>、<code>app_key</code>、<code>server_url</code>和上一步一致，<code>username</code>和<code>password</code>替换为你自己的用户名和密码（不必与 LeanCloud 的账号相同），此用户名和密码将在 Hexo 部署时使用。</p>
+<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">leancloud_counter_security:</span><br><span class="line">  enable_sync: true</span><br><span class="line">  app_id: &lt;your app id&gt;</span><br><span class="line">  app_key: &lt;your app key&gt;</span><br><span class="line">  server_url: &lt;your server url&gt; # Required for apps from CN region, e.g. https:&#x2F;&#x2F;leancloud.cn</span><br><span class="line">  username: &lt;your username&gt; # Will be asked while deploying if is left blank</span><br><span class="line">  password: &lt;your password&gt; # Recommmended to be left blank. Will be asked while deploying if is left blank</span><br></pre></td></tr></table></figure>
+
+<p>通过运行以下命令添加应用用户，<username>和<password>与上面配置保持一致：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">hexo lc-counter register &lt;username&gt; &lt;password&gt;</span><br></pre></td></tr></table></figure>
+
+<p>添加成功后，可以在<code>存储→用户</code>里查看：</p>
+<img data-src="/post/blog-services/lean-cloud-register-user.jpg" class="" title="添加用户">
+
+<p>当然，也可以在这个页面上来<code>添加用户</code>。</p>
+<p>在站点配置文件的<code>deploy</code>下添加以下项：</p>
+<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  # other deployer</span><br><span class="line">  - type: leancloud_counter_security_sync</span><br></pre></td></tr></table></figure>
+
+<p>添加后我的<code>deploy</code>完整配置为（注意格式）：</p>
+<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  - type: git</span><br><span class="line">    repo: https:&#x2F;&#x2F;github.com&#x2F;linjiexin1996&#x2F;linjiexin1996.github.io</span><br><span class="line">  - type: leancloud_counter_security_sync</span><br></pre></td></tr></table></figure>
+
+<p>运行<code>hexo clean &amp;&amp; hexo deploy</code>部署，站点<code>source</code>目录下自动生成了一个文件<code>leancloud.memo</code>，记录着已经在使用LeanCloud统计的文章：</p>
+<figure class="highlight plain"><figcaption><span>blog/source/leancloud.memo</span></figcaption><table><tr><td class="code"><pre><span class="line">[</span><br><span class="line">&#123;&quot;title&quot;:&quot;Hexo + Next + GitHub Pages 搭建个人博客&quot;,&quot;url&quot;:&quot;&#x2F;2020&#x2F;05&#x2F;25&#x2F;blog-init&#x2F;&quot;&#125;,</span><br><span class="line">&#123;&quot;title&quot;:&quot;Hexo + Next + GitHub Pages 配置Next主题&quot;,&quot;url&quot;:&quot;&#x2F;2020&#x2F;05&#x2F;28&#x2F;blog-config&#x2F;&quot;&#125;,</span><br><span class="line">&#123;&quot;title&quot;:&quot;Hexo + Next + GitHub Pages 集成第三方服务&quot;,&quot;url&quot;:&quot;&#x2F;2020&#x2F;05&#x2F;28&#x2F;blog-services&#x2F;&quot;&#125;,</span><br><span class="line">]</span><br></pre></td></tr></table></figure>
+
+<p>查看<code>Counter Class</code>，图中的<code>time</code>字段就是文章的阅读次数：</p>
+<img data-src="/post/blog-services/lean-cloud-counter-class.jpg" class="" title="CounterClass">
+
+<p>查看线上环境效果：</p>
+<img data-src="/post/blog-services/lean-cloud-counter-effect.jpg" class="" title="LeanCloud计数">
+
+<h2 id="主题更新"><a href="#主题更新" class="headerlink" title="主题更新"></a>主题更新</h2><p>2020年6月2日博主更新了站点的Next主题至最新版本<span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9uZXh0LTgtMC0wLXJjLTMtcmVsZWFzZWQv">NexT 8.0.0-rc.3 Released<i class="fa fa-external-link-alt"></i></span>，后面的配置均基于该版本。</p>
+<h2 id="本地搜索"><a href="#本地搜索" class="headerlink" title="本地搜索"></a>本地搜索</h2><p>通过在<code>站点根目录</code>运行以下命令来安装<code>hexo-generator-searchdb</code>:</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">npm install hexo-generator-searchdb</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>站点配置文件</code>，添加以下内容：</p>
+<figure class="highlight plain"><figcaption><span>blog/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># Local Search</span><br><span class="line">search:</span><br><span class="line">  path: search.xml</span><br><span class="line">  field: post</span><br><span class="line">  format: html</span><br><span class="line">  limit: 10000</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>主题配置文件</code>，启用本地搜索：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line"># Local search</span><br><span class="line"># Dependencies: https:&#x2F;&#x2F;github.com&#x2F;next-theme&#x2F;hexo-generator-searchdb</span><br><span class="line">local_search:</span><br><span class="line">  enable: true</span><br><span class="line">  # If auto, trigger search by changing input.</span><br><span class="line">  # If manual, trigger search by pressing enter key or search button.</span><br><span class="line">  trigger: auto</span><br><span class="line">  # Show top n results per article, show all results by setting to -1</span><br><span class="line">  top_n_per_article: 1</span><br><span class="line">  # Unescape html strings to the readable one.</span><br><span class="line">  unescape: false</span><br><span class="line">  # Preload the search data when the page loads.</span><br><span class="line">  preload: false</span><br></pre></td></tr></table></figure>
+
+<p>启用成功后，侧边栏菜单会多出一项“搜索”，点击显示搜索弹窗：</p>
+<img data-src="/post/blog-services/local-search.jpg" class="" title="本地搜索">
+
+<h2 id="评论系统"><a href="#评论系统" class="headerlink" title="评论系统"></a>评论系统</h2><h3 id="开启评论区"><a href="#开启评论区" class="headerlink" title="开启评论区"></a>开启评论区</h3><p>Valine是一款基于LeanCloud的快速，简单和高效的无后端评论系统。</p>
+<p>LeanCloud的账号前面我们已经注册，appId和appKey也已经得到，这里直接修改<code>主题配置文件</code>，将<code>enable</code>的值改为<code>true</code>，填入<code>appId</code>和<code>appKey</code>，然后就可以看到效果了。</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">valine:</span><br><span class="line">  enable: true</span><br><span class="line">  appId: 1EcHaMOtrgWPDeNGqBGF77wo-gzGzoHsz # Your leancloud application appid</span><br><span class="line">  appKey: BmmftwKTFzvP24wgPwr4tOJl # Your leancloud application appkey</span><br><span class="line">  placeholder: Just go go # Comment box placeholder</span><br><span class="line">  avatar: mm # Gravatar style</span><br><span class="line">  meta: [nick, mail, link] # Custom comment header</span><br><span class="line">  pageSize: 10 # Pagination size</span><br><span class="line">  language: # Language, available values: en, zh-cn</span><br><span class="line">  visitor: false # Article reading statistic</span><br><span class="line">  comment_count: true # If false, comment count will only be displayed in post page, not in home page</span><br><span class="line">  recordIP: false # Whether to record the commenter IP</span><br><span class="line">  serverURLs: # When the custom domain name is enabled, fill it in here (it will be detected automatically by default, no need to fill in)</span><br><span class="line">  #post_meta_order: 0</span><br></pre></td></tr></table></figure>
+
+<p>文章底部会多出评论区：</p>
+<img data-src="/post/blog-services/valine-area.jpg" class="" title="Valine">
+
+<p>建议将开启评论系统懒加载：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">comments:</span><br><span class="line">  lazyload: true</span><br></pre></td></tr></table></figure>
+
+<h3 id="评论管理"><a href="#评论管理" class="headerlink" title="评论管理"></a>评论管理</h3><p>添加一条评论：</p>
+<img data-src="/post/blog-services/valine-comment.jpg" class="" title="添加一条评论">
+
+<p>到LeanCloud控制台可以看到自动创建了一个<code>Comment</code>类，里面保存着刚才的评论：</p>
+<img data-src="/post/blog-services/lean-cloud-comment-class.jpg" class="" title="Comment类">
+
+<p>我们可以对评论内容进行管理，如删除恶意评论。</p>
+<h3 id="隐藏评论区"><a href="#隐藏评论区" class="headerlink" title="隐藏评论区"></a>隐藏评论区</h3><p>有些页面我们可能不想要显示评论区，比如“分类”、“标签”、“关于”等，对于这些页面，可以在头部增加<code>comments: false</code>来隐藏评论区，以<code>标签</code>为例：</p>
+<figure class="highlight plain"><figcaption><span>tags/index.md</span></figcaption><table><tr><td class="code"><pre><span class="line">---</span><br><span class="line">title: 标签</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">date: 2020-06-02 17:52:11</span><br><span class="line">comments: false</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+
+<h3 id="制作留言板"><a href="#制作留言板" class="headerlink" title="制作留言板"></a>制作留言板</h3><p>创建留言板页面：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">hexo new page messages</span><br></pre></td></tr></table></figure>
+
+<p>编辑<code>主题配置文件</code>，在<code>menu</code>下增加<code>messages</code>：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  messages: &#x2F;messages&#x2F; || fa fa-comments</span><br></pre></td></tr></table></figure>
+
+<p>此时侧边栏显示的留言板名称为英文，即页面文件名称<code>message</code>，需要设置下翻译，编辑<code>简体中文文件</code>，在<code>menu</code>下增加<code>messages</code>：</p>
+<figure class="highlight plain"><figcaption><span>next/languages/zh-CN.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">menu:</span><br><span class="line">  messages: 留言板</span><br></pre></td></tr></table></figure>
+
+<p>如果想要在侧边栏“留言板”右侧显示计数，打开<code>next/layout/_partials/header/menu-item.njk</code>，在<code>for menu, count in badges</code>对应的<code>endfor</code>下方增加以下内容：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">&#123;%- if name &#x3D;&#x3D; &#39;messages&#39; %&#125;</span><br><span class="line">  &#123;%- set menuBadge &#x3D; &#39;&lt;span class&#x3D;&quot;badge valine-comment-count&quot; data-xid&#x3D;&quot;&#x2F;messages&#x2F;&quot; itemprop&#x3D;&quot;commentCount&quot;&gt;-&lt;&#x2F;span&gt;&#39; %&#125;</span><br><span class="line">&#123;%- endif %&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="头像配置"><a href="#头像配置" class="headerlink" title="头像配置"></a>头像配置</h3><p>Valine 目前使用的是Gravatar作为评论列表头像，需自行登录或注册<span class="exturl" data-url="aHR0cDovL2NuLmdyYXZhdGFyLmNvbS8=">Gravatar<i class="fa fa-external-link-alt"></i></span>，然后修改自己的头像。评论的时候，留下在Gravatar注册时所使用的邮箱即可。</p>
+<div class="note "><p>Gravatar是一图像跟随著您到访过的网站，当您在博客中留言或发表文章，它将会出现在您的名称旁。头像协助识别您在博客和论坛发表的文章，何乐而不为呢？</p>
+</div>
+
+<p>除了Gravatar头像，我们还可以使用QQ头像，打开<code>主题配置文件</code>，找到<code>valine</code>，添加<code>enableQQ: true</code>，启用昵称框自动获取QQ昵称和QQ头像功能：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">valine:</span><br><span class="line">  enableQQ: true</span><br></pre></td></tr></table></figure>
+
+<p>配置好之后，往“昵称框”输入一个QQ号码：</p>
+<img data-src="/post/blog-services/valine-enable-qq-input.jpg" class="" title="输入QQ号码">
+
+<p>然后按下”Tab”键（触发blur事件），可以看到昵称框里的QQ号码被替换成QQ昵称，邮箱框里自动输入了QQ邮箱：</p>
+<img data-src="/post/blog-services/valine-enable-qq-blur.jpg" class="" title="自动获取QQ昵称和QQ头像">
+
+<p>发布评论，可以看到头像位置是一开始输入的QQ号码的QQ头像：</p>
+<img data-src="/post/blog-services/valine-enable-qq-result.jpg" class="" title="自动获取QQ昵称和QQ头像">
+
+<p>功能是开启了，但游客很可能不知道呀，所以可以给个提示：</p>
+<figure class="highlight plain"><figcaption><span>next/_config.yml</span></figcaption><table><tr><td class="code"><pre><span class="line">valine:</span><br><span class="line">  placeholder: Just go go (在昵称框输入QQ号码，按下Tab键，自动获取QQ昵称和QQ头像)</span><br></pre></td></tr></table></figure>
+
+<!-- ### 邮件提醒 -->
+
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
+<li><span class="exturl" data-url="aHR0cHM6Ly90aGVtZS1uZXh0LmpzLm9yZy9kb2NzL3RoaXJkLXBhcnR5LXNlcnZpY2VzLw==">Third-party Services | NexT<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3RoZW1lLW5leHQvaGV4by10aGVtZS1uZXh0L2Jsb2IvbWFzdGVyL2RvY3MvemgtQ04vTEVBTkNMT1VELUNPVU5URVItU0VDVVJJVFkubWQ=">修复 LeanCloud 统计插件安全漏洞<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9sZWFmZXJ4Lm9ubGluZS8yMDE4LzAyLzExL2xjLXNlY3VyaXR5Lw==">Leancloud访客统计插件重大安全漏洞修复指南<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly92YWxpbmUuanMub3JnLw==">Valine<i class="fa fa-external-link-alt"></i></span></li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL3poYW9qdW4xOTk4L1ZhbGluZS1BZG1pbg==">Valine-Admin<i class="fa fa-external-link-alt"></i></span></li>
+</ul>
+]]></content>
+      <categories>
+        <category>个人博客建站之路</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>Next</tag>
       </tags>
   </entry>
   <entry>
